@@ -1,0 +1,12 @@
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  background: #7695FE;
+  border: thin #336699 solid;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
