@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { ServerComponent } from './component/server/server.component';
+import { ServersComponent } from './component/servers/servers.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ServerComponent
+    ServerComponent,
+    ServersComponent
   ],
   imports: [
     BrowserModule,
