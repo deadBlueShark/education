@@ -1,3 +1,13 @@
-<p>
-  servers works!
-</p>
+<div class="form-group">
+  <label for="server-name">Server name:</label>
+  <input type="text" id="server-name" class="form-control" (input)="typeServerName($event)">
+</div>
+<div class="form-group">
+  <label for="alias-name">Alias name:</label>
+  <input type="text" id="alias-name" class="form-control" [(ngModel)]="serverAliasName">
+</div>
+
+<button class="btn btn-info" [disabled]="!buttonClickable"
+  (click)='createdServer()'>Add Server</button>
+
+<div>{{ serverCreated }}</div>
