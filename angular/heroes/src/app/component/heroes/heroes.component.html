@@ -1,0 +1,18 @@
+<h2>Heroes Clan</h2>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes"
+    (click)="onSelect(hero)"
+    [class.seleted]="hero === selectedHero">
+    <span class="badge">{{ hero.id }}</span>{{ hero.name }}
+  </li>
+</ul>
+
+<!-- <div *ngIf="selectedHero">
+  <h4>{{ selectedHero.name | uppercase }} <i>info</i></h4>
+  <div><span>ID: </span>{{ selectedHero.id }}</div>
+  <div><span>Name: </span>{{ selectedHero.name }}</div>
+
+</div> -->
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
