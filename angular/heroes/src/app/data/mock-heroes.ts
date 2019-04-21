@@ -8,8 +8,5 @@ export const HEROES: Hero[] = [
   { id: 5, name: 'Ant Man' },
   { id: 6, name: 'Bat Man' },
   { id: 7, name: 'Bird Man' },
-  { id: 8, name: 'Avenger Captain' },
-  { id: 9, name: 'Thanos' },
-  { id: 10, name: 'Thor' },
-  { id: 11, name: 'Loki' },
+  { id: 8, name: 'Captain Marvel' },
 ]
