@@ -9,7 +9,7 @@ import { HeroService } from '../../service/hero.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
-  selectedHero: Hero;
+  selectedHero: Hero;  // unused property
 
   constructor(private heroService: HeroService) {}
 
@@ -17,6 +17,7 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
+  // unused method
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }

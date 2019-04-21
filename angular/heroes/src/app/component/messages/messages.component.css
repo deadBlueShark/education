@@ -11,7 +11,9 @@ body, input[text], button {
   color: crimson;
   font-family: Cambria, Georgia;
 }
-
+div {
+  margin-top: 1em;
+}
 button.clear {
   font-family: Arial;
   background-color: #eee;
