@@ -41,10 +41,35 @@ export class HeroService {
   }
 
   updateHero(hero: Hero): Observable<any> {
-    return this.http.patch(`${this.apiEndpoint}/heros/${hero.id}`, hero, httpOptions)
+    return this.http.patch(`${this.apiEndpoint}/heros/${hero.id}`, {name: hero.name}, httpOptions)
       .pipe(
         tap(_ => this.log('Hero updated.')),
         catchError(this.handlerError<any>('Update hero'))
+      );
+  }
+
+  createHero(hero: Hero): Observable<any> {
+    return this.http.post(`${this.apiEndpoint}/heros`, {hero: hero}, httpOptions)
+      .pipe(
+        tap(_ => this.log('Hero liberated.')),
+        catchError(this.handlerError<Hero>('Liberate hero'))
+      );
+  }
+
+  deleteHero(hero: Hero): Observable<any> {
+    return this.http.delete(`${this.apiEndpoint}/heros/${hero.id}`, httpOptions)
+      .pipe(
+        tap(_ => this.log('Hero removed.')),
+        catchError(this.handlerError<any>('Remove hero.'))
+      );
+  }
+
+  searchHeroes(term: string): Observable<Hero[]> {
+    if (!term.trim()) return of([]);
+    return this.http.get<Hero[]>(`${this.apiEndpoint}/heros?term=${term}`, httpOptions)
+      .pipe(
+        tap(_ => this.log('Hero searched.')),
+        catchError(this.handlerError<Hero[]>('Search hero'))
       );
   }
 

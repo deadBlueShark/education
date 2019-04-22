@@ -1098,3 +1098,793 @@ Processing by HerosController#index as HTML
 Completed 200 OK in 57ms (Views: 43.9ms | ActiveRecord: 7.5ms)
 
 
+Started GET "/heros" for ::1 at 2019-04-22 06:16:16 +0700
+  [1m[35m (10.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/c-nguyen/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/c-nguyen/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (8.6ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.1ms)
+Completed 200 OK in 41ms (Views: 24.2ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:17:41 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.43ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:18:05 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.4ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.25ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:18:11 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.41ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:18:54 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.7ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.66ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/heros/3" for ::1 at 2019-04-22 06:19:04 +0700
+Processing by HerosController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT  `heros`.* FROM `heros` WHERE `heros`.`id` = 3 LIMIT 1[0m
+  ↳ app/controllers/heros_controller.rb:39
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 18ms (Views: 1.0ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/heros/3" for ::1 at 2019-04-22 06:19:26 +0700
+Processing by HerosController#update as HTML
+  Parameters: {"id"=>"3", "name"=>"Thanos", "hero"=>{"id"=>"3", "name"=>"Thanos"}}
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT  `heros`.* FROM `heros` WHERE `heros`.`id` = 3 LIMIT 1[0m
+  ↳ app/controllers/heros_controller.rb:39
+Unpermitted parameter: :id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/heros_controller.rb:25
+  [1m[36mHero Update (1.5ms)[0m  [1m[33mUPDATE `heros` SET `name` = 'Thanos', `updated_at` = '2019-04-21 23:19:26' WHERE `heros`.`id` = 3[0m
+  ↳ app/controllers/heros_controller.rb:25
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/heros_controller.rb:25
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 11ms (Views: 1.0ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:19:26 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.8ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.82ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:19:42 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (1.7ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.39ms)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:22:10 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.38ms)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:22:21 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.8ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.63ms)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/heros/10" for ::1 at 2019-04-22 06:22:26 +0700
+Processing by HerosController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT  `heros`.* FROM `heros` WHERE `heros`.`id` = 10 LIMIT 1[0m
+  ↳ app/controllers/heros_controller.rb:39
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/heros/10" for ::1 at 2019-04-22 06:22:35 +0700
+Processing by HerosController#update as HTML
+  Parameters: {"name"=>"Deadpooll", "id"=>"10", "hero"=>{"name"=>"Deadpooll"}}
+  [1m[36mHero Load (0.4ms)[0m  [1m[34mSELECT  `heros`.* FROM `heros` WHERE `heros`.`id` = 10 LIMIT 1[0m
+  ↳ app/controllers/heros_controller.rb:39
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/heros_controller.rb:25
+  [1m[36mHero Update (0.5ms)[0m  [1m[33mUPDATE `heros` SET `name` = 'Deadpooll', `updated_at` = '2019-04-21 23:22:35' WHERE `heros`.`id` = 10[0m
+  ↳ app/controllers/heros_controller.rb:25
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/heros_controller.rb:25
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.17ms)
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:22:35 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.24ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:22:58 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.8ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.93ms)
+Completed 200 OK in 54ms (Views: 52.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/heros/10" for ::1 at 2019-04-22 06:23:01 +0700
+Processing by HerosController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHero Load (1.0ms)[0m  [1m[34mSELECT  `heros`.* FROM `heros` WHERE `heros`.`id` = 10 LIMIT 1[0m
+  ↳ app/controllers/heros_controller.rb:39
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/heros/10" for ::1 at 2019-04-22 06:23:04 +0700
+Processing by HerosController#update as HTML
+  Parameters: {"name"=>"Deadpool", "id"=>"10", "hero"=>{"name"=>"Deadpool"}}
+  [1m[36mHero Load (0.7ms)[0m  [1m[34mSELECT  `heros`.* FROM `heros` WHERE `heros`.`id` = 10 LIMIT 1[0m
+  ↳ app/controllers/heros_controller.rb:39
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/heros_controller.rb:25
+  [1m[36mHero Update (0.6ms)[0m  [1m[33mUPDATE `heros` SET `name` = 'Deadpool', `updated_at` = '2019-04-21 23:23:04' WHERE `heros`.`id` = 10[0m
+  ↳ app/controllers/heros_controller.rb:25
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/heros_controller.rb:25
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.19ms)
+Completed 200 OK in 10ms (Views: 0.9ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:23:04 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.25ms)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros/1" for ::1 at 2019-04-22 06:24:13 +0700
+Processing by HerosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHero Load (0.4ms)[0m  [1m[34mSELECT  `heros`.* FROM `heros` WHERE `heros`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/heros_controller.rb:39
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:24:18 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.82ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros/1" for ::1 at 2019-04-22 06:24:20 +0700
+Processing by HerosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHero Load (0.8ms)[0m  [1m[34mSELECT  `heros`.* FROM `heros` WHERE `heros`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/heros_controller.rb:39
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:24:24 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.37ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:37:00 +0700
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/c-nguyen/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.7ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.5ms)
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:37:29 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.61ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:37:33 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.44ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:37:35 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (1.3ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.05ms)
+Completed 200 OK in 22ms (Views: 20.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:37:37 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.47ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:40:40 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.54ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:41:22 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.25ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:42:10 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.57ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:45:12 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.85ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:48:52 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.8ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.11ms)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/heros" for ::1 at 2019-04-22 06:49:31 +0700
+Processing by HerosController#create as HTML
+  Parameters: {"name"=>"Hulk", "hero"=>{"name"=>"Hulk"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/heros_controller.rb:17
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO `heros` (`name`, `created_at`, `updated_at`) VALUES ('Hulk', '2019-04-21 23:49:31', '2019-04-21 23:49:31')[0m
+  ↳ app/controllers/heros_controller.rb:17
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/heros_controller.rb:17
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.14ms)
+Completed 201 Created in 7ms (Views: 1.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:50:36 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.87ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:50:37 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.47ms)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 06:51:43 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.9ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.77ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/heros" for ::1 at 2019-04-22 06:52:01 +0700
+Processing by HerosController#create as HTML
+  Parameters: {"hero"=>{"name"=>"Loki"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/heros_controller.rb:17
+  [1m[36mHero Create (0.6ms)[0m  [1m[32mINSERT INTO `heros` (`name`, `created_at`, `updated_at`) VALUES ('Loki', '2019-04-21 23:52:01', '2019-04-21 23:52:01')[0m
+  ↳ app/controllers/heros_controller.rb:17
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/heros_controller.rb:17
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.14ms)
+Completed 201 Created in 9ms (Views: 0.8ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 07:23:05 +0700
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/c-nguyen/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (3.0ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.93ms)
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 07:24:35 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.43ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 07:25:01 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.84ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 07:25:50 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.4ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.33ms)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 07:26:07 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.01ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 07:27:06 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (1.9ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.64ms)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/heros" for ::1 at 2019-04-22 07:27:17 +0700
+Processing by HerosController#create as HTML
+  Parameters: {"hero"=>{"name"=>"Thor"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/heros_controller.rb:17
+  [1m[36mHero Create (0.6ms)[0m  [1m[32mINSERT INTO `heros` (`name`, `created_at`, `updated_at`) VALUES ('Thor', '2019-04-22 00:27:17', '2019-04-22 00:27:17')[0m
+  ↳ app/controllers/heros_controller.rb:17
+  [1m[35m (18.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/heros_controller.rb:17
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.13ms)
+Completed 201 Created in 23ms (Views: 0.8ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 07:27:44 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.56ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 07:27:52 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.3ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 07:28:53 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.94ms)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 07:31:48 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.57ms)
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 07:31:53 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.8ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.57ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 07:34:33 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (1.0ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.68ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 21:26:28 +0700
+  [1m[35m (7.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/c-nguyen/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/c-nguyen/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (2.2ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (9.09ms)
+Completed 200 OK in 47ms (Views: 39.5ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2019-04-22 21:26:28 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/heros" for ::1 at 2019-04-22 21:31:20 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.52ms)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 21:31:22 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.81ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/heros/15" for ::1 at 2019-04-22 21:31:26 +0700
+Processing by HerosController#destroy as HTML
+  Parameters: {"id"=>"15", "hero"=>{}}
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT  `heros`.* FROM `heros` WHERE `heros`.`id` = 15 LIMIT 1[0m
+  ↳ app/controllers/heros_controller.rb:39
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/heros_controller.rb:33
+  [1m[36mHero Destroy (3.5ms)[0m  [1m[31mDELETE FROM `heros` WHERE `heros`.`id` = 15[0m
+  ↳ app/controllers/heros_controller.rb:33
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/heros_controller.rb:33
+Completed 204 No Content in 29ms (ActiveRecord: 8.4ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 21:31:33 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (1.2ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.89ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/heros/14" for ::1 at 2019-04-22 21:33:36 +0700
+Processing by HerosController#destroy as HTML
+  Parameters: {"id"=>"14", "hero"=>{}}
+  [1m[36mHero Load (0.4ms)[0m  [1m[34mSELECT  `heros`.* FROM `heros` WHERE `heros`.`id` = 14 LIMIT 1[0m
+  ↳ app/controllers/heros_controller.rb:40
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/heros_controller.rb:33
+  [1m[36mHero Destroy (0.4ms)[0m  [1m[31mDELETE FROM `heros` WHERE `heros`.`id` = 14[0m
+  ↳ app/controllers/heros_controller.rb:33
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/heros_controller.rb:33
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.17ms)
+Completed 200 OK in 13ms (Views: 1.5ms | ActiveRecord: 7.2ms)
+
+
+Started DELETE "/heros/13" for ::1 at 2019-04-22 21:34:29 +0700
+Processing by HerosController#destroy as HTML
+  Parameters: {"id"=>"13", "hero"=>{}}
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT  `heros`.* FROM `heros` WHERE `heros`.`id` = 13 LIMIT 1[0m
+  ↳ app/controllers/heros_controller.rb:40
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/heros_controller.rb:33
+  [1m[36mHero Destroy (0.5ms)[0m  [1m[31mDELETE FROM `heros` WHERE `heros`.`id` = 13[0m
+  ↳ app/controllers/heros_controller.rb:33
+  [1m[35m (8.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/heros_controller.rb:33
+Completed 204 No Content in 19ms (ActiveRecord: 14.0ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 21:34:31 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.4ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.78ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/heros/12" for ::1 at 2019-04-22 21:34:34 +0700
+Processing by HerosController#destroy as HTML
+  Parameters: {"id"=>"12", "hero"=>{}}
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT  `heros`.* FROM `heros` WHERE `heros`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/heros_controller.rb:40
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/heros_controller.rb:33
+  [1m[36mHero Destroy (0.4ms)[0m  [1m[31mDELETE FROM `heros` WHERE `heros`.`id` = 12[0m
+  ↳ app/controllers/heros_controller.rb:33
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/heros_controller.rb:33
+Completed 204 No Content in 8ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 21:37:27 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.82ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/heros" for ::1 at 2019-04-22 21:37:51 +0700
+Processing by HerosController#create as HTML
+  Parameters: {"hero"=>{"name"=>"Thor"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/heros_controller.rb:17
+  [1m[36mHero Create (9.9ms)[0m  [1m[32mINSERT INTO `heros` (`name`, `created_at`, `updated_at`) VALUES ('Thor', '2019-04-22 14:37:51', '2019-04-22 14:37:51')[0m
+  ↳ app/controllers/heros_controller.rb:17
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/heros_controller.rb:17
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 201 Created in 19ms (Views: 2.5ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/heros?term=t" for ::1 at 2019-04-22 21:47:17 +0700
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/c-nguyen/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HerosController#index as HTML
+  Parameters: {"term"=>"t"}
+  [1m[36mHero Load (2.4ms)[0m  [1m[34mSELECT `heros`.* FROM `heros` WHERE (name LIKE '%'t'%')[0m
+  ↳ app/controllers/heros_controller.rb:7
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 2.4ms)
+
+
+  
+ActiveRecord::StatementInvalid (Mysql2::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 't'%')' at line 1: SELECT `heros`.* FROM `heros` WHERE (name LIKE '%'t'%')):
+  
+app/controllers/heros_controller.rb:7:in `index'
+Started GET "/heros?term=t" for ::1 at 2019-04-22 21:51:02 +0700
+Processing by HerosController#index as HTML
+  Parameters: {"term"=>"t"}
+  [1m[36mHero Load (2.6ms)[0m  [1m[34mSELECT `heros`.* FROM `heros` WHERE (name LIKE '%t%')[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.51ms)
+Completed 200 OK in 16ms (Views: 9.1ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 21:54:32 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.41ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 21:56:17 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (1.6ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.76ms)
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 21:56:37 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (1.6ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.28ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 22:17:27 +0700
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/c-nguyen/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.3ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 22:35:45 +0700
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/c-nguyen/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.7ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.58ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 23:01:49 +0700
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/c-nguyen/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.24ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/heros?term=t" for ::1 at 2019-04-22 23:01:54 +0700
+Processing by HerosController#index as HTML
+  Parameters: {"term"=>"t", "hero"=>{}}
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT `heros`.* FROM `heros` WHERE (name LIKE '%t%')[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.74ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/heros/2" for ::1 at 2019-04-22 23:01:59 +0700
+Processing by HerosController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT  `heros`.* FROM `heros` WHERE `heros`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/heros_controller.rb:40
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 23:02:01 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.7ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.23ms)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/heros?term=o" for ::1 at 2019-04-22 23:02:04 +0700
+Processing by HerosController#index as HTML
+  Parameters: {"term"=>"o", "hero"=>{}}
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros` WHERE (name LIKE '%o%')[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.61ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros?term=o" for ::1 at 2019-04-22 23:02:09 +0700
+Processing by HerosController#index as HTML
+  Parameters: {"term"=>"o", "hero"=>{}}
+  [1m[36mHero Load (0.8ms)[0m  [1m[34mSELECT `heros`.* FROM `heros` WHERE (name LIKE '%o%')[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.65ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/heros?term=o" for ::1 at 2019-04-22 23:02:11 +0700
+Processing by HerosController#index as HTML
+  Parameters: {"term"=>"o", "hero"=>{}}
+  [1m[36mHero Load (0.9ms)[0m  [1m[34mSELECT `heros`.* FROM `heros` WHERE (name LIKE '%o%')[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.5ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/heros?term=%C3%B4" for ::1 at 2019-04-22 23:02:13 +0700
+Processing by HerosController#index as HTML
+  Parameters: {"term"=>"ô", "hero"=>{}}
+  [1m[36mHero Load (0.4ms)[0m  [1m[34mSELECT `heros`.* FROM `heros` WHERE (name LIKE '%ô%')[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.55ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/heros?term=o" for ::1 at 2019-04-22 23:02:23 +0700
+Processing by HerosController#index as HTML
+  Parameters: {"term"=>"o", "hero"=>{}}
+  [1m[36mHero Load (0.8ms)[0m  [1m[34mSELECT `heros`.* FROM `heros` WHERE (name LIKE '%o%')[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.55ms)
+Completed 200 OK in 13ms (Views: 2.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/heros?term=o" for ::1 at 2019-04-22 23:02:28 +0700
+Processing by HerosController#index as HTML
+  Parameters: {"term"=>"o", "hero"=>{}}
+  [1m[36mHero Load (0.6ms)[0m  [1m[34mSELECT `heros`.* FROM `heros` WHERE (name LIKE '%o%')[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.52ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/heros" for ::1 at 2019-04-22 23:03:48 +0700
+Processing by HerosController#index as HTML
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros`[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.45ms)
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros?term=na" for ::1 at 2019-04-22 23:03:51 +0700
+Processing by HerosController#index as HTML
+  Parameters: {"term"=>"na", "hero"=>{}}
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT `heros`.* FROM `heros` WHERE (name LIKE '%na%')[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.06ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/heros?term=n" for ::1 at 2019-04-22 23:03:53 +0700
+Processing by HerosController#index as HTML
+  Parameters: {"term"=>"n", "hero"=>{}}
+  [1m[36mHero Load (0.8ms)[0m  [1m[34mSELECT `heros`.* FROM `heros` WHERE (name LIKE '%n%')[0m
+  ↳ app/controllers/heros_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.75ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/heros/11" for ::1 at 2019-04-22 23:03:57 +0700
+Processing by HerosController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT  `heros`.* FROM `heros` WHERE `heros`.`id` = 11 LIMIT 1[0m
+  ↳ app/controllers/heros_controller.rb:40
+[active_model_serializers] Rendered HeroSerializer with ActiveModelSerializers::Adapter::Attributes (0.78ms)
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.5ms)
+
+
