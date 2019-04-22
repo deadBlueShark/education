@@ -2,7 +2,7 @@ class HerosController < ApplicationController
   before_action :set_hero, only: [:show, :update, :destroy]
 
   def index
-    @heros = Hero.all
+    @heros = params[:term].blank? ? Hero.all : Hero._by_term(params[:term])
 
     render json: @heros
   end
@@ -31,6 +31,7 @@ class HerosController < ApplicationController
 
   def destroy
     @hero.destroy
+    #render json: @hero
   end
 
   private

@@ -1,4 +1,4 @@
-<h3>Avenger</h3>
+<h2>Top super heroes</h2>
 <div class="grid grid-pad">
   <a *ngFor="let hero of heroes" class="col-1-4" routerLink="/heroes/{{hero.id}}">
     <div class="module hero">
@@ -6,3 +6,5 @@
     </div>
   </a>
 </div>
+
+<app-hero-search></app-hero-search>
