@@ -1,9 +1,15 @@
-<h2>Marvel Universal</h2>
+<h2>Marvel Universe</h2>
+
+<div>
+  <label>Name: <input #heroName></label>
+  <button (click)="createHero(heroName.value); heroName.value=''">Seed</button>
+</div>
 <ul class="heroes">
   <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.seleted]="hero === selectedHero">
     <a routerLink="/heroes/{{hero.id}}">
       <span class="badge">{{ hero.id }}</span>{{ hero.name }}
     </a>
+    <button class="delete" title="Remove hero" (click)="deleteHero(hero)">x</button>
   </li>
 </ul>
 <!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
