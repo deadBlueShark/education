@@ -1,1 +1,21 @@
 ruby-rails/api-port/tmp/
+
+ruby-rails/railstutorial/.bundle
+
+# Ignore the default SQLite database.
+ruby-rails/railstutorial/db/*.sqlite3
+ruby-rails/railstutorial/db/*.sqlite3-journal
+# Ignore all logfiles and tempfiles.
+ruby-rails/railstutorial/log/*
+ruby-rails/railstutorial/tmp/*
+ruby-rails/railstutorial/log/
+ruby-rails/railstutorial/tmp/
+# Ignore uploaded files in development
+ruby-rails/railstutorial/storage/*
+ruby-rails/railstutorial/storage/
+ruby-rails/railstutorial/node_modules
+ruby-rails/railstutorial/yarn-error.log
+ruby-rails/railstutorial/public/assets
+ruby-rails/railstutorial/.byebug_history
+# Ignore master key for decrypting credentials and more.
+ruby-rails/railstutorial/config/master.key
