@@ -7,7 +7,8 @@ let test = {
   }
 }
 
-test.run();
+// Lose context
+test.run();  // undefined
 
 let testWithArrowFunction = {
   text: 'Hihi',
@@ -18,4 +19,5 @@ let testWithArrowFunction = {
   }
 }
 
-testWithArrowFunction.run();
+// Preserved context
+testWithArrowFunction.run(); // Hihi
