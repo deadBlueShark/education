@@ -2,9 +2,10 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Railstutorial
+    %title #{yield(:title)} | Ruby on Rails Tutorial
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag    'application', media: 'all'
+    = stylesheet_link_tag 'application', media: 'all'
+    /= javascript_include_tag 'application', media: 'all'
   %body
     = yield

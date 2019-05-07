@@ -24,6 +24,7 @@ module Railstutorial
     config.generators do |generator|
       generator.assets false
       #generator.test_framework nil
+      #generator.test_framework :minitest, spec: false, fixture: false
     end
   end
 end
