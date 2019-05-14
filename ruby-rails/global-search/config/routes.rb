@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :movies, :musics
+  get :search, to: 'home#global_search'
+
+  root to: 'home#index'
 end
