@@ -8,3 +8,5 @@
 // From vendor
 //= require jquery.easy-autocomplete
 
+//= require home
+
