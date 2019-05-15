@@ -1,3 +1,16 @@
+GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: 5170f735d4f95ccc73d763d4ee3721a45507c027
+  specs:
+    polyamorous (2.1.1)
+      activerecord (>= 5.0)
+    ransack (2.1.1)
+      actionpack (>= 5.0)
+      activerecord (>= 5.0)
+      activesupport (>= 5.0)
+      i18n
+      polyamorous (= 2.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -24,6 +37,9 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_model_serializers (0.9.7)
+      activemodel (>= 3.2)
+      concurrent-ruby (~> 1.0)
     activejob (5.2.3)
       activesupport (= 5.2.3)
       globalid (>= 0.3.6)
@@ -213,6 +229,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers (~> 0.9.3)
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3.1)
   byebug
@@ -225,6 +242,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)
   rails (~> 5.2.3)
+  ransack!
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
