@@ -9,5 +9,20 @@
 
 <button class="btn btn-info" [disabled]="!buttonClickable"
   (click)='createdServer()'>Add Server</button>
+<br>
+<div *ngIf="this.servers.length === 0; then noServer else haveServer"></div>
+<ng-template #noServer>No server</ng-template>
+<ng-template #haveServer>
+  <div *ngFor="let server of this.servers"
+    [ngStyle]="{ backgroundColor: colorOnStatus(server.status) }"
+    [ngClass]="{online: server.status}">
+    {{ "Server: " + server.name + ". Alias: " + server.alias }}
+  </div>
+</ng-template>
 
-<div>{{ serverCreated }}</div>
+<!--
+Same data binding
+<a class="btn btn-success" href="{{test}}">String interpolation</a>
+<a class="btn btn-success" [href]="test">Property Binding</a>
+<button class="btn btn-success" (click)="switch()">Change Status</button>
+-->
