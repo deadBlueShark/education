@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servers.component.scss']
 })
 export class ServersComponent {
-  buttonClickable: boolean = false;
-  serverCreated: string = 'No server';
-  serverName: string = '';
-  serverAliasName: string = '';
+  servers = [];
+  buttonClickable = false;
+  serverName = '';
+  serverAliasName = '';
+  status = true;
 
   constructor() {
     setTimeout(() => {
@@ -18,10 +19,22 @@ export class ServersComponent {
   }
 
   createdServer(): void {
-    this.serverCreated = `[Server created] Name: ${this.serverName}. Alias: ${this.serverAliasName}`;
+    if (!(this.serverName.trim() && this.serverAliasName.trim())) {
+      return;
+    }
+    this.servers.push({ name: this.serverName, alias: this.serverAliasName, status: this.genStatus() });
   }
 
+  // Receive data from view (one-way binding). Can use two-way binding to remove this
   typeServerName(event: Event): void {
-    this.serverName = (<HTMLInputElement> event.target).value;
+    this.serverName = (event.target as HTMLInputElement).value;
+  }
+
+  genStatus() {
+    return Math.random() > 0.5;
+  }
+
+  colorOnStatus(status: boolean): string {
+    return status ? 'green' : 'red';
   }
 }
