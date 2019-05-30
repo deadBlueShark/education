@@ -30,4 +30,25 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  views:
+    homepage_title: Sample App
+    home:
+      home: Home
+      help: Help
+      login: Login
+      about: About
+      news: News
+      contact: Contact
+      the: The
+      by: by
+      tutorial: Ruby on Rails Tutorial
+      author: Le Chi Nguyen
+      is_a: is a
+      book: book
+      and: and
+      screen: screencast serires
+      teach: to teach web development with
+      ror: Ruby on Rails. This is the sample application for the tutorial.
+      contact_at: Contact the Ruby on Rails Tutorial about the sample app at the
+      contact_page: contact page
+  controllers:

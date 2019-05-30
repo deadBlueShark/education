@@ -1,8 +1,8 @@
 %header.navbar.navbar-fixed-top.navbar-inverse
   .container
-    = link_to 'sample app', root_path, id: 'logo'
+    = link_to t('views.homepage_title'), root_path, id: 'logo'
     %nav
       %ul.nav.navbar-nav.navbar-right
-        %li= link_to 'Home', root_path
-        %li= link_to 'Help', help_path
-        %li= link_to 'Login', '#'
+        %li= link_to t('views.home.home'), root_path
+        %li= link_to t('views.home.help'), help_path
+        %li= link_to t('views.home.login'), '#'
