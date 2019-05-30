@@ -1,7 +1,7 @@
-- provide :title, 'Contact'
+- provide :title, t('views.home.contact')
 
-%h1 Contact
+%h1= t('views.home.contact')
 %p
-  Contact the Ruby on Rails Tutorial about the sample app at the
+  = t('views.home.contact_at')
   %a{href: 'https://www.railstutorial.org/contact'}
-    contact pagee
+    = t('views.home.contact_page')
