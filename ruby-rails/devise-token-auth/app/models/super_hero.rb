@@ -1,0 +1,2 @@
+class SuperHero < ApplicationRecord
+end
