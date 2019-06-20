@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Server } from '../../model/server';
 
 @Component({
   selector: 'app-server',
@@ -6,7 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./server.component.scss']
 })
 export class ServerComponent {
-  id = 1243;
-  status = 'offline';
+  @Input() server: Server;
 
 }
