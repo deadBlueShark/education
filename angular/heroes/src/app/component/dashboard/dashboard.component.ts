@@ -16,9 +16,9 @@ export class DashboardComponent implements OnInit {
     this.getAvengerTeam();
   }
 
-  getAvengerTeam(): void {
-    this.heroService.getHeroes().subscribe((response) => {
-      this.heroes = response.slice(0, 4);
+  private getAvengerTeam(): void {
+    this.heroService.getHeroes().subscribe((res) => {
+      this.heroes = res.slice(0, 4);
     });
   }
 }
