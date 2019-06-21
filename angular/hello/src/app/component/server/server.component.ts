@@ -8,5 +8,4 @@ import { Server } from '../../model/server';
 })
 export class ServerComponent {
   @Input() server: Server;
-
 }

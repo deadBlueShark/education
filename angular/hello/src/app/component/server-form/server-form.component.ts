@@ -19,16 +19,27 @@ export class ServerFormComponent implements OnInit {
   }
 
   onAddServer(): void {
-    this.serverCreated.emit(new Server('server', this.name, this.content));
+    this.serverCreated.emit(this.createDevice('server'));
+    this.flushFormValue();
   }
 
   onAddBlueprint(): void {
-    this.blueprintCreated.emit(new Server('blueprint', this.name, this.content));
+    this.blueprintCreated.emit(this.createDevice('blueprint'));
+    this.flushFormValue();
   }
 
   private activeSubmitButton(): void {
     setTimeout(() => {
-      this.buttonClickable = !this.buttonClickable
+      this.buttonClickable = !this.buttonClickable;
     }, 2000);
+  }
+
+  private createDevice(type: string): Server {
+    return new Server(type, this.name, this.content);
+  }
+
+  private flushFormValue(): void {
+    this.name = '';
+    this.content = '';
   }
 }
