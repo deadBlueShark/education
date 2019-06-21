@@ -43,6 +43,21 @@ ruby-rails/global-search/public/assets
 ruby-rails/global-search/.byebug_history
 ruby-rails/global-search/config/master.key
 
+ruby-rails/devise-token-auth/.bundle
+ruby-rails/devise-token-auth/db/*.sqlite3
+ruby-rails/devise-token-auth/db/*.sqlite3-journal
+ruby-rails/devise-token-auth/log/*
+ruby-rails/devise-token-auth/tmp/*
+ruby-rails/devise-token-auth/log/
+ruby-rails/devise-token-auth/tmp/
+ruby-rails/devise-token-auth/storage/*
+ruby-rails/devise-token-auth/storage/
+ruby-rails/devise-token-auth/node_modules
+ruby-rails/devise-token-auth/yarn-error.log
+ruby-rails/devise-token-auth/public/assets
+ruby-rails/devise-token-auth/.byebug_history
+ruby-rails/devise-token-auth/config/master.key
+
 ruby-rails/manual-token-authen/.bundle
 ruby-rails/manual-token-authen/db/*.sqlite3
 ruby-rails/manual-token-authen/db/*.sqlite3-journal
