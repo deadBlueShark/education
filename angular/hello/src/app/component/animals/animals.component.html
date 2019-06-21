@@ -1,0 +1,7 @@
+<app-animal-form (animalAdded)="onAnimalAdded($event)"></app-animal-form>
+<hr>
+<div class="row">
+  <div class="col-lg-12">
+    <app-animal *ngFor="let item of animals" [animal]="item"></app-animal>
+  </div>
+</div>
