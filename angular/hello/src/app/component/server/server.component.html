@@ -1,4 +1,9 @@
-<div>
-  Server <span class="server-id">{{ id }}</span> is
-  <span class="server-status">{{ status }}</span>
+<div class="panel panel-default">
+  <div class="panel-heading">{{ server.name }}</div>
+  <div class="panel-body">
+    <p>
+      <strong *ngIf="server.type ==='server'">{{ server.content }}</strong>
+      <em *ngIf="server.type === 'blueprint'">{{ server.content }}</em>
+    </p>
+  </div>
 </div>
