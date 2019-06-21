@@ -3,6 +3,11 @@ let greet: (name: string) => void = function (name: string): void {
   console.log(`Hello ${name}`);
 };
 
+let greetV2: (name: string) => void = (name: string): void => {
+  console.log(`Hello ${name}`)
+}
+console.log(greetV2('John Harvey'))
+
 // Object declaration
 let person: { name: string; age: number };
 
