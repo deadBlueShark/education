@@ -1,0 +1,25 @@
+export class Article {
+  constructor(
+    public title: string,
+    public link: string,
+    public votes: number = 0
+  ) {}
+
+  voteUp(): void {
+    this.votes += 1;
+  }
+
+  voteDown(): void {
+    this.votes -= 1;
+  }
+
+  // extract the domain name from full URL
+  extractDomain(): string {
+    try {
+      // e.g. http://foo.com/path/to/bar
+      return this.link.split('//')[1];
+    } catch (err) {
+      return null;
+    }
+  }
+}
