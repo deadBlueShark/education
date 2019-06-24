@@ -1,0 +1,8 @@
+<div class="ui divided items">
+  <app-product
+    *ngFor="let product of products"
+    [product]="product"
+    (click)="onSelectProduct(product)"
+    [class.selected]="isSelected(product)">
+  </app-product>
+</div>
