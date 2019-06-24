@@ -1,0 +1,13 @@
+<app-product-image [url]="product.imageUrl"></app-product-image>
+<div class="content">
+  <div class="header">{{ product.name }}</div>
+  <div class="meta">
+    <div class="product-sku">
+      SKU #{{ product.sku }}
+    </div>
+  </div>
+  <div class="description">
+    <app-product-department [departments]="product.department"></app-product-department>
+  </div>
+</div>
+<app-product-display [price]="product.price"></app-product-display>

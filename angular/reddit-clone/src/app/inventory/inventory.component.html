@@ -1,0 +1,8 @@
+<app-header [title]="title"></app-header>
+
+<div class="ui main text container">
+  <div class="inventory-app">
+    <app-product-list [products]="products" (productSelect)="productSelect($event)">
+    </app-product-list>
+  </div>
+</div>
