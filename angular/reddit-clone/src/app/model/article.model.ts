@@ -17,7 +17,8 @@ export class Article {
   extractDomain(): string {
     try {
       // e.g. http://foo.com/path/to/bar
-      return this.link.split('//')[1];
+      let urn = this.link.split('//')[1];
+      return urn.split('/')[0];
     } catch (err) {
       return null;
     }
