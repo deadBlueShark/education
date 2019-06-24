@@ -1,8 +1,10 @@
 @import './assets/vendor/semantic.min.css';
 
 .ui.menu .item img.logo {
-    margin-right: 1.5em;
+  margin-right: 1.5em;
 }
+
+/* Reddit CSS*/
 
 form.ui.segment.form {
   background-color: #F1F9FF;
@@ -34,7 +36,7 @@ form.form:after {
   color: #9A9A9A
 }
 
-.ui.grid>.row>.column.votes {
+.ui.grid > .row > .column.votes {
   display: flex;
 }
 
@@ -47,3 +49,61 @@ ul.ui.list li:before {
   width: 100%;
 }
 
+/* Inventory CSS */
+
+.ui.items > .item {
+  border: 1px solid rgba(255, 255, 255, 0.0);
+  border-radius: 5px;
+}
+
+.ui.items > .item.selected {
+  border: 1px solid rgba(163, 51, 200, 0.41);
+  border-radius: 5px;
+}
+
+.ui.items > .item > .content > .header {
+    padding-top: 1em;
+}
+
+.products-list {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.product-row {
+  border-bottom: 1px solid black;
+}
+
+.product-image {
+  float: left;
+}
+
+.product-info {
+  padding: 30px;
+  float: left;
+}
+
+.price-display {
+  padding: 30px;
+  float: right;
+}
+
+.product-image {
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+}
+
+.cf:before, .cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+cf {
+    *zoom: 1;
+}
