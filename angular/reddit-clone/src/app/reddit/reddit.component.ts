@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Article } from './../model/article.model';
+import { l } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-reddit',
@@ -20,13 +21,16 @@ export class RedditComponent {
 
   addArticle(title: HTMLInputElement, link: HTMLInputElement): boolean {
     this.articles.push(new Article(title.value, link.value));
-    title.value = '';
-    link.value = '';
-
+    this.flushFormValue(title, link);
     return false;
   }
 
   sortArticle(): Article[] {
     return this.articles.sort((a: Article, b: Article) => b.votes - a.votes);
+  }
+
+  private flushFormValue(title: HTMLInputElement, link: HTMLInputElement): void {
+    title.value = '';
+    link.value = '';
   }
 }
