@@ -1,0 +1,75 @@
+<div class="ui raised segment">
+  <h2 class="ui header">Inquiry</h2>
+
+   <!-- USING ngForm, ngModel -->
+  <!--
+    <form #formElement="ngForm" (ngSubmit)="onSubmitInquiry(formElement.value)" class="ui form">
+    <div class="field">
+      <label for="question">Question</label>
+      <input type="text" id="question" placeholder="Question" name="question" ngModel>
+    </div>
+
+    <button type="submit" class="ui primary button">Submit</button>
+  </form> -->
+
+  <!-- USING FormGroup, FormControl -->
+  <!--
+    <form [formGroup]="inquiryForm"
+        (ngSubmit)="onSubmitInquiry(inquiryForm.value)"
+        [class.error]="!inquiryForm.valid && inquiryForm.touched"
+        class="ui form">
+
+    <div class="ui red message" *ngIf="!inquiryForm.valid && inquiryForm.touched">
+      <ul class="list">
+        <li *ngIf="!inquiryForm.valid">Form is invalid</li>
+        <li *ngIf="!question.valid">Question is invalid</li>
+        <li *ngIf="question.hasError('required')">Question is required</li>
+        <li *ngIf="!email.valid">Email is invalid</li>
+        <li *ngIf="email.hasError('required')">Email is required</li>
+        <li *ngIf="email.hasError('emailFormat')">Email format is invalid</li>
+      </ul>
+    </div>
+
+    <div class="field" [class.error]="!question.valid && question.touched">
+      <label>Question</label>
+      <input placeholder="Question" [formControl]="inquiryForm.controls['question']" >
+    </div>
+
+    <div class="field" [class.error]="!email.valid && email.touched">
+      <label>Email</label>
+      <input placeholder="Email" [formControl]="inquiryForm.controls['email']" >
+    </div>
+
+    <button type="submit" class="ui primary button">Submit</button>
+  </form> -->
+
+  <!-- USING FormGroup, FormControl, Two-way Binding -->
+    <form [formGroup]="inquiryForm"
+        (ngSubmit)="onSubmitInquiry(inquiryForm.value)"
+        [class.error]="!inquiryForm.valid && inquiryForm.touched"
+        class="ui form">
+
+    <div class="ui red message" *ngIf="!inquiryForm.valid && inquiryForm.touched">
+      <ul class="list">
+        <li *ngIf="!inquiryForm.valid">Form is invalid</li>
+        <li *ngIf="!inquiryForm.get('question').valid">Question is invalid</li>
+        <li *ngIf="inquiryForm.get('question').hasError('required')">Question is required</li>
+        <li *ngIf="!inquiryForm.get('email').valid">Email is invalid</li>
+        <li *ngIf="inquiryForm.get('email').hasError('required')">Email is required</li>
+        <li *ngIf="inquiryForm.get('email').hasError('emailFormat')">Email format is invalid</li>
+      </ul>
+    </div>
+
+    <div class="field" [class.error]="!inquiryForm.get('question').valid && inquiryForm.get('question').touched">
+      <label>Question</label>
+      <input placeholder="Question" [formControl]="inquiryForm.get('question')" [(ngModel)]="question">
+    </div>
+
+    <div class="field" [class.error]="!inquiryForm.get('email').valid && inquiryForm.get('email').touched">
+      <label>Email</label>
+      <input placeholder="Email" [formControl]="inquiryForm.get('email')" [(ngModel)]="email">
+    </div>
+
+    <button type="submit" class="ui primary button">Submit</button>
+  </form>
+</div>
