@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Signup - auth</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.543.0/aws-sdk.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="signup.html">Signup</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="change-password.html">Change password</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="reset-password.html">Reset password</a>
+        </li>
+      </ul>
+
+      <div class="content">
+        <h4 class="text-danger">Signup</h4>
+
+        <div class="row">
+          <div class="col-md-4">
+            <form id="signup-form">
+              <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" class="form-control" id="email" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" id="password">
+              </div>
+              <div class="form-group">
+                <label for="pwd">Verify Password:</label>
+                <input type="password" class="form-control" id="verify-password">
+              </div>
+
+              <button type="submit" class="btn btn-primary">Sign up</button>
+            </form>
+          </div>
+        </div>
+
+        <div id="result" class="text-danger"></div>
+
+        <div class="image-area">
+          <img src="assets/images/signup.jpg" class="img-thumbnail">
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/signup.js"></script>
+  </body>
+</html>

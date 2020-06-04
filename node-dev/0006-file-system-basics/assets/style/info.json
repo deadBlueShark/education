@@ -1,0 +1,12 @@
+{
+  "name": "Nguyen",
+  "colors": [
+    { "id": 1, "name": "red" },
+    { "id": 2, "name": "blue" },
+    { "id": 3, "name": "navy" },
+    { "id": 4, "name": "pink" },
+    { "id": 5, "name": "orange" },
+    { "id": 6, "name": "white" },
+    { "id": 7, "name": "green" }
+  ]
+}

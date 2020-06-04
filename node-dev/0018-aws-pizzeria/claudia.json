@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "pizzeria-executor",
+    "name": "pizzeria",
+    "region": "ap-southeast-1"
+  },
+  "api": {
+    "id": "00ccwtd4n6",
+    "module": "index"
+  }
+}
