@@ -1,0 +1,31 @@
+{
+  "name": "dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deadBlueShark/node-dev.git"
+  },
+  "author": "Le Chi Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deadBlueShark/node-dev/issues"
+  },
+  "homepage": "https://github.com/deadBlueShark/node-dev#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "getmac": "^1.4.6",
+    "lodash": "^4.17.15",
+    "mongoose": ">=5.7.5",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "jasmine": "^3.5.0",
+    "request": "^2.88.0"
+  }
+}

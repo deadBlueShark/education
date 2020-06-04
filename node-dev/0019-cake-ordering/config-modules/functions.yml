@@ -1,0 +1,18 @@
+createOrder:
+  handler: httpHandler.createOrder
+  events:
+    - http:
+        path: order/create
+        method: post
+fulfillOrder:
+  handler: httpHandler.fulfillOrder
+  events:
+    - http:
+        path: order/fulfill
+        method: patch
+notifyCakeProducerOrDeliveryCompany:
+  handler: kinesisHandler.notifyCakeProducerOrDeliveryCompany
+  events:
+    - stream:
+        type: kinesis
+        arn: arn:aws:kinesis:#{AWS::Region}:#{AWS::AccountId}:stream/${self:provider.environment.ORDER_STREAM}

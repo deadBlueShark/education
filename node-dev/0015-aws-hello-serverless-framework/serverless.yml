@@ -1,0 +1,20 @@
+service: hello-serverless-framework
+app: myapp
+org: deadblueshark
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  profile: serverless-framework-deploy
+  region: ap-southeast-1
+  stage: dev
+  environment:
+    AUTHOR_NAME: Le Chi Nguyen
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: /hello-serverless
+          method: get

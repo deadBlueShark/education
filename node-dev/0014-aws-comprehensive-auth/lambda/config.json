@@ -1,0 +1,13 @@
+{
+  "AWS_ACCOUNT_ID": "778158919039",
+  "REGION": "us-east-1",
+  "BUCKET": "BUCKET",
+  "MAX_AGE": "10",
+  "DDB_TABLE": "AuthUser",
+  "IDENTITY_POOL_NAME": "conprehensive_auth",
+  "DEVELOPER_PROVIDER_NAME": "login.yourdomain.com",
+  "EXTERNAL_NAME": "Sample Authentication",
+  "EMAIL_SOURCE": "sender@yourdomain.com",
+  "VERIFICATION_PAGE": "https://BUCKET.s3.amazonaws.com/verify.html",
+  "RESET_PAGE": "https://BUCKET.s3.amazonaws.com/resetPassword.html"
+}

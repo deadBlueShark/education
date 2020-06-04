@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hello Polly (Convert text to audio)</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.543.0/aws-sdk.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous" rel="stylesheet">
+
+    <style>
+      div#result, div#info {
+        padding-top: 20px;
+      }
+
+      div#info {
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3 class="text-danger">AWS Polly</h3>
+
+      <p>This is an example of calling an AWS Polly service from a web browser.</p>
+
+      <i class="text-info">Enter text to the below box then click Synthesize</i>
+
+      <div class="form-group" >
+        <input type="text" class="form-control" id="text-entry" >
+      </div>
+      <button type="submit" class="btn btn-info" id="submit-button">Synthesize</button>
+
+      <div id="info" class="text-success"></div>
+      <div id="result" class="text-danger">
+        <audio id="audio-playback" controls>
+          <source id="audio-source" type="audio/mp3" src="">
+        </audio>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    AWS.config.region = 'us-east-1';
+    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+        IdentityPoolId: 'us-east-1:c78d2b07-9fe2-4787-9af6-8b55b5f792a2',
+    });
+
+    var submitButton = document.getElementById('submit-button');
+    submitButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      submitButton.disabled = true;
+      var inputElement = document.getElementById('text-entry');
+
+      if (inputElement.value) {
+        speakText(inputElement.value);
+        inputElement.value = '';
+      } else {
+        setTimeout(() => document.getElementById('info').innerHTML = 'Please input text', 1000);
+      }
+
+      submitButton.disabled = false;
+    })
+
+    function speakText(inputText) {
+      var speechParams = {
+        OutputFormat: "mp3",
+        SampleRate: "16000",
+        Text: "",
+        TextType: "text",
+        VoiceId: "Matthew"
+      }
+      speechParams.Text = inputText;
+
+      // Create the Polly service object and presigner object
+      var polly = new AWS.Polly({apiVersion: '2016-06-10'});
+      var signer = new AWS.Polly.Presigner(speechParams, polly);
+
+      // Create presigned URL of synthesized speech file
+      signer.getSynthesizeSpeechUrl(speechParams, (error, url) => {
+        if (error) {
+          document.getElementById('info').innerHTML = error;
+        } else {
+          document.getElementById('audio-source').src = url;
+          document.getElementById('audio-playback').load();
+          document.getElementById('info').innerHTML = "Speech ready to play.";
+
+          setTimeout(() => document.getElementById('info').innerHTML = '', 1000);
+        }
+      });
+    }
+  </script>
+</html>

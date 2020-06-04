@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "delivery-api-executor",
+    "name": "delivery-api",
+    "region": "ap-southeast-1"
+  },
+  "api": {
+    "id": "p4wnduegs1",
+    "module": "index"
+  }
+}

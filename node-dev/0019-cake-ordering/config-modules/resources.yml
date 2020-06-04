@@ -1,0 +1,20 @@
+Resources:
+  orderEventsStream:
+    Type: AWS::Kinesis::Stream
+    Properties:
+      Name: ${self:provider.environment.ORDER_STREAM}
+      ShardCount: 1
+  ordersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:provider.environment.ORDER_TABLE}
+      AttributeDefinitions:
+        - AttributeName: orderId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: orderId
+          KeyType: HASH
+      #BillingMode: PAY_PER_REQUEST
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1

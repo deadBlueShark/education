@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Unauthenticated users call Lambda from browser by SDK</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.596.0.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous" rel="stylesheet">
+
+    <style>
+      div#result {
+        padding-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3 class="text-danger">Greeting on Demand</h3>
+
+      <p>This is an example of calling an AWS Lambda function from a web page via JavaScript.</p>
+
+      <i class="text-info">Provide a name, and you will receive your greetings.</i>
+      <form id="greet-form">
+        <div class="form-group" >
+          <input type="text" class="form-control" id="name">
+        </div>
+        <button type="submit" class="btn btn-info" id="submit-button">Greet</button>
+      </form>
+      <div id="result" class="text-danger"></div>
+    </div>
+  </body>
+  <script src="greeting.js"></script>
+</html>
