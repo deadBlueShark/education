@@ -1,5 +1,4 @@
 // NUMBER, STRING, BOOLEAN, UNDEFINED, OBJECT, ARRAY
-// OBJECT
 var book = {
     topic: 'JS',
     fat: true
