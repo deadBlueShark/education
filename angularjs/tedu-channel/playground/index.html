@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <script src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <script src="../libs/angular.js" defer></script>
+  <script src="app.js" defer></script>
+
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body ng-app='playGround' class="container">
+  <h4 style="color:red">{{rootMessage}}</h4>
+  <h4>My name: <span ng-bind="name"></span></h4>
+  <h4>My name: <span>{{name}}</span></h4>
+  <input type="text" ng-model="name">
+
+  <div class="card" style="margin-top: 1rem">
+    <div class="card-body">
+      <h3 style="color:orange" class="card-title">HelloController</h3>
+      <div ng-controller='HelloController'>
+        <div><b>Message:</b> {{message}}</div>
+        <div>
+          <div><b>Employee info:</b></div>
+          <ul>
+            <li>Name: {{employee.name}}</li>
+            <li>Age: {{employee['age']}}</li>
+          </ul>
+        </div>
+        <h4>Two-way binding:</h4>
+        Name: <input type="text" ng-model="employee.name">
+        Age: <input type="number" ng-model="employee.age">
+        <button ng-click="introduce()">Intro</button>
+        <p>{{introSentence}}</p>
+        <div>This message belongs to $rootScope that initiates in this controller:</div>
+        <h4 style="color:red">{{rootMessage}}</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 1rem">
+    <div class="card-body">
+      <h3 style="color:orange" class="card-title">ScopeController</h3>
+      <div ng-controller="ScopeController">
+        <h4>Scope:</h4><span>{{message}}</span><br>
+        <h4 style="color:red">{{rootMessage}}</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 1rem">
+    <div class="card-body">
+    <h3 style="color:orange">DirectiveController</h3>
+      <div ng-controller="DirectiveController">
+        <p>{{sentence}}</p>
+        <span ng-init="sentence='Hello Directive'"></span>
+        <h4>Employee List</h4>
+          <table class="table">
+            <tr><th>First Name</th><th>Last Name</th><th>Age</th></tr>
+            <tr ng-repeat="employee in employees">
+              <td>{{employee.firstName}}</td>
+              <td>{{employee.lastName}}</td>
+              <td>{{employee.age}}</td>
+            </tr>
+          </table>
+        </ul>
+        <h4>Provinces List</h4>
+        <ul>
+          <li ng-repeat="province in provinces">
+            {{"Province " + ($index + 1) + ": " + province.name}}
+            <ul><li ng-repeat="town in province.towns"
+                ng-bind="'Town ' + ($index + 1) + ' of province ' + ($parent.$index + 1) + ': ' + town.name">
+                </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 1rem">
+    <div class="card-body">
+    <h3 style="color:orange">CustomDirectiveController</h3>
+      <div ng-controller="CustomDirectiveController">
+        <form action="">
+          <div login-form></div>
+          <div submit-button-group></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 1rem">
+    <div class="card-body">
+      <h3 style="color:orange">EventDirectiveController</h3>
+      <div ng-controller="EventDirectiveController">
+        <table class="table">
+          <tr>
+            <th>Event</th>
+            <th>Likes</th>
+            <th>Dislikes</th>
+            <th colspan="2">Action (First Way)</th>
+            <th colspan="2">Action (Second Way)</th>
+          </tr>
+          <tr ng-repeat="event in events">
+            <td ng-bind="event.title"></td>
+            <td ng-bind="event.likeCount"></td>
+            <td ng-bind="event.dislikeCount"></td>
+            <td><button ng-click="event.like()">Like</button></td>
+            <td><button ng-click="event.dislike()">Dislike</button></td>
+            <td><button ng-click="increaseLikes(event)">Like</button></td>
+            <td><button ng-click="decreaseLikes(event)">Dislike</button></td>
+          </tr>
+        </table>
+        <br><br>
+        <table class="table">
+          <tr>
+            <th>Post</th>
+            <th>Likes</th>
+            <th>Dislikes</th>
+            <th colspan="2">Action</th>
+          </tr>
+          <tr ng-repeat="post in posts">
+            <td>{{post.title}}</td>
+            <td>{{post.likeCount}}</td>
+            <td>{{post.dislikeCount}}</td>
+            <td><button ng-click="post.likes()">Like</button></td>
+            <td><button ng-click="post.dislike()">Dislike</button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 1rem">
+    <div class="card-body">
+      <h3 style="color:orange">FilterController</h3>
+      <div ng-controller="FilterController">
+        <table class="table">
+          <caption>Exchange Rates Today</caption>
+          <thead>
+            <tr>
+              <th>Currency</th>
+              <th>DateTime</th>
+              <th>Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="exchangeRate in exchangeRates">
+              <td>{{exchangeRate.currencyName}}</td>
+              <td>{{exchangeRate.date | date:"yyyy/MM/dd"}}</td>
+              <td>{{exchangeRate.rate | number:3 | currency:"VND"}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>
+
+
+<!-- "defer" atribute, besides telling the browser “not to block”, ensures that the relative order is kept
+That may be important for cases when we need to load a JavaScript library and then a script that depends on it.
+ -->
+
+<!-- The async attribute means that a script is completely independent
+May load and execute while the document has not yet been fully downloaded. That happens if scripts are small or cached, and the document is long enough.
+-->

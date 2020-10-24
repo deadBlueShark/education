@@ -17,6 +17,6 @@ function hello() {
 // function, so that they are visible throughout the script or function. With var, only the
 // variable declaration is hoisted—the variable initialization code remains where you
 // placed it. With function declaration statements, however, both the function name and
-//the function body are hoisted: all functions in a script or all nested functions in a 
-// function are declared before any other code is run. This means that you can invoke a 
+//the function body are hoisted: all functions in a script or all nested functions in a
+// function are declared before any other code is run. This means that you can invoke a
 // JavaScript function before you declare it.
