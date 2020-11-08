@@ -77,6 +77,32 @@
             </ul>
           </li>
         </ul>
+
+
+        <h4>Countries List</h4>
+        <ul>
+          <li ng-repeat="country in countries track by $index">
+            {{"Country " + ($index) + ": " + country.name}}
+            <ul ng-show="testUsa(country)">
+              <li ng-repeat="(key, celeb) in country.celebs track by key"
+                ng-bind="'Celeb ' + ($index) + ' of country ' + ($parent.$index) + ': ' + celeb"
+                ng-click="trackParentId($parent.$index)">
+              </li>
+            </ul>
+            <ul ng-show="country.name == 'Portugal'">
+              <li ng-repeat="(key, celeb) in country.celebs track by key"
+                ng-bind="'Celeb ' + ($index) + ' of country ' + ($parent.$index) + ': ' + celeb"
+                ng-click="trackParentId($parent.$index)">
+              </li>
+            </ul>
+            <ul ng-show="country.name == 'Spain'">
+              <li ng-repeat="(key, celeb) in country.celebs track by key"
+                ng-bind="'Celeb ' + ($index) + ' of country ' + ($parent.$index) + ': ' + celeb"
+                ng-click="trackParentId($parent.$index)">
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -159,7 +185,6 @@
       </div>
     </div>
   </div>
-
 
 </body>
 </html>
