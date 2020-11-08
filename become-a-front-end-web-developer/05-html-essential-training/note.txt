@@ -1,0 +1,7 @@
+<i>: visual-only italics
+<em>: emphasis italics
+<strong>: Importance, seriousness, urgency
+<b>: visual-only bold
+
+ARIA rules
+

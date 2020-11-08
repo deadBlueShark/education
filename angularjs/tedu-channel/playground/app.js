@@ -46,6 +46,25 @@ playGroundApp.controller('DirectiveController', function ($scope) {
       ]
     },
   ]
+
+
+  $scope.countries = [
+    {name: "USA", celebs: {
+        music: "Taylor Swift", physics: "Albert Einstein", a: "AA", b: "BBB"
+      }
+    },
+    {name: "Portugal", celebs: {football: "CR7", c: "CCC", e: "EEEE", f: "FFF"}},
+    {name: "Spain", celebs: {football: "CR7", c: "CCC", e: "EEEE", f: "FFF"}}
+  ]
+
+  $scope.trackParentId = function(index) {
+    console.log(index);
+  }
+
+  $scope.testUsa = function(country) {
+    console.log(country)
+    return country.name == 'USA'
+  }
 })
 
 playGroundApp.controller('CustomDirectiveController', function () {
