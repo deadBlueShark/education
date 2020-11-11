@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Montserrat:wght@400;600&display=swap');
+
+body {
+  color: #343434;
+  font-family: 'Montserrat';
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  font-family: 'Caveat', cursive;
+}
+
+h1 {
+  font-size: 60px;
+  margin: 20px 0;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 40px;
+  margin: 0;
+}
+
+img {
+  width: 300px;
+}
+
+a {
+  color: #1565C0;
+  text-decoration: none;
+}
+
+a:hover {
+  color: green;
+}
+
+.projects a {
+  color: rgb(0, 0, 255);
+}
+.projects a:hover {
+  color: rgb(0, 0, 255, 60%);
+}
+
+.projects .btn {
+  display: inline-block;
+  padding: 8px;
+  background: rgb(51, 122, 183);
+  border-color: #2e6da4;
+  border-radius: 5px;
+  color: white;
+}
+.projects .btn:hover {
+  background: rgb(51, 122, 183, 0.8);
+}
+
+header {
+  background: #2F3061;
+  color: white;
+}
+
+footer {
+  background: #2980B9;
+}
+
+footer a {
+  color: white;
+}
+
+.projects {
+  background: #6dd5ed;
+}
+
+.experiences {
+  background: #6DD5FA;
+}
+
+.education {
+  background: #12c2e9;
+}
+
+.content-wrap {
+  width: 900px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+header .content-wrap, footer .content-wrap {
+  padding: 1px 0;
+}

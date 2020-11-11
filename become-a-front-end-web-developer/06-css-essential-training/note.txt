@@ -1,0 +1,56 @@
+1) CSS references
+style.css
+@import url('/style/person.css')
+@import url('/style/animal.css')
+
+Uses the @import rule which imports one or more stylesheets into HTML files or
+into another CSS file. This method can be used to import all the smaller CSS files
+into a single CSS file, which is then loaded into the HTML document between a style
+tag in the head of the document. This method isn't used often these days because the
+downside to using import is the potential for slowing down your page speed.
+Import does not allow for parallel downloads, meaning the page must download an
+entire stylesheet before it loads the rest of the page
+
+2) Pixel density
+- Refers to the number of pixels within a space
+- Measured in pixels per inch (PPI) or dots per inch (DPI)
+
+3) Code styles guideline
+https://codeguide.co/
+
+4) 5 properties make up box model: width, height, padding, margin, border
+
+The width and height has no effect on inline element, change display property to
+block or inline-block
+
+5) Absolute and relative length
+em: Represents inherited font-size of parent element
+rem: Represents the font-size of the root element
+
+6) The box model
+
+  400 width
++ 30 padding-left
++ 30 padding-right
++ 20 border-left
++ 20 border-right
+-------------------
+500px total width
+
+Margin does not contribute to the total size of the element but it does effect
+the amount of space that the element takes up
+
+Margin collapsing (only affect top and bottom margin)
+
+To remove space (margin) beetween inline element, use negative margin or set font-size
+of parent element to 0
+
+7) font-size
+
+em:
+- relative unit so it's a size in relation to its closest ancestor element font size
+(1em is equal to its inherited font size, if no font size is declared anywhere,
+then one em is equal to the default browser font size)
+- Changing the font size in the parent or ancestor element will change the value of the child element.
+
+rem: root em
