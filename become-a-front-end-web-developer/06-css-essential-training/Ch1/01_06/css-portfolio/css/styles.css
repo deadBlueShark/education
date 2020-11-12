@@ -88,3 +88,22 @@ footer a {
 header .content-wrap, footer .content-wrap {
   padding: 1px 0;
 }
+
+.project-info {
+  margin: 20px 0;
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+
+.project-info:not(:last-of-type) {
+  border-bottom: 1px dashed gray;
+}
+
+.project-info img {
+  float: left;
+  margin-right: 30px;
+}
+
+.project-info h3 {
+  margin: 0;
+}
