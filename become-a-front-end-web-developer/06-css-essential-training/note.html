@@ -54,3 +54,100 @@ then one em is equal to the default browser font size)
 - Changing the font size in the parent or ancestor element will change the value of the child element.
 
 rem: root em
+
+8) Clear float:
+3 options:
+- User overflow
+<div class="parent">
+  <div class="floated"></div>
+  <div class="floated"></div>
+</div>
+.floated {
+  float: left;
+}
+.parent {
+  overfloat: hidden; // or auto;
+}
+
+- Use clearfix hack:
+<div class="clearfix">
+  <p>Floated elememt</p>
+  <p>Floated elememt</p>
+</div>
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+- Use display: (new, consider old browser compatibility)
+<div class="parent">
+  <div class="floated"></div>
+  <div class="floated"></div>
+</div>
+.parent {
+  display: flow-root;
+}
+
+
+Layout a webpage using float (legacy method, now using grid, flexbox)
+<div class="header">Header</div>
+<div class="main clearfix">
+  <div class="sidebar">Sidebar</div>
+  <div class="content">Content</div>
+</div>
+<div class="footer">Footer</div>
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+.header {
+  height: 50px;
+  background: blue;
+}
+.main {
+  height: 200px;
+}
+.footer {
+  height: 30px;
+  background: red;
+}
+.sidebar {
+  height: 100%;
+  width: 20%;
+  background: green;
+  float: left;
+}
+.content {
+  height: 100%;
+  width: 80%;
+  background: orange;
+  float: right;
+  padding: 20px;
+}
+
+9) Position, z-index
+absolute is relative to its nearest positioned container
+Positioned elements are at the top of the stack
+
+10) Layout: Flexbox and Grid
+Flexbox: 
+- items are aligned on a single axis (one-dimensional, only deals with 
+one dimensional at a time)
+- Great for space distribution in the same axis
+
+Grid: (newer than flexbox)
+- two-dimensional, layout with both rows and columns
+
+Flexbox terminologies: fex container -> the parent element, flex items -> the child elements
+Ex:
+<div class="flex-container">
+  <div>Flex item
+    <div>Not a flex item</div>
+  </div>
+  <div>Flex item</div>
+  <div>Flex item</div>
+</div>
