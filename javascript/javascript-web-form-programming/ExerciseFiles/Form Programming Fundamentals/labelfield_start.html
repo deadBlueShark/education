@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Label and Field Interactivity Sample</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <h1>Form labels and field relationships</h1>
+    <p>Demonstrates how to relate labels to fields and add basic interactivity to the form</p>
+    <form action="" autocomplete="off">
+        <fieldset>
+            <legend>Please enter your personal information: </legend>
+            <div>
+                <label for="field1" accesskey="F">First name:
+                    <input type="text" id="field1" autofocus placeholder="John">
+                </label>
+                <label for="field2" accesskey="L">Last name:
+                    <input type="text" id="field2" placeholder="Harvey">
+                </label>
+            </div>
+            <div>
+                <label for="field3" accesskey="1">Address 1:
+                    <input type="text" id="field3" size="40" placeholder="23 Journal Street">
+                </label>
+            </div>
+            <div>
+                <label for="field4" accesskey="2">Address 2:
+                    <input type="text" id="field4" size="40" placeholder="12 Floor, Trump Tower">
+                </label>
+            </div>
+            <div>
+                <label for="field5" accesskey="Z">ZIP Code:
+                    <input type="text" id="field5" size="10" placeholder="550000">
+                </label>
+            </div>
+            <div>
+                <label for="field6" accesskey="P">Phone:
+                    <input type="text" id="field6" placeholder="+849844994422">
+                </label>
+            </div>
+        </fieldset>
+        <button id="btnsubmit" accesskey="S">Submit</button>
+        <button id="btnreset" accesskey="R">Reset</button>
+    </form>
+</body>
+
+<script>
+  loadElementHasAccessKey();
+
+  function loadElementHasAccessKey() {
+    const theForm = document.querySelector('form');
+    const elements = theForm.querySelectorAll('[accesskey]');
+
+    elements.forEach((e) => {
+      addAccessKeyHint(e);
+    })
+  }
+
+  function addAccessKeyHint(element) {
+    let text = element.innerText;
+    let accessKey = element.getAttribute('accesskey');
+    let boldAccessKey = `<span class="key">${accessKey}</span>`
+    let newText = text.replace(accessKey, boldAccessKey);
+    element.innerHTML = element.innerHTML.replace(text.trim(), newText);
+  }
+
+  let fieldFirstName = document.querySelector("#field1")
+
+  fieldFirstName.addEventListener("change", function(e) {
+    console.log(this.value) // If you use event callback as Arrow Function,
+                            // `this` refer to this `window`, not the element
+                            // that event targets to
+
+    console.log(e.target.value);
+  })
+</script>
+</html>

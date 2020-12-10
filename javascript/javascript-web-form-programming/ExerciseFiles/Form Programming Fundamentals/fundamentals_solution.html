@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Form and field events</title>
+    <link rel="stylesheet" href="../styles_finished.css">
+    <script>
+        window.addEventListener("load", e => {
+            // listen for form control changes as they happen immediately
+            document.getElementById("pizzaform").addEventListener("input", updateformtotal);
+
+            // perform a custom reset of the form when the user clicks reset
+            // so we can fire our own resetfinished event
+            document.getElementById("pizzaform").addEventListener("reset", e => {
+                e.target.reset();
+            });
+            document.getElementById("btnreset").addEventListener("click", e => {
+                // Fire the reset event manually so we can then fire our own custom
+                // event to reset the form total amount
+                evt = new Event("reset");
+                document.getElementById("pizzaform").dispatchEvent(evt);
+                evt = new Event("resetfinished");
+                document.getElementById("pizzaform").dispatchEvent(evt);
+            });
+            // When our custom resetfinished event fires, update the form total
+            // The form controls should all be reset at this point 
+            document.getElementById("pizzaform").addEventListener("resetfinished", e => {
+                updateformtotal();
+            });
+
+            // initialize the total amount
+            updateformtotal();
+        });
+
+        function updateformtotal() {
+            let totalelem = document.getElementById("total");
+            let totalamt = 0.0;
+
+            switch (document.getElementById("saucebase").selectedIndex) {
+                case 1:
+                    totalamt += 0.5;
+                    break;
+                case 2:
+                    totalamt += 0.75;
+                    break;
+            }
+
+            switch (document.getElementById("pizzasize").selectedIndex) {
+                case 0:
+                    totalamt += 14.0;
+                    break;
+                case 1:
+                    totalamt += 16.0;
+                    break;
+                case 2:
+                    totalamt += 20.0;
+                    break;
+            }
+
+            tops = document.getElementById("toppingslist").getElementsByClassName("toppingitem");
+            for (const topping of tops) {
+                if (topping.checked) {
+                    totalamt += 0.4;
+                }
+            }
+
+            if (!isNaN(val = parseInt(document.getElementById("cokes").value))) {
+                totalamt += val * 1.25;
+            }
+            if (!isNaN(val = parseInt(document.getElementById("dietcokes").value))) {
+                totalamt += val * 1.25;
+            }
+            if (!isNaN(val = parseInt(document.getElementById("sprites").value))) {
+                totalamt += val * 1.25;
+            }
+
+            totalelem.value = totalamt.toFixed(2);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Joe's Pizza Palace</h1>
+    <p>Please make your selection from the menu below</p>
+    <form action="" autocomplete="off" id="pizzaform" method="POST">
+        <fieldset>
+            <legend>Choose your pizza settings:</legend>
+            <div>
+                <label for="saucebase">Sauce base:
+                    <select name="saucebase" id="saucebase">
+                        <option value="marinara">Marinara (standard)</option>
+                        <option value="oliveoil">Olive Oil (+$.050)</option>
+                        <option value="whitesauce">White Sauce (+$0.75)</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <label for="pizzasize">Pizza size:
+                    <select name="pizzasize" id="pizzasize">
+                        <option value="12">12" ($14.00)</option>
+                        <option value="17">17" ($16.00)</option>
+                        <option value="20">20" ($20.00)</option>
+                    </select>
+                </label>
+            </div>
+            <div id="toppingslist">
+                <p>Toppings: ($.40 each):</p>
+                <label><input class="toppingitem" type="checkbox" name="pepperoni" id="pepperoni">Pepperoni</label>
+                <label><input class="toppingitem" type="checkbox" name="sausage" id="sausage">Sausage</label>
+                <label><input class="toppingitem" type="checkbox" name="olives" id="olives">Olives</label>
+                <label><input class="toppingitem" type="checkbox" name="onions" id="onions">Onions</label>
+                <label><input class="toppingitem" type="checkbox" name="greenpeps" id="greenpeps">Green
+                    Peppers</label>
+            </div>
+            <div>
+                <p>Soft drinks ($1.25 per can):</p>
+                <label for="cokes">Coke:<input type="number" id="cokes" value="0" step="1"></label>
+                <label for="dietcokes">Diet Coke:<input type="number" id="dietcokes" value="0" step="1"></label>
+                <label for="sprites">Sprite:<input type="number" id="sprites" value="0" step="1"></label>
+            </div>
+            <div class="ordertotal">
+                Order Total: $<output name="total" id="total"></output>
+            </div>
+        </fieldset>
+    </form>
+    <button id="btnsubmit">Submit</button>
+    <button id="btnreset">Reset</button>
+</body>
+
+</html>

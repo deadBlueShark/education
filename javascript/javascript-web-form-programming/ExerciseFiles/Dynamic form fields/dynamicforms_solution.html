@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Dynamic Forms Challenge</title>
+        <link rel="stylesheet" href="../styles_finished.css">
+        <script>
+            // Extend the Date object directly to provide a toDateInputValue function
+            Date.prototype.toDateInputValue = function () {
+                var datestring =
+                    this.getFullYear() + "-" + ("0" + (this.getMonth() + 1)).slice(-2) +
+                    "-" + ("0" + this.getDate()).slice(-2);
+
+                return datestring;
+            };
+
+            window.addEventListener("load", e => {
+                // clear a text field on Shift-ESC
+                document.getElementById("clearable").addEventListener("keydown", evt => {
+                    if (evt.shiftKey && evt.code == "Escape") {
+                        console.log("Shift-ESC pressed");
+                        evt.srcElement.value = ("");
+                    }
+                });
+
+                // initialize a Date field with the current date
+                document.getElementById("todaydate").value = new Date().toDateInputValue();
+
+                // register a click listener on the Add Item button
+                document.getElementById("additem").addEventListener("click", addNewItem);
+            });
+
+            function addNewItem(evt) {
+                // get the date from the date field
+                let dateval = document.getElementById("todaydate").value;
+
+                // add the text from the text item 
+                let stringval = document.getElementById("clearable").value;
+
+                // create a new to-do task
+                let newitem = document.createElement("li");
+                let newitemtext = document.createTextNode("[" + dateval + "] " + stringval);
+                newitem.appendChild(newitemtext);
+
+                // add the task to the list
+                document.getElementById("listcontent").appendChild(newitem);
+
+                // don't submit the form
+                evt.preventDefault();
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Dynamic Forms Challenge</h1>
+        <form action="" autocomplete="off" id="theform">
+            <fieldset>
+                <legend>Clearable text field with Shift-ESC:</legend>
+                <div>
+                    <label for="clearable">Item name:
+                        <input type="text" name="clearable" id="clearable">
+                    </label>
+                </div>
+                <div>
+                    <label for="todaydate">Date:
+                        <input type="date" name="todaydate" id="todaydate">
+                    </label>
+                </div>
+                <div>
+                    <button id="additem">Add Item</button>
+                </div>
+                <div>
+                    <ul id="listcontent"></ul>
+                </div>
+            </fieldset>
+
+            <button id="btnsubmit">Submit</button>
+            <button id="btnreset">Reset</button>
+        </form>
+    </body>
+</html>

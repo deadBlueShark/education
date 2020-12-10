@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Using the datalist element</title>
+        <link rel="stylesheet" href="../styles.css">
+    </head>
+    <body>
+        <h1>Using the <code>&lt;datalist&gt;</code> element</h1>
+        <p>The &lt;datalist&gt; element provides an easy way of implementing auto-complete on form elements.
+        </p>
+        <p>It works with text, search, url, tel, email, date, month, week, time, datetime-local, number, range, and
+            color
+            elements.</p>
+        <form action="" autocomplete="off">
+            <!-- TODO: Put datalist definitions here -->
+            <fieldset>
+                <legend>Datalist demonstration elements:</legend>
+                <div>
+                    <label for="field1">Text Example:
+                        <input type="text" id="field1">
+                    </label>
+                </div>
+                <div>
+                    <label for="field3">URL Example:
+                        <input type="url" id="field3">
+                    </label>
+                </div>
+                <div>
+                    <label for="field4">Color Example:
+                        <input type="color" id="field4">
+                    </label>
+                </div>
+                <div>
+                    <label for="field5">Range Example:
+                        <input type="range" id="field5" min="0" max="500">
+                    </label>
+                </div>
+                <div>
+                    <label for="field7">Date Example:
+                        <input type="date" id="field7">
+                    </label>
+                </div>
+            </fieldset>
+            <button id="btnsubmit">Submit</button>
+            <button id="btnreset">Reset</button>
+        </form>
+    </body>
+</html>

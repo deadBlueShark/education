@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Label and Field Interactivity Sample</title>
+        <link rel="stylesheet" href="../styles.css">
+        <script>
+            function addKeyHint(element) {
+                // TODO: auto-add shortcut key hints
+            }
+
+            function addAccessKeyHints() {
+                var theform = document.getElementById("testform");
+
+                var elems = Array("LABEL", "A", "BUTTON")
+                elems.forEach(elemtype => {
+                    var items = Array.from(theform.getElementsByTagName(elemtype));
+
+                    items.forEach(el => {
+                        if (el.hasAttribute("accesskey")) {
+                            addKeyHint(el)
+                        }
+                    });
+
+                });
+            }
+
+            window.addEventListener("load", addAccessKeyHints)
+        </script>
+    </head>
+    <body>
+        <h1>Using accesskey for keyboard shortcuts</h1>
+        <p>
+            Demonstrates how to add the accesskey attribute to provide keyboard shortcuts
+        </p>
+        <form action="" autocomplete="off" id="testform">
+            <fieldset>
+                <legend>Please enter your personal information: </legend>
+                <div>
+                    <label for="field1" accesskey="F">First name:<input type="text" id="field1" autofocus></label>
+                    <label for="field2" accesskey="L">Last name:<input type="text" id="field2"></label>
+                </div>
+                <div>
+                    <label for="field3" accesskey="1">Address 1:<input type="text" id="field3" size="40"></label>
+                </div>
+                <div>
+                    <label for="field4" accesskey="2">Address 2:<input type="text" id="field4" size="40"></label>
+                </div>
+                <div>
+                    <label for="field5" accesskey="Z">ZIP Code:<input type="text" id="field5" size="10"></label>
+                </div>
+                <div>
+                    <label for="field6" accesskey="P">Phone:<input type="text" id="field6"></label>
+                </div>
+                <div class="policytext">
+                    <p>You can review our <a href="#" accesskey="v">privacy policy</a></p>
+                </div>
+            </fieldset>
+            <button id="btnsubmit" accesskey="S">Submit</button>
+            <button id="btnreset" accesskey="R">Reset</button>
+        </form>
+    </body>
+</html>

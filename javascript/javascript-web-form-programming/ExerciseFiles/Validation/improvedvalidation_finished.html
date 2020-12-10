@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Improved Form Validation</title>
+        <link rel="stylesheet" href="../styles_finished.css">
+    </head>
+    <script>
+        window.addEventListener("load", e => {
+            let quantfield = document.getElementById("quantity");
+            let quotefield = document.getElementById("quote");
+
+            updateamount(quantfield.valueAsNumber * parseFloat(quotefield.textContent));
+
+            quantfield.addEventListener("input", e => {
+                updateamount(quantfield.valueAsNumber * parseFloat(quotefield.textContent));
+            });
+        });
+
+        function updateamount(val) {
+            let amtfield = document.getElementById("amount");
+            
+            total = val.toLocaleString(navigator.language, {style:"currency", currency:"USD"});
+            // display the total in the output 
+            amtfield.value = total;
+        }
+    </script>
+    <body>
+        <h1>Improved form field validation</h1>
+        <p>Demonstrates how to use the pattern field validation attribute</p>
+        <form action="" autocomplete="off" id="theform">
+            <fieldset>
+                <legend>Purchase a stock: </legend>
+                <div>
+                    <label for="ticker">
+                        Stock symbol:
+                        <input type="text" name="ticker" id="ticker" placeholder="CSCO" 
+                        required minlength="1" maxlength="5" pattern="^[a-zA-Z]{1,5}$"
+                        title="Enter 1 to 5 upper or lower case letters">
+                    </label>
+                    Quote: <span id="quote">50.00</span>
+                </div>
+                <div>
+                    <label for="quantity">Quantity:
+                        <input type="number" name="quantity" id="quantity" value="1" min="1" max="25">
+                    </label>
+                </div>
+                <div>
+                    Transaction amount: <output for="quantity quote" id="amount"></output>
+                </div>
+                <div>
+                    <label for="confmail">Send a confirmation email to:
+                        <input type="email" name="confmail" id="confmail" required placeholder="you@email.com">
+                    </label>
+                </div>
+                <div>
+                    <label for="zip">Zip Code:
+                        <input type="text" name="zip" id="zip" placeholder="12345-6789" 
+                            pattern="^\d{5}(?:-\d{4})?$" title="5 digits with optional 4-digit extension">
+                    </label>
+                </div>
+            </fieldset>
+            <button id="btnsubmit">Submit</button>
+            <button id="btnreset">Reset</button>
+        </form>
+    </body>
+</html>

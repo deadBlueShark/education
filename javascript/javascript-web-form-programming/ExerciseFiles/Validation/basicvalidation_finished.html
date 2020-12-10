@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Basic Form Validation</title>
+        <link rel="stylesheet" href="../styles_finished.css">
+    </head>
+    <script>
+        window.addEventListener("load", e => {
+            let quantfield = document.getElementById("quantity");
+            let quotefield = document.getElementById("quote");
+
+            updateamount(quantfield.valueAsNumber * parseFloat(quotefield.textContent));
+
+            quantfield.addEventListener("input", e => {
+                updateamount(quantfield.valueAsNumber * parseFloat(quotefield.textContent));
+            })
+        });
+
+        function updateamount(val) {
+            let amtfield = document.getElementById("amount");
+            total = val.toLocaleString(navigator.language, { style: "currency", currency: "USD" });
+            // display the total in the output 
+            amtfield.value = total;
+        }
+    </script>
+    <body>
+        <h1>Basic form field validation</h1>
+        <p>Demonstrates how to use basic field validation attributes</p>
+        <form action="" autocomplete="off" id="theform">
+            <fieldset>
+                <legend>Purchase a stock: </legend>
+                <div>
+                    <label for="ticker">
+                        Stock symbol:
+                        <input type="text" name="ticker" id="ticker" placeholder="CSCO" required minlength="1"
+                            maxlength="5">
+                    </label>
+                    Quote: <span id="quote">50.00</span>
+                </div>
+                <div>
+                    <label for="quantity">Quantity:
+                        <input type="number" name="quantity" id="quantity" value="1" min="1" max="25">
+                    </label>
+                </div>
+                <div>
+                    Transaction amount: <output for="quantity quote" id="amount"></output>
+                </div>
+                <div>
+                    <label for="confmail">Send a confirmation email to:
+                        <input type="email" name="confmail" id="confmail" required>
+                    </label>
+                </div>
+            </fieldset>
+            <button id="btnsubmit">Submit</button>
+            <button id="btnreset">Reset</button>
+        </form>
+    </body>
+</html>
