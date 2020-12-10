@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Form Validation Solution</title>
+        <link rel="stylesheet" href="../styles_finished.css">
+        <style>
+            .warning {
+                background-color: cornsilk;
+            }
+
+            .limit {
+                background-color: mistyrose;
+            }
+        </style>
+    </head>
+    <script>
+        window.addEventListener("load", e => {
+            document.getElementById("txtfield").addEventListener("input", checkTextField);
+            document.getElementById("thefile").addEventListener("change", checkFileSize);
+        });
+
+        function checkTextField(evt) {
+            let field = evt.srcElement;
+            let maxl = field.getAttribute("maxlength");
+
+            // check the length of the field to see how close we're getting
+            let length = field.value.length;
+            // check the maximum case first
+            if (length >= maxl - 20) {
+                field.classList.add("limit");
+                field.classList.remove("warning");
+            }
+            // then check the middle case
+            else if (length >= maxl - 50) {
+                field.classList.add("warning");
+                field.classList.remove("limit");
+            }
+            // otherwise remove any of the visual classes we may have added
+            else {
+                field.classList.remove("warning");
+                field.classList.remove("limit");
+            }
+        }
+
+        function checkFileSize(evt) {
+            let field = evt.srcElement;
+            let file = field.files[0];
+
+            // check the file size and use the setCustomValidity function
+            // to indicate whether there is an error
+            if (file.size >= 500) {
+                field.setCustomValidity("The file is too large");
+            }
+            else {
+                field.setCustomValidity("");
+            }
+        }
+    </script>
+    <body>
+        <h1>Form validation challenge</h1>
+        <form action="" autocomplete="off" id="theform">
+            <fieldset>
+                <legend>Personal Information:</legend>
+                <div>
+                    <label for="txtfield">
+                        Tell us a little about yourself:
+                    </label>
+                    <div>
+                        <textarea name="txtfield" id="txtfield" cols="50" rows="10" maxlength="100"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <label for="thefile">Upload your resume:
+                        <input type="file" name="thefile" id="thefile">
+                    </label>
+                </div>
+            </fieldset>
+            <button id="btnsubmit">Submit</button>
+            <button id="btnreset">Reset</button>
+        </form>
+    </body>
+</html>

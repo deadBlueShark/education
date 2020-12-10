@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Key Event Filtering</title>
+        <link rel="stylesheet" href="../styles_finished.css">
+    </head>
+    <script>
+        window.addEventListener("load", e => {
+            let quantfield = document.getElementById("quantity");
+            let quotefield = document.getElementById("quote");
+
+            updateamount(quantfield.valueAsNumber * parseFloat(quotefield.textContent));
+
+            quantfield.addEventListener("input", e => {
+                updateamount(quantfield.valueAsNumber * parseFloat(quotefield.textContent));
+            });
+
+            // Filter the allowable keys 
+            // document.getElementById("confmail").addEventListener("keydown", blockspace);
+            // document.getElementById("quantity").addEventListener("keydown", filterchars);
+
+            // Use the custom filter class
+            filter = new FormKeyFilter();
+            document.getElementById("ticker").addEventListener("keydown", filter)
+            document.getElementById("confmail").addEventListener("keydown", filter);
+            document.getElementById("quantity").addEventListener("keydown", filter);
+            document.getElementById("zip").addEventListener("keydown", filter);
+        });
+
+        function updateamount(val) {
+            let amtfield = document.getElementById("amount");
+
+            total = val.toLocaleString(navigator.language, { style: "currency", currency: "USD" });
+            // display the total in the output 
+            amtfield.value = total;
+        }
+
+        // TODO: prevent spaces from being typed in the email field
+        function blockspace(evt) {
+            if (evt.key == " ") {
+                evt.preventDefault();
+            }
+        }
+
+        // TODO: Only allow numbers in the quantity field
+        function filterchars(evt) {
+            let key = evt.key;
+            if ((key >= "0" && key <= "9") ||
+                (key == "ArrowLeft" || key == "ArrowRight" || key == "Tab" ||
+                    key == "ArrowUp" || key == "ArrowDown" || key == "Backspace")) {
+                return;
+            }
+            evt.preventDefault();
+        }
+
+        // TODO: create a custom class that can be parameterized via data attributes
+        // on the form element that we want to apply filtering to
+        class FormKeyFilter {
+            handleEvent(evt) {
+                let elem = evt.srcElement;
+                let key = evt.key;
+
+                // Allow navigation keys to pass
+                if (key == "ArrowLeft" || key == "ArrowRight" || key == "Tab" ||
+                    key == "ArrowUp" || key == "ArrowDown" || key == "Backspace" ||
+                    key == "End" || key == "PageUp" || key == "PageDown" || key == "Home")
+                    return;
+
+                // If a modifier key is held down then don't perform the check
+                if (!evt.ctrlKey && !evt.metaKey && !evt.altKey) {
+                    if (elem.hasAttribute("data-allow")) {
+                        let allowregex = elem.getAttribute("data-allow")
+                        let testexpr = new RegExp(allowregex, "g");
+                        if (testexpr.test(key))
+                            return;
+
+                        evt.preventDefault();
+                    }
+
+                    if (elem.hasAttribute("data-block")) {
+                        let blockregex = elem.getAttribute("data-block")
+                        let testexpr = new RegExp(blockregex, "g");
+                        if (testexpr.test(key))
+                            evt.preventDefault();
+                    }
+                }
+            }
+        }
+    </script>
+    <body>
+        <h1>Key event filtering</h1>
+        <p>Forms can intercept key presses and prevent invalid data from being entered or modify the data that's being
+            entered.</p>
+        <form action="" autocomplete="off" id="theform">
+            <fieldset>
+                <legend>Purchase a stock: </legend>
+                <div>
+                    <label for="ticker">
+                        Stock symbol:
+                        <input type="text" name="ticker" id="ticker" placeholder="CSCO" required minlength="1"
+                            maxlength="5" pattern="^[a-zA-Z]{1,5}$" data-allow="[A-Z]|[a-z]"
+                            title="Enter 1 to 5 upper or lower case letters">
+                    </label>
+                    Quote: <span id="quote">50.00</span>
+                </div>
+                <div>
+                    <label for="quantity">Quantity:
+                        <input type="number" name="quantity" id="quantity" value="1" min="1" max="25"
+                            data-allow="[0-9]">
+                    </label>
+                </div>
+                <div>
+                    Transaction amount: <output for="quantity quote" id="amount"></output>
+                </div>
+                <div>
+                    <label for="confmail">Send a confirmation email to:
+                        <input type="email" name="confmail" id="confmail" required placeholder="you@email.com"
+                            data-block="\s">
+                    </label>
+                </div>
+                <div>
+                    <label for="zip">Zip Code:
+                        <input type="text" name="zip" id="zip" placeholder="12345-6789" pattern="^\d{5}(?:-\d{4})?$"
+                            data-allow="[0-9]|\-" title="5 digits with optional 4-digit extension">
+                    </label>
+                </div>
+            </fieldset>
+            <button id="btnsubmit">Submit</button>
+            <button id="btnreset">Reset</button>
+        </form>
+    </body>
+</html>

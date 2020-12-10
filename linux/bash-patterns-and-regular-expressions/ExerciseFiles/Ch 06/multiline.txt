@@ -1,0 +1,8 @@
+Text that we don't care about.
+{ Grep ERE matches this! }
+{
+Grep ERE's can't
+match this.
+}
+# A comment 
+

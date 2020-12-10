@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Form Validation Challenge</title>
+        <link rel="stylesheet" href="../styles_finished.css">
+        <style>
+            .warning {
+                background-color: cornsilk;
+            }
+
+            .limit {
+                background-color: mistyrose;
+            }
+        </style>
+    </head>
+    <!-- PUT YOUR SCRIPT HERE -->
+    <script>
+    </script>
+    <body>
+        <h1>Form validation challenge</h1>
+        <form action="" autocomplete="off" id="theform">
+            <fieldset>
+                <legend>Personal Information:</legend>
+                <div>
+                    <label for="txtfield">
+                        Tell us a little about yourself:
+                    </label>
+                    <div>
+                        <textarea name="txtfield" id="txtfield" cols="50" rows="10" maxlength="100"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <label for="thefile">Upload your resume:
+                        <input type="file" name="thefile" id="thefile">
+                    </label>
+                </div>
+            </fieldset>
+            <button id="btnsubmit">Submit</button>
+            <button id="btnreset">Reset</button>
+        </form>
+    </body>
+</html>

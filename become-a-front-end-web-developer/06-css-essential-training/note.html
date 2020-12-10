@@ -134,8 +134,8 @@ absolute is relative to its nearest positioned container
 Positioned elements are at the top of the stack
 
 10) Layout: Flexbox and Grid
-Flexbox: 
-- items are aligned on a single axis (one-dimensional, only deals with 
+Flexbox:
+- items are aligned on a single axis (one-dimensional, only deals with
 one dimensional at a time)
 - Great for space distribution in the same axis
 
@@ -151,3 +151,35 @@ Ex:
   <div>Flex item</div>
   <div>Flex item</div>
 </div>
+
+Grid terminologies: grid track -> columns, rows, grid cells, grid lines
+
+11) Advanced selectors
+
+Descendant selector: section p {}
+Child combinator: section > p {}
+Sibling combinator: (same level)
+  h1 + p {}  -> next element with same parent (directly after the selector on the left)
+  h1 ~ p {}  -> Any element after the selector on the left
+
+12) Fluid layout:
+max-width, max
+
+13) Media queries:
+
+@media screen and (max-width: 1000px) {
+  h1 {
+    font-size: 13px;
+  }
+}
+Breakdown:
+@media: media rule
+screen: media type
+(max-width: 1000px): media feature
+
+Media type is the broad category of devices that display web documents. There
+are currently four types:
+  + all: matches to all devices (this is default media type)
+  + print: matches to printers and print-related displays
+  + speech: matches to screen reading devices that read out a page
+  + screen: matches to all devices that aren't categorized as print or speech

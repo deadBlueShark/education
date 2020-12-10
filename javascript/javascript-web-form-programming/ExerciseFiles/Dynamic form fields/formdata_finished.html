@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <head>
+        <title>The FormData Object</title>
+        <link rel="stylesheet" href="../styles_finished.css">
+    </head>
+    <script>
+        function buildformdata() {
+            let theform = document.getElementById("theform");
+
+            // TODO: Create a FormData object directly from the form element
+            // This will populate it with existing form elements
+            let data = new FormData(theform);
+            logFormEntries(data);
+
+            // TODO: Build a FormData object programmatically
+            let fd2 = new FormData();
+            fd2.append("email", document.getElementById("data1").value);
+            fd2.append("shoesize", document.getElementById("data2").value);
+            fd2.append("file", document.getElementById("data3").files[0]);
+            fd2.append("hidden", document.getElementById("hiddenvalue").value);
+            logFormEntries(fd2);
+        }
+
+        window.addEventListener("load", e => {
+            document.getElementById("theform").addEventListener("submit", e => {
+                buildformdata();
+                e.preventDefault();
+            });
+        })
+
+        function logFormEntries(data) {
+            for (let pair of data.entries()) {
+                console.log(`"${pair[0]}" , "${pair[1]}"`);
+            }
+        }
+    </script>
+    <body>
+        <h1>Using <code>FormData</code> to represent a form</h1>
+        <p>The FormData object provides an easy way to programmatically represent
+            the contents of a form and submit the form to a server.</p>
+
+        <form action="" autocomplete="off" id="theform">
+            <fieldset>
+                <legend>Enter some form data:</legend>
+                <div>
+                    <label for="data1">Email:
+                        <input type="email" name="data1" id="data1">
+                    </label>
+                    <label for="data2">Shoe size:
+                        <input type="number" name="data2" id="data2">
+                    </label>
+                </div>
+                <div>
+                    <label for="data3">Select file:
+                        <input type="file" name="data3" id="data3">
+                    </label>
+                    <input type="hidden" name="hiddenvalue" id="hiddenvalue" value="ABCDEFG">
+                </div>
+            </fieldset>
+            <button id="btnsubmit">Submit</button>
+            <button id="btnreset">Reset</button>
+        </form>
+    </body>
+</html>

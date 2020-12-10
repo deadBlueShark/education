@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Using the datalist element</title>
+        <link rel="stylesheet" href="../styles_finished.css">
+    </head>
+    <body>
+        <h1>Using the <code>&lt;datalist&gt;</code> element</h1>
+        <p>The &lt;datalist&gt; element provides an easy way of implementing auto-complete on form elements.
+        </p>
+        <p>It works with text, search, url, tel, email, date, month, week, time, datetime-local, number, range, and
+            color
+            elements.</p>
+        <form action="" autocomplete="off">
+            <datalist id="textdata">
+                <option value="Joe"></option>
+                <option value="John"></option>
+                <option value="Jane"></option>
+                <option value="Jim"></option>
+            </datalist>
+            <datalist id="urldata">
+                <option value="http://caniuse.com"></option>
+                <option value="http://www.google.com"></option>
+                <option value="http://www.yahoo.com"></option>
+                <option value="http://www.youtube.com"></option>
+            </datalist>
+            <datalist id="datedata">
+                <option value="1968-12-22"></option>
+                <option value="1980-07-28"></option>
+                <option value="2003-10-04"></option>
+                <option value="2005-08-11"></option>
+            </datalist>
+            <datalist id="numberdata">
+                <option value="10"></option>
+                <option value="50"></option>
+                <option value="100"></option>
+                <option value="200"></option>
+                <option value="500"></option>
+            </datalist>
+            <datalist id="colordata">
+                <option value="#ff0000"></option>
+                <option value="#00ff00"></option>
+                <option value="#0000ff"></option>
+            </datalist>
+            <fieldset>
+                <legend>Datalist demonstration elements:</legend>
+                <div>
+                    <label for="field1">Text Example:
+                        <input type="text" id="field1" list="textdata">
+                    </label>
+                </div>
+                <div>
+                    <label for="field3">URL Example:
+                        <input type="url" id="field3" list="urldata">
+                    </label>
+                </div>
+                <div>
+                    <label for="field4">Color Example:
+                        <input type="color" id="field4" list="colordata">
+                    </label>
+                </div>
+                <div>
+                    <label for="field5">Range Example:
+                        <input type="range" id="field5" min="0" max="500" list="numberdata">
+                    </label>
+                </div>
+                <div>
+                    <label for="field7">Date Example:
+                        <input type="date" id="field7" list="datedata">
+                    </label>
+                </div>
+            </fieldset>
+            <button id="btnsubmit">Submit</button>
+            <button id="btnreset">Reset</button>
+        </form>
+    </body>
+</html>

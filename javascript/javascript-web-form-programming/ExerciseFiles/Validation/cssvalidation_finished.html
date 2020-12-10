@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Using CSS with Form Validation</title>
+        <link rel="stylesheet" href="../styles_finished.css">
+        <style>
+            label.required:after {
+                content: "❉";
+                font-size: .8em;
+                text-align: baseline;
+                margin-left: .2em
+            }
+
+            input:required {
+                border-left: .3em solid blue;
+            }
+
+            input.dirty:not(:focus):valid {
+                background-color: #cfc;
+            }
+
+            input.dirty:not(:focus):invalid {
+                background-color: #fcc;
+            }
+
+            input.dirty:not(:focus):out-of-range {
+                border: 2px dashed #f00;
+            }
+
+            input.dirty:not(:focus):in-range {
+                border: 2px dashed #0f0;
+            }
+        </style>
+        <script>
+            window.addEventListener("load", e => {
+                let quantfield = document.getElementById("quantity");
+                let quotefield = document.getElementById("quote");
+
+                updateamount(quantfield.valueAsNumber * parseFloat(quotefield.textContent));
+
+                quantfield.addEventListener("input", e => {
+                    updateamount(quantfield.valueAsNumber * parseFloat(quotefield.textContent));
+                });
+
+                decorateRequiredLabels();
+                addDirtyListeners();
+            });
+
+            function updateamount(val) {
+                let amtfield = document.getElementById("amount");
+                total = val.toLocaleString(navigator.language, { style: "currency", currency: "USD" });
+                // display the total in the output 
+                amtfield.value = total;
+            }
+
+            function decorateRequiredLabels() {
+                let labels = document.getElementsByTagName("label");
+                for (let label of labels) {
+                    let labelfor = label.getAttribute("for");
+                    if (labelfor) {
+                        let field = document.getElementById(labelfor);
+                        if (field) {
+                            if (field.hasAttribute("required")) {
+                                label.classList.add("required")
+                            }
+                        }
+                    }
+                }
+            }
+            function addDirtyListeners() {
+                theform = document.getElementById("theform");
+                let inputs = theform.getElementsByTagName("input");
+                for (var i = 0; i < inputs.length; i++) {
+                    var input = inputs[i];
+                    input.addEventListener("input", dirtyInput);
+                    input.addEventListener("blur", dirtyInput);
+                }
+            }
+
+            function dirtyInput(evt) {
+                elem = evt.srcElement;
+                if (elem.nodeName = "INPUT") {
+                    elem.classList.add("dirty")
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Using CSS with form field validation</h1>
+        <p>CSS can be used to help highlight and indicate form fields that are valid and invalid</p>
+        <form action="" autocomplete="off" id="theform">
+            <fieldset>
+                <legend>Purchase a stock: </legend>
+                <div>
+                    <label for="ticker">
+                        Stock symbol:
+                        <input type="text" name="ticker" id="ticker" placeholder="CSCO" size="6" required minlength="1"
+                            maxlength="5" pattern="^[a-zA-Z]{1,5}$" title="Enter 1 to 5 upper or lower case letters">
+                    </label>
+                    Quote: <span id="quote">50.00</span>
+                </div>
+                <div>
+                    <label for="quantity">Quantity:
+                        <input type="number" name="quantity" id="quantity" value="1" required min="1" max="25">
+                    </label>
+                </div>
+                <div>
+                    Transaction amount: <output for="quantity quote" id="amount"></output>
+                </div>
+                <div>
+                    <label for="confmail">Send a confirmation email to:
+                        <input type="email" name="confmail" id="confmail" required placeholder="you@email.com">
+                    </label>
+                </div>
+                <div>
+                    <label for="zip">Zip Code:
+                        <input type="text" name="zip" id="zip" pattern="^\d{5}(?:-\d{4})?$" placeholder="12345-6789"
+                            title="5 digits with optional 4-digit extension">
+                    </label>
+                </div>
+            </fieldset>
+            <button id="btnsubmit">Submit</button>
+            <button id="btnreset">Reset</button>
+        </form>
+    </body>
+</html>

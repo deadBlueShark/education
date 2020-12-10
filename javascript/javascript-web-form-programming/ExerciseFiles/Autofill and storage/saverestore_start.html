@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Saving and restoring form content</title>
+        <link rel="stylesheet" href="../styles_finished.css">
+        <script src="localforage.min.js"></script>
+        <script>
+            // Called when the user executes a "search" from our search form
+            // It saves the current fields to the IndexedDB for later use
+            function savecurrentsearch() {
+                let searchval = document.getElementById("searchparam").value;
+                let includeimg = document.getElementById("imgs").checked;
+
+                // TODO: save the form data in the IndexedDB
+
+
+                // TODO: make a new key for the saved data
+
+            }
+
+            // Called when the user selects a previous search from the drop-menu
+            // Gets the data corresponding to the saved search and updates the form fields
+            // (or clears them if the user chooses the very first item)
+            function selectsavedsearch(evt) {
+                // TODO: when a saved search is selected, populate the controls
+
+
+            }
+
+            // add the default "choose a previous search" item and build the drop-menu
+            // of previous searches based on what's in the IndexedDB
+            function populateprevlist() {
+                // Clear the existing menu contents
+                let elem = document.getElementById("savedsearch");
+                elem.innerHTML = "";
+
+                // Create the default header option
+                let opt = document.createElement("OPTION");
+                opt.setAttribute("selected", "selected");
+                opt.appendChild(document.createTextNode("-- Please choose a previous search --"));
+                elem.appendChild(opt);
+
+                // TODO: Add the saved searches from our database
+
+            }
+
+            // When the saved search data is changed, regenerate the drop-menu
+            // that shows the saved searches and either display it or hide it
+            // if there are no saved searches to execute
+            function updatesavedsearchlist() {
+                localforage.length().then(num => {
+                    populateprevlist();
+                    showorhideprevlist(num > 0);
+                });
+            }
+
+            // Display or hide the previous searches drop-menu
+            function showorhideprevlist(show) {
+                elem = document.getElementById("previoussearch");
+                elem.style.display = show ? "block" : "none";
+            }
+
+            // Utility function to send the fake search content to the console
+            function logsearch() {
+                let searchval = document.getElementById("searchparam").value;
+                let includeimg = document.getElementById("imgs").checked;
+                console.log(`Search on '${searchval}', include images: ${includeimg}`);
+            }
+
+            // Initialization code
+            window.addEventListener("load", function (e) {
+                updatesavedsearchlist();
+
+                document.getElementById("btnsubmit").addEventListener("click", evt => {
+                    // Log the search to the console
+                    logsearch();
+
+                    // save the current search term in our DB
+                    savecurrentsearch();
+
+                    evt.preventDefault();
+                });
+
+                document.getElementById("btnclear").addEventListener("click", evt => {
+                    // Clear all of the saved searches from the database
+                    localforage.clear().then(function () {
+                        console.log("Data cleared");
+                        updatesavedsearchlist();
+                    }).catch(function (err) {
+                        console.log(err);
+                    });
+
+                    evt.preventDefault();
+                });
+
+                document.getElementById("btnsavedsearch").addEventListener("click", evt => {
+                    // Log the search to the console
+                    logsearch();
+                    evt.preventDefault();
+                });
+
+                document.getElementById("savedsearch").addEventListener("change", selectsavedsearch);
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Saving and restoring form content</h1>
+        <p></p>
+        <form action="" id="myform">
+            <fieldset>
+                <legend>Enter search parameters:</legend>
+                <div id="previoussearch">
+                    <label for="savedsearch">Use a previous search: </label>
+                    <!-- This menu is generated based on the local DB content -->
+                    <select id="savedsearch">
+                        <option value="header" selected>-- Please choose a previous search --</option>
+                    </select>
+                    <button id="btnsavedsearch">Saved Search</button>
+                </div>
+                <div>
+                    <label for="searchparam">Search for:
+                        <input size="40" type="search" name="searchparam" id="searchparam" list="prevterms">
+                    </label>
+                </div>
+                <div>
+                    <label for="imgs">
+                        <input type="checkbox" name="imgs" id="imgs"> Include images
+                    </label>
+                </div>
+            </fieldset>
+        </form>
+        <button id="btnsubmit">Search</button>
+        <button id="btnclear">Clear Searches</button>
+    </body>
+</html>

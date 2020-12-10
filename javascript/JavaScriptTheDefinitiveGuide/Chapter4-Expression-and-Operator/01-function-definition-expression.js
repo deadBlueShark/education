@@ -1,3 +1,4 @@
+// Function expression
 var sum = function(a, b) {
   return a + b;
 }
@@ -5,6 +6,7 @@ console.log(sum(4, 5))
 
 
 // The other way is function declaration statement.
+// Function statement
 function hello() {
   console.log('hello')
 }

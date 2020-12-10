@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Form Validation with JavaScript</title>
+        <link rel="stylesheet" href="../styles_finished.css">
+    </head>
+    <script>
+        window.addEventListener("load", e => {
+            // Get references to the form elements
+            let quantfield = document.getElementById("quantity");
+            let quotefield = document.getElementById("quote");
+            let theform = document.getElementById("theform");
+            let btnsubmit = document.getElementById("btnsubmit");
+            let btnreset = document.getElementById("btnreset");
+
+            // Define custom validation messages for each form element
+            let validitychecks = {
+                "ticker": "This field should be a ticker symbol of 1 to 5 alphabetic characters",
+                "zip": "This field must be a valid US ZIP Code",
+                "confmail": "This field must be a valid email address"
+            };
+
+            updateamount(quantfield.valueAsNumber * parseFloat(quotefield.textContent));
+
+            quantfield.addEventListener("input", e => {
+                updateamount(quantfield.valueAsNumber * parseFloat(quotefield.textContent));
+            });
+
+            btnreset.addEventListener("click", evt => {
+                theform.reset();
+                evt.preventDefault();
+            })
+
+            // TODO: Given a form field, run a custom check to see if the content is valid
+            // and set the custom message if it is not
+            function checkFieldValid(field) {
+                // remove any old custom error message that was there before
+                field.setCustomValidity("");
+
+                let isvalid = field.checkValidity();
+
+                if (!isvalid)
+                    field.setCustomValidity(validitychecks[field.id]);
+            }
+
+            // Check the validity of each form element
+            function runFieldChecks() {
+                ["ticker", "confmail", "zip"].forEach(elem => {
+                    let field = document.getElementById(elem);
+                    checkFieldValid(field);
+                });
+            }
+
+            // Check all the fields in the form when the user clicks Submit
+            btnsubmit.addEventListener("click", evt => {
+                if (theform.checkValidity() === false) {
+                    runFieldChecks();
+                }
+            });
+
+            // TODO: set up change listeners to validate each element 
+            // when the value changes
+            ["ticker", "confmail", "zip"].forEach(elem => {
+                document.getElementById(elem).addEventListener("change", evt => {
+                    checkFieldValid(evt.srcElement);
+                });
+            });
+        });
+
+        function updateamount(val) {
+            let amtfield = document.getElementById("amount");
+            total = val.toLocaleString(navigator.language, { style: "currency", currency: "USD" });
+            // display the total in the output 
+            amtfield.value = total;
+        }
+    </script>
+
+    <body>
+        <h1>Using JavaScript for form field validation</h1>
+        <p>The entire form validation sequence can be handled using Javascript.</p>
+        <p>It's also possible to define custom error messages and filter field input.</p>
+        <form action="" autocomplete="off" id="theform">
+            <fieldset>
+                <legend>Purchase a stock: </legend>
+                <div>
+                    <label for="ticker">
+                        Stock symbol:
+                        <input type="text" name="ticker" id="ticker" placeholder="CSCO" size="6" required minlength="1"
+                            maxlength="5" pattern="^[a-zA-Z]{1,5}$" title="Enter 1 to 5 upper or lower case letters">
+                    </label>
+                    Quote: <span id="quote">50.00</span>
+                </div>
+                <div>
+                    <label for="quantity">Quantity:
+                        <input type="number" name="quantity" id="quantity" value="1" required min="1" max="25">
+                    </label>
+                </div>
+                <div>
+                    Transaction amount: <output for="quantity quote" id="amount"></output>
+                </div>
+                <div>
+                    <label for="confmail">Send a confirmation email to:
+                        <input type="email" name="confmail" id="confmail" required placeholder="you@email.com">
+                    </label>
+                </div>
+                <div>
+                    <label for="zip">Zip Code:
+                        <input type="text" name="zip" id="zip" pattern="^\d{5}(?:-\d{4})?$" placeholder="12345-6789"
+                            title="5 digits with optional 4-digit extension">
+                    </label>
+                </div>
+            </fieldset>
+            <button id="btnsubmit">Submit</button>
+            <button id="btnreset">Reset</button>
+        </form>
+    </body>
+</html>
