@@ -1,0 +1,22 @@
+{
+  "name": "03-javascript-test-driven-development-es6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01-tdd-basics.js",
+  "scripts": {
+    "test": "npx mocha \"source/**/*.test.js\" --recursive --require @babel/register"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/register": "^7.12.10",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20"
+  }
+}

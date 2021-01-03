@@ -1,0 +1,2 @@
+- Config transpliler Babel and polyfills
+- Always use strict mode
