@@ -1,0 +1,1 @@
+When a table has a clustered index, its rows are actually stored in the index’s leaf pages
