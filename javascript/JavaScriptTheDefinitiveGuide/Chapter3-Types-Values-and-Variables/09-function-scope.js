@@ -14,4 +14,4 @@ function test() {
   console.log('b = ', b);
 }
 
-test()
+test();

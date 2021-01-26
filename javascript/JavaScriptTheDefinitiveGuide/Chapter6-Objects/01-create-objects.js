@@ -9,9 +9,10 @@ console.log(new Object()) // {}
 console.log(new RegExp()) //
 
 
-// prototype
-// Every JavaScript object has a second JavaScript object (or null, but this is rare) associated with it. This second
-// object is known as a prototype, and the first object inherits properties from the prototype.
+// Prototype
+// Every JavaScript object has a second JavaScript object (or null, but this is rare) 
+// associated with it. This second object is known as a prototype, and the first object 
+// inherits properties from the prototype.
 
 // Object.create(), that creates a new object, using its first argument as the PROTOTYPE of that object.
 // Object.create() also takes an optional second argument that describes the properties of the new object
