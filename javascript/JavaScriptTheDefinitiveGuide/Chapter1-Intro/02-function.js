@@ -19,7 +19,7 @@ console.log(a);
 a.reverse();
 console.log(a);
 
-// We can define our own methods. The "this" keyworld refers to the object on which 
+// We can define our own methods. The "this" keyword refers to the object on which 
 // the method is defined
 var points = [
   {x: 0, y: 0},
