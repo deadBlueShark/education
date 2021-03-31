@@ -1,0 +1,1 @@
+- Do not use comments, use expressive variable, function names instead

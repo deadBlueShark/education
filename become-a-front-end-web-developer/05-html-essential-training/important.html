@@ -1,19 +1,90 @@
-<figure>
-  <img src="" alt="">
-  <figcaption></figcaption>
-</figure>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>FIGURE TAG</h2>
+  <figure>
+    <img src="" alt="">
+    <figcaption></figcaption>
+  </figure>
+  
+  <h2>PICTURE, AUDIO</h2>
+  <picture>
+    <source media="" srcset="">
+    <source media="" srcset="">
+    <img src="" alt="">
+  </picture>
+  
+  <audio src="" autoplay="" loop="" controls=""></audio>
+  Make fallback for file support in old browser
+  <audio>
+    <source>
+    <source>
+  </audio>
+  
+  <h2>FORMATTING TEXT</h2>
+  
+  <i>visual-only italics</i><br>
+  <em>Emphasis italics (semantic meaning)</em><br>
+  <strong>Importance, seriousness, urgency</strong><br>
+  <b>Visual-only bold</b><br>
+  
+  <b>ARIA rules:</b>
+  <p>
+    Accessible Rich Internet Applications (ARIA) is a set of attributes that 
+    define ways to make web content and web applications (especially those 
+    developed with JavaScript) more accessible to people with disabilities.
+  </p>
+  
+  <h2>LIST</h2>
+   
+  <b>Three kinds of lists:</b>
+  <ul>
+    <li>Unordered lists</li>
+    <li>Ordered lists</li>
+    <li>Definition lists</li>
+  </ul>
 
-<picture>
-  <source media="" srcset="">
-  <source media="" srcset="">
-  <img src="" alt="">
-</picture>
+  <dl>
+    <dt>Term 1</dt>
+      <dd>Definition 1</dd>
+      <dd>Definition 2</dd>
+    <dt>Term 2</dt>
+      <dd>Definition 1</dd>
+      <dd>Definition 2</dd>
+  </dl>
 
-<audio src="" autoplay="" loop="" controls=""></audio>
+<h2>USE MathML for complex Math equations</h2>
+<math xmlns = "http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <msup><mi>a</mi><mn>2</mn></msup>
+    <mo>+</mo>
+    <msup><mi>b</mi><mn>2</mn></msup>
+    <mo> = </mo>
+    <msup><mi>c</mi><mn>2</mn></msup>
+  </mrow>
+</math>
 
-Make fallback for file support in old browser
+<h2>HTML file</h2>
+<p>
+  The first file that's returned in response to a request for a webpage, it functions 
+  as the headquarters for everything else that happens after the first moment of the 
+  site loading.
+</p>
+<p>
+  When the browser gets that file, it immediately starts reading it from top to bottom
+  and starts to do what it says. At the top, there's a list of other files. The browser
+  immediately requests them and once it has those files, it starts to do the things that
+  those files tell it to do.
+</p>
 
-<audio>
-  <source>
-  <source>
-</audio>
+<h2>HTML5</h2>
+<p>main, header, footer, article, section, aside</p>
+
+  
+</body>
+</html>
