@@ -72,3 +72,5 @@ ruby-rails/manual-token-authen/yarn-error.log
 ruby-rails/manual-token-authen/public/assets
 ruby-rails/manual-token-authen/.byebug_history
 ruby-rails/manual-token-authen/config/master.key
+
+tmp/
