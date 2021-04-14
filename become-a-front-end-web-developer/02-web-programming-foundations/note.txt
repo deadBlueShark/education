@@ -1,3 +1,0 @@
-The browser is an advanced user of the web documents
-The web is still HTML, but how that HTML is created is changing
-(hardcode by human, human and server-side app, human and JS-SPA)
