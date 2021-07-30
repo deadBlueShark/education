@@ -1,0 +1,130 @@
+ body {
+  font-family: Tahoma;
+  color: #282828;
+  margin: 0px;
+}
+
+.nav-bar {
+  background: linear-gradient(-90deg, #84CF6A, #16C0B0);
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.product {
+  display: flex;
+  flex-flow: wrap;
+  padding: 1rem;
+}
+
+img {
+  border: 1px solid #d8d8d8;
+  width: 70%;
+  box-shadow: 0px .5px 1px #d8d8d8;
+}
+
+.variants {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-image {
+  width: 80%;
+}
+
+.product-image,
+.product-info {
+  margin-top: 10px;
+  width: 50%;
+}
+
+.variant-box {
+  width: 40px;
+  height: 40px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+.cart {
+  margin-right: 25px;
+  float: right;
+  border: 1px solid #d8d8d8;
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+button:not(button.tablinks) {
+  margin-top: 30px;
+  border: none;
+  background-color: #1E95EA;
+  color: white;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.disabledButton {
+  background-color: #d8d8d8;
+}
+
+.review-form {
+  width: 400px;
+}
+
+input:not([type=radio]) {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: 100%;
+  height: 60px;
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.out-of-stock {
+  text-decoration: line-through;
+}
+
+.review-box {
+  padding: 1rem;
+}
+
+.error-list li {
+  color: red;
+}
