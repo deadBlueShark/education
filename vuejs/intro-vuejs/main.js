@@ -1,3 +1,5 @@
+var globalEventBus = new Vue();
+
 Vue.component('product', {
   props: {
     premium: {
@@ -62,10 +64,7 @@ Vue.component('product', {
     },
     selectVariant: function(index) {
       this.selectedVariantIndex = index;
-    },
-    // addReview(review) {
-    //   this.reviews.push(review);
-    // }
+    }
   },
   computed: {
     title: function() {
@@ -80,6 +79,11 @@ Vue.component('product', {
     shipping: function() {
       return this.premium ? 'Free' : 2.99;
     }
+  },
+  mounted() {
+    globalEventBus.$on('submit-review', review => {
+      this.reviews.push(review);
+    });
   }
 });
 
@@ -142,7 +146,7 @@ Vue.component('product-review', {
           review: this.review,
           rating: this.rating
         };
-        this.$emit('submit-review', review);
+        globalEventBus.$emit('submit-review', review);
         // Reset form
         this.name = null;
         this.review = null;
@@ -173,7 +177,7 @@ Vue.component('review-tabs', {
       </div>
 
       <div class="tabcontent" v-show="selectedTabIndex == 0">
-        <product-review @submit-review="addReview"></product-review>
+        <product-review></product-review>
       </div>
       
       <div class="tabcontent" v-show="selectedTabIndex == 1">
@@ -196,9 +200,6 @@ Vue.component('review-tabs', {
   methods: {
     tabActive(currentIndex) {
       return this.selectedTabIndex === currentIndex;
-    },
-    addReview(review) {
-      this.reviews.push(review);
     }
   }
 });
