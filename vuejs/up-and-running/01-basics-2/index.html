@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Up and Running - Basics</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p v-if="isMorning">Good morning!</p>
+      <p v-else-if="isAfternoon">Good afternoon!</p>
+      <p v-else>Good evening!</p>
+
+      <p>{{greetingText}}</p>
+      <p>Hello, {{greetee}}!</p>
+
+      <p v-if="path === '/'">You're on homepage.</p>
+      <p v-else>You're on <b>{{path}}.</b></p>
+
+      <p>Dog 1: {{dogs[0]}}</p>
+      <p>Dogs: {{dogs}}</p>
+      <p>Each dog: 
+        <span v-for="(dog, index) in dogs" :key="index">{{dog}} </span>
+      </p>
+
+      <ul>
+        <li v-for="(cost, city) in averageRent"><b>{{city}}</b>: {{cost}}</li>
+      </ul>
+
+      <p><span v-for="n in 10">{{n}} </span></p>
+      <a :href="link.url" :target="link.targetType">Search</a>
+      <p>{{second}} seconds have elapsed since you opened the page.</p>
+      <p>2-way binding:</p>
+      <input type="text" v-model="name"><br>
+      <p v-show="name">Hello {{name}}!</p>
+      <p><b>Current status: </b>{{getStatusFormId(2)}}</p>
+      <p><b>Positive numbers in {{numbers}}:</b>
+        <span v-for="(number, index) in filterPositiveNumber(numbers)" :key="index">{{number}} </span>
+      </p>
+      <p><b>Sum: </b>{{sumPositiveNumbers(numbers)}}</p>
+      <p><span v-for="status in statuses">'{{status | reverseAndUpcase}}' </span></p>
+    </div>
+    <script>
+      let hour = new Date().getHours();
+
+      let app = new Vue({
+        el: '#app',
+        data: {
+          isMorning: hour < 12,
+          isAfternoon: hour >= 12 && hour < 18,
+          greetee: 'world',
+          path: location.pathname,
+          dogs: ['Rex', 'Rover', 'Alan'],
+          averageRent: {
+            london: 1630,
+            tokyo: 3232,
+            beijing: 2121
+          },
+          link: {
+            url: 'https://google.com',
+            targetType: '_blank'
+          },
+          second: 0,
+          name: '',
+          statuses: {
+            0: 'Sleep',
+            1: 'Eating',
+            2: 'Learning Vue'
+          },
+          numbers: [-5, 0, 2, -1, 1, 0.5],
+          count: 0
+        },
+        computed: {
+          greetingText() {
+            let time = this.isMorning ? 'morning' : this.isAfternoon ? 'afternoon' : 'evening';
+            return `Good ${time}!`;
+          }
+        },
+        // The 'create' function runs when the app is initiated
+        created() {
+          setInterval(() => {
+            this.second++;
+          }, 1000)
+        },
+        methods: {
+          getStatusFormId(id) {
+            const status = this.statuses[id];
+            return status || 'Unknown status: ' + id;
+          },
+          filterPositiveNumber(numbers) {
+            return numbers.filter((number) => number > 0);
+          },
+          sumPositiveNumbers(numbers) {
+            return this.filterPositiveNumber(numbers).reduce((sum, val) => sum + val);
+          }
+        },
+        watch: {
+          count() {
+            console.log('Count changed');
+          }
+        },
+        filters: {
+          reverseAndUpcase(text) {
+            return text.split('').reverse().join('').toUpperCase();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
