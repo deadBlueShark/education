@@ -212,7 +212,7 @@ var app = new Vue({
   },
   methods: {
     addProductToCart(id) {
-      this.cart.push(id)
+      this.cart.push(id);
     },
     removeProductFromCart(id) {
       let removedIndex = this.cart.indexOf(id);
