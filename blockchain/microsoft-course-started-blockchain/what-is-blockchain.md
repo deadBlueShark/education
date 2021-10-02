@@ -34,7 +34,8 @@ What if we had some trust of the participants in the blockchain network? The inf
 - Ethereum
 - Others
 
-
+### When to use Blockchain?
+Blockchain technology works best for certain scenarios. You shouldn't use it as a general purpose solution. In many cases, a centralized database is a better option. When considering using blockchain, ask yourself these questions about your scenario.
 
 
 
