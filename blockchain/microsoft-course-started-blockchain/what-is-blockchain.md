@@ -21,5 +21,20 @@ Ethereum DApps are called smart contracts. A smart contract contains logic that 
 Smart contracts are deployed to the blockchain and are referenced by an address.
 Just like data in the blockchain, a smart contract is immutable. Once deployed, the logic cannot be changed. Therefore, you can trust that smart contract logic always executes the same on all nodes. Any code changes require a new smart contract be deployed at a new address.
 
+### Blockchain types
+**1.Public**
+What if you wanted a network where you trusted no one? Anyone with Internet access can join your blockchain network. No onboarding is required and you don't have to ask an authority for permission.
+All transactions in the blockchain are visible by any node on the network.
+
+**2. Private**
+What if we had some trust of the participants in the blockchain network? The information stored in the blockchain would only be accessible to participants invited to the blockchain network. Private networks are semi-trusted networks. In a private network, there is an agreement between all participants about how they will leverage the blockchain.
+
+**3. Blockchain protocols**
+- Bitcoin
+- Ethereum
+- Others
+
+
+
 
 
