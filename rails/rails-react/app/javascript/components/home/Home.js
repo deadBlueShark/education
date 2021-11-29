@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Jumbotron from './Jumbotron'
+import Table from './table/Table'
 
 
 class Home extends Component {
@@ -7,7 +8,7 @@ class Home extends Component {
     super()
 
     this.state = {
-      course_modules: [
+      blogs: [
         {id: 1, title: 'Register Binance',
           description: "In this video I'll show you step-by-step how to create a binance account from scratch. We're also gonna go through the binance security setup and the binance account verification process together.", active: false},
         {id: 2, title: 'Buy BTC on Binance', description: '', active: false},
@@ -21,6 +22,7 @@ class Home extends Component {
     return (
       <div>
         <Jumbotron></Jumbotron>
+        <Table blogs={this.state.blogs}></Table>
       </div>
     )
   }
