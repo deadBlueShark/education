@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-const ENDPOINT = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=Flash Loan&format=json&origin=*'
+const ENDPOINT = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=hello&format=json&origin=*'
 
 class RandomSearch extends Component {
   state = {
@@ -13,16 +13,20 @@ class RandomSearch extends Component {
   componentDidMount() {
     fetch(ENDPOINT).then(res => res.json())
       .then(result => {
-        this.setState({data: result})
+        this.setState({data: result.flat().filter(item => item)})
       })
   }
 
   render() {
     const result = this.state.data.map((item, index) => {
-      return <li key={index}>{item}</li>
+      return <li key={index} className={`list-group-item ${index === 0 ? 'active' : ''}`}>{index === 0 ? `Search term: ${item}` : item}</li>
     })
 
-    return <ul>{result}</ul>
+    return (
+      <div className="mt-3">
+        <ul className="list-group">{result}</ul>
+      </div>
+    )
   }
 }
 
