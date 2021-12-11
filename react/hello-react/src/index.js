@@ -15,3 +15,15 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+
+/*
+Truyền data vào component: dùng props
+State chỉ sử dụng bên trong component, bên ngoài ko access đc
+State truyền vào child compoments, thành props của child components
+
+
+Class-based compopent
+Functional component: nhẹ hơn
+*/

@@ -19,7 +19,11 @@ class RandomSearch extends Component {
 
   render() {
     const result = this.state.data.map((item, index) => {
-      return <li key={index} className={`list-group-item ${index === 0 ? 'active' : ''}`}>{index === 0 ? `Search term: ${item}` : item}</li>
+      return (
+        <li key={index} className={`list-group-item ${index === 0 ? 'active' : ''}`}>
+          {index === 0 ? `Search term: ${item}` : item}
+        </li>
+      )
     })
 
     return (
