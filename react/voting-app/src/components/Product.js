@@ -1,8 +1,9 @@
 import React from 'react'
 
 class Product extends React.Component {
-  // Component can’t modify its props. props is immutable.
-
+  upVoteHandler = () => {
+    this.props.upVoteProduct(this.props.product.id)
+  }
 
   render() {
     const product = this.props.product
@@ -15,7 +16,7 @@ class Product extends React.Component {
 
         <div className="middle aligned content">
           <div>
-            <a><i className="large caret up icon" /></a>
+            <a onClick={this.upVoteHandler}><i className="large caret up icon" /></a>
             {product.votes}
           </div>
           <div className="description">
