@@ -1,12 +1,8 @@
 import 'semantic-ui-css/semantic.min.css'
-import './App.css';
+import TimersDashboard from './components/TimersDashboard'
 
 function App() {
-  return (
-    <div className="App">
-
-    </div>
-  );
+  return <TimersDashboard />
 }
 
 export default App;
