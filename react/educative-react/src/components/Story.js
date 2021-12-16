@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function Item({item, removeHandler}) {
+export default function Story({item, removeHandler}) {
   const handleClick = () => removeHandler(item.objectID)
 
   return (
-    <div key={item.objectID}>
+    <div>
      <span><a href={item.url} target="_blank" rel="noreferrer">{item.title}</a></span>
      <span>{item.author}</span>
      <span>{item.num_comments}</span>

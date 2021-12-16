@@ -1,5 +1,6 @@
 import React from 'react'
-import List from './components/List'
+import StoriesList from './components/StoriesList'
+import PeopleList from './components/PeopleList'
 import InputWithLabel from './components/InputWithLabel'
 import useSemiPersistentState from './custom_hooks/UseSemiPersistentState'
 
@@ -42,6 +43,29 @@ const getAsyncStories = () => {
   })
 }
 
+const initialPeople = [
+  {id: 1, name: 'Nguyen', age: 30},
+  {id: 2, name: 'David', age: 20},
+  {id: 3, name: 'Harvey', age: 49},
+]
+
+const fetchAsyncPeople = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({data: {people: initialPeople}})
+    }, 2000)
+  })
+}
+
+// useReducer HOOK
+const peopleReducer = (state, action) => {
+  if (action.type === 'SET_PEOPLE') {
+    return action.payload
+  } else {
+    throw new Error()
+  }
+}
+
 const App = () => {
   // Variables defined in the function’s body will be re-defined each time this
   // function runs, like all JavaScript functions
@@ -56,15 +80,17 @@ const App = () => {
 
   const [searchTerm, setSearchTerm] = useSemiPersistentState('term', 'React')
   const [stories, setStories] = React.useState([])
-  const [isLoading, setIsLoading] = React.useState(false)
-  const [isError, setIsError] = React.useState(false)
+  const [isLoadingStories, setIsLoadingStories] = React.useState(false)
+  const [isLoadingStoriesError, setIsLoadingStoriesError] = React.useState(false)
 
   React.useEffect(() => {
-    setIsLoading(true)
+    setIsLoadingStories(true)
+
     getAsyncStories().then(res => {
       setStories(res.data.stories)
-      setIsLoading(false)
-    }).catch(() => setIsError(true))
+
+      setIsLoadingStories(false)
+    }).catch(() => setIsLoadingStoriesError(true))
   }, [])
 
   const searchHandler = (value) => {
@@ -73,7 +99,7 @@ const App = () => {
     // localStorage.setItem('searchTerm', value)
   }
 
-  const removeHandler = (id) => {
+  const removeStoryHandler = (id) => {
     const newStories = stories.filter(story => story.objectID !== id)
     setStories(newStories)
   }
@@ -102,15 +128,46 @@ const App = () => {
       item.author.toLowerCase().includes(lowerTerm)
   })
 
+  // useReducer HOOK
+  /* useReducer hook receives a reducer function and an initial state as arguments
+  and returns an array with two items. The first item is the current state; the second
+  item is the state updater function (also called dispatch function) */
+  const [people, dispatchPeople] = React.useReducer(peopleReducer, []);
+  const [isLoadingPeople, setIsLoadingPeople] = React.useState(false)
+  const [isLoadingPeopleError, setIsLoadingPeopleError] = React.useState(false)
+
+  React.useEffect(() => {
+    setIsLoadingPeople(true)
+
+    fetchAsyncPeople().then(result => {
+      dispatchPeople({type: 'SET_PEOPLE', payload: result.data.people})
+
+      setIsLoadingPeople(false)
+    }).catch(() => setIsLoadingPeopleError(true))
+  }, [])
+
+  const removePersonHandler = (id) => {
+    const newPeopleList = people.filter(person => person.id !== id)
+    dispatchPeople({type: 'SET_PEOPLE', payload: newPeopleList})
+  }
+
   return (
     <div>
       <h1>My Hacker Stories</h1>
       <InputWithLabel onChangeHandler={searchHandler} value={searchTerm}
         id="search" value={searchTerm} isFocus><b>Search</b></InputWithLabel>
       <hr />
-      {isError ? "Something went wrong!"
-        : (isLoading ? 'Loading...' : <List list={searchedList} removeHandler={removeHandler}/>)
-      }
+      <div>
+        {isLoadingStoriesError ? "Something went wrong!"
+          : (isLoadingStories ? 'Loading...' : <StoriesList list={searchedList} removeHandler={removeStoryHandler}/>)
+        }
+      </div>
+
+      <div>
+        {isLoadingPeopleError ? "Something went wrong!"
+          : (isLoadingPeople ? 'Loading...' : <PeopleList list={people} removeHandler={removePersonHandler}/>)
+        }
+      </div>
     </div>
   );
 }
