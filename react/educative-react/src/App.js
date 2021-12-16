@@ -58,11 +58,19 @@ const fetchAsyncPeople = () => {
 }
 
 // useReducer HOOK
+// state: {data: [], isLoadingPeople, isLoadingPeopleError}
 const peopleReducer = (state, action) => {
-  if (action.type === 'SET_PEOPLE') {
-    return action.payload
-  } else {
-    throw new Error()
+  switch(action.type) {
+    case 'PEOPE_FETCH_INIT':
+      return {...state, isLoadingPeople: true, isLoadingPeopleError: false}
+    case 'PEOPLE_FETCH_SUCCESS':
+      return {...state, data: action.payload, isLoadingPeople: false, isLoadingPeopleError: false}
+    case 'PEOPLE_FETCH_FAILURE':
+      return {...state, isLoadingPeople: false, isLoadingPeopleError: true}
+    case 'PEOPLE_REMOVAL':
+      return {...state, data: state.data.filter(person => person.id !== action.payload.personId)}
+    default:
+      throw new Error()
   }
 }
 
@@ -132,23 +140,19 @@ const App = () => {
   /* useReducer hook receives a reducer function and an initial state as arguments
   and returns an array with two items. The first item is the current state; the second
   item is the state updater function (also called dispatch function) */
-  const [people, dispatchPeople] = React.useReducer(peopleReducer, []);
-  const [isLoadingPeople, setIsLoadingPeople] = React.useState(false)
-  const [isLoadingPeopleError, setIsLoadingPeopleError] = React.useState(false)
+  const [people, dispatchPeople] = React.useReducer(peopleReducer,
+    {data: [], isLoadingPeople: false, isLoadingPeopleError: false})
 
   React.useEffect(() => {
-    setIsLoadingPeople(true)
+    dispatchPeople({type: 'PEOPE_FETCH_INIT'})
 
     fetchAsyncPeople().then(result => {
-      dispatchPeople({type: 'SET_PEOPLE', payload: result.data.people})
-
-      setIsLoadingPeople(false)
-    }).catch(() => setIsLoadingPeopleError(true))
+      dispatchPeople({type: 'PEOPLE_FETCH_SUCCESS', payload: result.data.people})
+    }).catch(() => dispatchPeople({type: 'PEOPLE_FETCH_FAILURE'}))
   }, [])
 
   const removePersonHandler = (id) => {
-    const newPeopleList = people.filter(person => person.id !== id)
-    dispatchPeople({type: 'SET_PEOPLE', payload: newPeopleList})
+    dispatchPeople({type: 'PEOPLE_REMOVAL', payload: {personId: id}})
   }
 
   return (
@@ -164,8 +168,8 @@ const App = () => {
       </div>
 
       <div>
-        {isLoadingPeopleError ? "Something went wrong!"
-          : (isLoadingPeople ? 'Loading...' : <PeopleList list={people} removeHandler={removePersonHandler}/>)
+        {people.isLoadingPeopleError ? "Something went wrong!"
+          : (people.isLoadingPeople ? 'Loading...' : <PeopleList list={people.data} removeHandler={removePersonHandler}/>)
         }
       </div>
     </div>
