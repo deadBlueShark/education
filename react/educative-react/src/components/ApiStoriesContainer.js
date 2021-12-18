@@ -22,34 +22,37 @@ const storiesReducer = (state, action) => {
 const ApiStoriesContainer = () => {
   const [stories, dispatchStories] = React.useReducer(storiesReducer,
     {data: [], isLoading: false, isLoadingError: false})
+  const [searchTerm, setSearchTerm] = React.useState('')
 
   React.useEffect(() => {
+    if (!searchTerm) return;
+
     dispatchStories({type: 'STORIES_FETCH_INIT'})
 
-    const query = `${API_ENDPOINT}vuejs`
-    fetch(query)
+    fetch(`${API_ENDPOINT}${searchTerm}`)
       .then(response => response.json())
       .then(result => {
         dispatchStories({type: 'STORIES_FETCH_SUCCESS', payload: result.hits})
       })
       .catch(() => dispatchStories({type: 'STORIES_FETCH_FAILURE'}))
-  }, [])
+  }, [searchTerm])
 
   const removeStoryHandler = (id) => {
     dispatchStories({type: 'STORY_REMOVAL', payload: {objectID: id}})
   }
 
-  const [searchTerm, setSearchTerm] = React.useState('')
+
 
   const searchHandler = (term) => {
     setSearchTerm(term)
   }
 
-  const searchedList = stories.data.filter(item => {
-    const lowerTerm = searchTerm.toLowerCase()
-    return item.title.toLowerCase().includes(lowerTerm) ||
-      item.author.toLowerCase().includes(lowerTerm)
-  })
+  // Redundant because use search from API
+  // const searchedList = stories.data.filter(item => {
+  //   const lowerTerm = searchTerm.toLowerCase()
+  //   return item.title.toLowerCase().includes(lowerTerm) ||
+  //     item.author.toLowerCase().includes(lowerTerm)
+  // })
 
   return (
     <>
@@ -60,7 +63,7 @@ const ApiStoriesContainer = () => {
       {stories.isLoadingError && "Something went wrong!"}
       {stories.isLoading
         ? 'Loading...'
-        : <StoriesList list={searchedList} removeHandler={removeStoryHandler}/>
+        : <StoriesList list={stories.data} removeHandler={removeStoryHandler}/>
       }
     </>
   )
