@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import StoriesList from './StoriesList'
 import InputWithLabel from './InputWithLabel'
 
@@ -30,10 +31,9 @@ const ApiStoriesContainer = () => {
 
     dispatchStories({type: 'STORIES_FETCH_INIT'})
 
-    fetch(url)
-      .then(response => response.json())
+    axios.get(url)
       .then(result => {
-        dispatchStories({type: 'STORIES_FETCH_SUCCESS', payload: result.hits})
+        dispatchStories({type: 'STORIES_FETCH_SUCCESS', payload: result.data.hits})
       })
       .catch(() => dispatchStories({type: 'STORIES_FETCH_FAILURE'}))
   }, [url])
