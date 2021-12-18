@@ -1,7 +1,7 @@
 import React from 'react'
 import Story from './Story'
 
-const StoriesList = ({list, removeHandler}) => {
+const StoriesList = React.memo(({list, removeHandler}) => {
   const listItems = list.map(item =>
     <Story key={item.objectID} item={item} removeHandler={removeHandler} />)
   return (
@@ -22,6 +22,6 @@ const StoriesList = ({list, removeHandler}) => {
       </table>
     </>
   )
-}
+})
 
 export default StoriesList

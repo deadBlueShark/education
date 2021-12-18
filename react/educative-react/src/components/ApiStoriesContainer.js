@@ -56,9 +56,9 @@ const ApiStoriesContainer = () => {
     fetchStories()
   }, [fetchStories])
 
-  const removeStoryHandler = (id) => {
+  const removeStoryHandler = React.useCallback(id => {
     dispatchStories({type: 'STORY_REMOVAL', payload: {objectID: id}})
-  }
+  }, [])
 
   const searchHandler = (term) => {
     setSearchTerm(term)
