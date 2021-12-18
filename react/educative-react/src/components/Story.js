@@ -9,7 +9,7 @@ export default function Story({item, removeHandler}) {
      <span>{item.author}</span>
      <span>{item.num_comments}</span>
      <span>{item.points}</span>
-     <button onClick={handleClick}>x</button>
+     <button className="btn btn-danger" onClick={handleClick}>x</button>
     </div>
   )
 }

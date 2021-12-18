@@ -1,6 +1,7 @@
 import React from 'react'
 import StoriesList from './components/StoriesList'
 import PeopleList from './components/PeopleList'
+import ApiStories from './components/ApiStories'
 import InputWithLabel from './components/InputWithLabel'
 import useSemiPersistentState from './custom_hooks/UseSemiPersistentState'
 
@@ -163,7 +164,7 @@ const App = () => {
       <hr />
       <div>
         {isLoadingStoriesError ? "Something went wrong!"
-          : (isLoadingStories ? 'Loading...' : <StoriesList list={searchedList} removeHandler={removeStoryHandler}/>)
+          : (isLoadingStories ? 'Loading...' : <StoriesList list={searchedList} title="Stories List" removeHandler={removeStoryHandler}/>)
         }
       </div>
 
@@ -171,6 +172,10 @@ const App = () => {
         {people.isLoadingPeopleError ? "Something went wrong!"
           : (people.isLoadingPeople ? 'Loading...' : <PeopleList list={people.data} removeHandler={removePersonHandler}/>)
         }
+      </div>
+
+      <div>
+       <ApiStories />
       </div>
     </div>
   );
