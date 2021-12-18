@@ -158,24 +158,30 @@ const App = () => {
 
   return (
     <div>
-      <h1>My Hacker Stories</h1>
-      <InputWithLabel onChangeHandler={searchHandler} value={searchTerm}
-        id="search" value={searchTerm} isFocus><b>Search</b></InputWithLabel>
-      <hr />
-      <div>
-        {isLoadingStoriesError ? "Something went wrong!"
-          : (isLoadingStories ? 'Loading...' : <StoriesList list={searchedList} title="Stories List" removeHandler={removeStoryHandler}/>)
-        }
+      <div className="row">
+        <div className="col-md-6">
+          <h1>My Hacker Stories</h1>
+          <InputWithLabel onChangeHandler={searchHandler} value={searchTerm}
+            id="search" value={searchTerm} isFocus><b>Search</b></InputWithLabel>
+          <hr />
+          <div>
+            {isLoadingStoriesError ? "Something went wrong!"
+              : (isLoadingStories ? 'Loading...' : <StoriesList list={searchedList} title="Stories List" removeHandler={removeStoryHandler}/>)
+            }
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div>
+            {people.isLoadingPeopleError ? "Something went wrong!"
+              : (people.isLoadingPeople ? 'Loading...' : <PeopleList list={people.data} removeHandler={removePersonHandler}/>)
+            }
+          </div>
+        </div>
       </div>
-
-      <div>
-        {people.isLoadingPeopleError ? "Something went wrong!"
-          : (people.isLoadingPeople ? 'Loading...' : <PeopleList list={people.data} removeHandler={removePersonHandler}/>)
-        }
-      </div>
-
-      <div>
-       <ApiStories />
+      <div className="row">
+        <div className="col-md-12">
+         <ApiStories />
+        </div>
       </div>
     </div>
   );
