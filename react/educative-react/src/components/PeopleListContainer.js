@@ -68,7 +68,7 @@ const PeopleListContainer = () => {
   return (
     <>
       <h4>People list</h4>
-      <InputWithLabel onChangeHandler={searchHandler} value={searchTerm}
+      <InputWithLabel onChangeHandler={searchHandler}
         value={searchTerm}></InputWithLabel>
       <hr />
       <div>

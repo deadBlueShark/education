@@ -42,7 +42,6 @@ const ApiStoriesContainer = () => {
 
   // Use Async/Await
   const fetchStories = React.useCallback(async () => {
-    if (!searchTerm) return;
     dispatchStories({type: 'STORIES_FETCH_INIT'})
 
     try {
@@ -79,7 +78,7 @@ const ApiStoriesContainer = () => {
   return (
     <>
       <h4>Stories fetch from real API</h4>
-      <InputWithLabel onChangeHandler={searchHandler} value={searchTerm}
+      <InputWithLabel onChangeHandler={searchHandler}
         value={searchTerm}>
         <button className="btn btn-success" disabled={!searchTerm}
           onClick={handleSearchSubmit}>

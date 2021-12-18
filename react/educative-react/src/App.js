@@ -2,6 +2,7 @@ import React from 'react'
 import StoriesListContainer from './components/StoriesListContainer'
 import PeopleListContainer from './components/PeopleListContainer'
 import ApiStoriesContainer from './components/ApiStoriesContainer'
+import {ReactComponent as Check} from './images/check.svg'
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
          <ApiStoriesContainer />
         </div>
       </div>
+      <button><Check height="18px" width="18px" /></button>
     </div>
   );
 }

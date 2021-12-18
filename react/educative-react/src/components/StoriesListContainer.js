@@ -116,7 +116,7 @@ const StoriesListContainer = () => {
   return (
     <>
       <h4>Static stories list</h4>
-      <InputWithLabel onChangeHandler={searchHandler} value={searchTerm}
+      <InputWithLabel onChangeHandler={searchHandler}
         value={searchTerm} isFocus></InputWithLabel>
       <hr />
       <div>
