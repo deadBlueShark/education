@@ -24,7 +24,7 @@ const ApiStoriesContainer = () => {
     {data: [], isLoading: false, isLoadingError: false})
   const [searchTerm, setSearchTerm] = React.useState('')
 
-  React.useEffect(() => {
+  const fetchStories = React.useCallback(() => {
     if (!searchTerm) return;
 
     dispatchStories({type: 'STORIES_FETCH_INIT'})
@@ -36,6 +36,10 @@ const ApiStoriesContainer = () => {
       })
       .catch(() => dispatchStories({type: 'STORIES_FETCH_FAILURE'}))
   }, [searchTerm])
+
+  React.useEffect(() => {
+    fetchStories()
+  }, [fetchStories])
 
   const removeStoryHandler = (id) => {
     dispatchStories({type: 'STORY_REMOVAL', payload: {objectID: id}})
