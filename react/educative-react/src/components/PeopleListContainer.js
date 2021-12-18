@@ -69,7 +69,7 @@ const PeopleListContainer = () => {
     <>
       <h4>People list</h4>
       <InputWithLabel onChangeHandler={searchHandler} value={searchTerm}
-        value={searchTerm}><b>Search</b></InputWithLabel>
+        value={searchTerm}></InputWithLabel>
       <hr />
       <div>
         {people.isLoadingPeopleError && "Something went wrong!"}

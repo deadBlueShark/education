@@ -23,19 +23,20 @@ const ApiStoriesContainer = () => {
   const [stories, dispatchStories] = React.useReducer(storiesReducer,
     {data: [], isLoading: false, isLoadingError: false})
   const [searchTerm, setSearchTerm] = React.useState('')
+  const [url, setUrl] = React.useState(`${API_ENDPOINT}${searchTerm}`)
 
   const fetchStories = React.useCallback(() => {
     if (!searchTerm) return;
 
     dispatchStories({type: 'STORIES_FETCH_INIT'})
 
-    fetch(`${API_ENDPOINT}${searchTerm}`)
+    fetch(url)
       .then(response => response.json())
       .then(result => {
         dispatchStories({type: 'STORIES_FETCH_SUCCESS', payload: result.hits})
       })
       .catch(() => dispatchStories({type: 'STORIES_FETCH_FAILURE'}))
-  }, [searchTerm])
+  }, [url])
 
   React.useEffect(() => {
     fetchStories()
@@ -45,10 +46,12 @@ const ApiStoriesContainer = () => {
     dispatchStories({type: 'STORY_REMOVAL', payload: {objectID: id}})
   }
 
-
-
   const searchHandler = (term) => {
     setSearchTerm(term)
+  }
+
+  const handleSearchSubmit = () => {
+    setUrl(`${API_ENDPOINT}${searchTerm}`)
   }
 
   // Redundant because use search from API
@@ -62,7 +65,12 @@ const ApiStoriesContainer = () => {
     <>
       <h4>Stories fetch from real API</h4>
       <InputWithLabel onChangeHandler={searchHandler} value={searchTerm}
-        value={searchTerm}><b>Search</b></InputWithLabel>
+        value={searchTerm}>
+        <button className="btn btn-success" disabled={!searchTerm}
+          onClick={handleSearchSubmit}>
+          Go
+        </button>
+      </InputWithLabel>
       <hr />
       {stories.isLoadingError && "Something went wrong!"}
       {stories.isLoading

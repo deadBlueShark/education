@@ -117,7 +117,7 @@ const StoriesListContainer = () => {
     <>
       <h4>Static stories list</h4>
       <InputWithLabel onChangeHandler={searchHandler} value={searchTerm}
-        value={searchTerm} isFocus><b>Search</b></InputWithLabel>
+        value={searchTerm} isFocus></InputWithLabel>
       <hr />
       <div>
         {isLoadingStoriesError && "Something went wrong!"}

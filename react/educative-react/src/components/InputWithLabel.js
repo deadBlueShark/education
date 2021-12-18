@@ -17,10 +17,11 @@ function InputWithLabel({children, value, onChangeHandler, type = "text", isFocu
   return (
     <>
       <div className="input-group mb-3 input-group-sm">
-        <span className="input-group-text">{children}</span>
+        <span className="input-group-text">Search</span>
         {/* B */}
         <input ref={inputRef} type={type} className="form-control"
           onChange={handleChange} value={value} />
+        {children}
       </div>
     </>
   )
