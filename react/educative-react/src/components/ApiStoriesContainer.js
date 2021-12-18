@@ -18,7 +18,7 @@ const storiesReducer = (state, action) => {
   }
 }
 
-const ApiStories = () => {
+const ApiStoriesContainer = () => {
   const [stories, dispatchStories] = React.useReducer(storiesReducer,
     {data: [], isLoading: false, isLoadingError: false})
 
@@ -29,28 +29,24 @@ const ApiStories = () => {
     fetch(query)
       .then(response => response.json())
       .then(result => {
-        console.log(result)
         dispatchStories({type: 'STORIES_FETCH_SUCCESS', payload: result.hits})
       })
       .catch(() => dispatchStories({type: 'STORIES_FETCH_FAILURE'}))
   }, [])
 
   const removeStoryHandler = (id) => {
-
+    dispatchStories({type: 'STORY_REMOVAL', payload: {objectID: id}})
   }
   return (
     <>
-      {stories.isLoadingError ? "Something went wrong!"
-        : (stories.isLoading ? 'Loading...' :
-          <StoriesList list={stories.data} title="Stories fetch from real API"
-            removeHandler={removeStoryHandler}/>)
+      {stories.isLoadingError && "Something went wrong!"}
+      {stories.isLoading
+        ? 'Loading...'
+        : <StoriesList list={stories.data} title="Stories fetch from real API"
+          removeHandler={removeStoryHandler}/>
       }
     </>
   )
 }
 
-export default ApiStories
-
-
-// TODO: Hoàn thiện các chức năng còn lại
-// Decorate UI
+export default ApiStoriesContainer
