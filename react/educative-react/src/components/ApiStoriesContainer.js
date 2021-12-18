@@ -26,6 +26,7 @@ const ApiStoriesContainer = () => {
   const [searchTerm, setSearchTerm] = React.useState('')
   const [url, setUrl] = React.useState(`${API_ENDPOINT}${searchTerm}`)
 
+/*
   const fetchStories = React.useCallback(() => {
     if (!searchTerm) return;
 
@@ -36,6 +37,20 @@ const ApiStoriesContainer = () => {
         dispatchStories({type: 'STORIES_FETCH_SUCCESS', payload: result.data.hits})
       })
       .catch(() => dispatchStories({type: 'STORIES_FETCH_FAILURE'}))
+  }, [url])
+*/
+
+  // Use Async/Await
+  const fetchStories = React.useCallback(async () => {
+    if (!searchTerm) return;
+    dispatchStories({type: 'STORIES_FETCH_INIT'})
+
+    try {
+      const result = await axios.get(url)
+      dispatchStories({type: 'STORIES_FETCH_SUCCESS', payload: result.data.hits})
+    } catch {
+      dispatchStories({type: 'STORIES_FETCH_FAILURE'})
+    }
   }, [url])
 
   React.useEffect(() => {

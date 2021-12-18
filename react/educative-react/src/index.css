@@ -12,6 +12,6 @@ code {
     monospace;
 }
 
-.form-control:focus {
+.form-control:focus, .btn:focus {
   box-shadow: none;
 }
