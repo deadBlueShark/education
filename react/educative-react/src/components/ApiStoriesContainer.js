@@ -21,7 +21,6 @@ const storiesReducer = (state, action) => {
 }
 
 const getSumComments = stories => {
-  console.log('C');
   return stories.data.reduce((result, value) => result + value.num_comments, 0);
 }
 
@@ -30,6 +29,7 @@ const ApiStoriesContainer = () => {
     {data: [], isLoading: false, isLoadingError: false})
   const [searchTerm, setSearchTerm] = React.useState('')
   const [url, setUrl] = React.useState(`${API_ENDPOINT}${searchTerm}`)
+  const [commentCountOrder, setCommentCountOrder] = React.useState('asc')
 
 /*
   const fetchStories = React.useCallback(() => {
@@ -73,6 +73,15 @@ const ApiStoriesContainer = () => {
     setUrl(`${API_ENDPOINT}${searchTerm}`)
   }
 
+  const switchSortHandler = React.useCallback(currentSortOrder => {
+    setCommentCountOrder(currentSortOrder == 'asc' ? 'desc' : 'asc')
+  }, [])
+
+  const sortedList = stories.data.sort((a, b) => {
+    const minus = a.num_comments - b.num_comments
+    return commentCountOrder == 'asc' ? minus : -minus;
+  })
+
   // Redundant because use search from API
   // const searchedList = stories.data.filter(item => {
   //   const lowerTerm = searchTerm.toLowerCase()
@@ -105,7 +114,8 @@ const ApiStoriesContainer = () => {
       {stories.isLoadingError && "Something went wrong!"}
       {stories.isLoading
         ? 'Loading...'
-        : <StoriesList list={stories.data} removeHandler={removeStoryHandler}/>
+        : (<StoriesList list={sortedList} switchSortHandler={switchSortHandler}
+          removeHandler={removeStoryHandler} commentCountOrder={commentCountOrder} />)
       }
       Comment total: {sumComments}
     </>
