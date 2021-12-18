@@ -20,6 +20,11 @@ const storiesReducer = (state, action) => {
   }
 }
 
+const getSumComments = stories => {
+  console.log('C');
+  return stories.data.reduce((result, value) => result + value.num_comments, 0);
+}
+
 const ApiStoriesContainer = () => {
   const [stories, dispatchStories] = React.useReducer(storiesReducer,
     {data: [], isLoading: false, isLoadingError: false})
@@ -75,6 +80,17 @@ const ApiStoriesContainer = () => {
   //     item.author.toLowerCase().includes(lowerTerm)
   // })
 
+  // const sumComments = getSumComments(stories)
+  // Use useMemo to only run a function if one of its dependencies has changed
+  const sumComments = React.useMemo(() => getSumComments(stories), [stories])
+
+  /* Now, after we went through these scenarios for useMemo, useCallback, and memo,
+  remember that these shouldn’t necessarily be used by default. Apply these performance
+  optimization only if you run into a performance bottlenecks. Most of the time this
+  shouldn’t happen, because React’s rendering mechanism is pretty efficient by default.
+  Sometimes the check for utilities like memo can be more expensive than the
+  re-rendering itself.*/
+
   return (
     <>
       <h4>Stories fetch from real API</h4>
@@ -91,6 +107,7 @@ const ApiStoriesContainer = () => {
         ? 'Loading...'
         : <StoriesList list={stories.data} removeHandler={removeStoryHandler}/>
       }
+      Comment total: {sumComments}
     </>
   )
 }
