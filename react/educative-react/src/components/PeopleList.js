@@ -6,8 +6,6 @@ const PeopleList = ({list, removeHandler}) => {
 
   return (
     <>
-      <h4>People list</h4>
-
       <table className="table table-bordered">
         <thead>
           <tr>

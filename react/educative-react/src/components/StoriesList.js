@@ -1,12 +1,11 @@
 import React from 'react'
 import Story from './Story'
 
-const StoriesList = ({list, removeHandler, title}) => {
+const StoriesList = ({list, removeHandler}) => {
   const listItems = list.map(item =>
     <Story key={item.objectID} item={item} removeHandler={removeHandler} />)
   return (
     <>
-      <h4>{title}</h4>
       <table className="table table-bordered">
         <thead>
           <tr>

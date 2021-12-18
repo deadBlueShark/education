@@ -20,6 +20,14 @@ const initalStories = [
     points: 5,
     objectID: 1,
   },
+  {
+    title: 'Vuejs',
+    url: 'https://merge-chance.info/target?repo=vuejs/vue',
+    author: 'Michael Viveros',
+    num_comments: 4,
+    points: 5,
+    objectID: 2,
+  },
 ]
 
 // Simulate a async fetch data
@@ -69,15 +77,16 @@ const StoriesListContainer = () => {
     }).catch(() => setIsLoadingStoriesError(true))
   }, [])
 
+  const removeStoryHandler = (id) => {
+    const newStories = stories.filter(story => story.objectID !== id)
+    setStories(newStories)
+  }
+
+  // SEARCH FUNCTION
   const searchHandler = (value) => {
     setSearchTerm(value)
     // Not good to use this, side effect in function
     // localStorage.setItem('searchTerm', value)
-  }
-
-  const removeStoryHandler = (id) => {
-    const newStories = stories.filter(story => story.objectID !== id)
-    setStories(newStories)
   }
 
   /* React’s useEffect Hook takes two arguments: The first argument is a function
@@ -106,14 +115,15 @@ const StoriesListContainer = () => {
 
   return (
     <>
+      <h4>Static stories list</h4>
       <InputWithLabel onChangeHandler={searchHandler} value={searchTerm}
-        id="search" value={searchTerm} isFocus><b>Search</b></InputWithLabel>
+        value={searchTerm} isFocus><b>Search</b></InputWithLabel>
       <hr />
       <div>
         {isLoadingStoriesError && "Something went wrong!"}
         {isLoadingStories
           ? 'Loading...'
-          : <StoriesList list={searchedList} title="Stories List" removeHandler={removeStoryHandler}/>
+          : <StoriesList list={searchedList} removeHandler={removeStoryHandler}/>
         }
       </div>
     </>

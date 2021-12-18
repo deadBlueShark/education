@@ -1,5 +1,6 @@
 import React from 'react';
 import PeopleList from './PeopleList'
+import InputWithLabel from './InputWithLabel'
 
 const initialPeople = [
   {id: 1, name: 'Nguyen', age: 30},
@@ -53,14 +54,31 @@ const PeopleListContainer = () => {
     dispatchPeople({type: 'PEOPLE_REMOVAL', payload: {personId: id}})
   }
 
+  // SEARCH FUNCTION
+  const [searchTerm, setSearchTerm] = React.useState('')
+
+  const searchHandler = (term) => {
+    setSearchTerm(term)
+  }
+
+  const searchedList = people.data.filter(item => {
+    return item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  })
+
   return (
-    <div>
-      {people.isLoadingPeopleError && "Something went wrong!"}
-      {people.isLoadingPeople
-        ? 'Loading...'
-        : <PeopleList list={people.data} removeHandler={removePersonHandler}/>
-      }
-    </div>
+    <>
+      <h4>People list</h4>
+      <InputWithLabel onChangeHandler={searchHandler} value={searchTerm}
+        value={searchTerm}><b>Search</b></InputWithLabel>
+      <hr />
+      <div>
+        {people.isLoadingPeopleError && "Something went wrong!"}
+        {people.isLoadingPeople
+          ? 'Loading...'
+          : <PeopleList list={searchedList} removeHandler={removePersonHandler}/>
+        }
+      </div>
+    </>
   )
 }
 

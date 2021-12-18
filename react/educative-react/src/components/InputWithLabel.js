@@ -1,6 +1,6 @@
 import React from 'react'
 
-function InputWithLabel({children, id, value, onChangeHandler, type = "text", isFocus}) {
+function InputWithLabel({children, value, onChangeHandler, type = "text", isFocus}) {
   const handleChange = event => onChangeHandler(event.target.value)
 
   // A
@@ -16,9 +16,12 @@ function InputWithLabel({children, id, value, onChangeHandler, type = "text", is
 
   return (
     <>
-      <label htmlFor={id}>{children}</label>&nbsp;
-      {/* B */}
-      <input ref={inputRef} type={type} id={id} onChange={handleChange} value={value} />
+      <div className="input-group mb-3 input-group-sm">
+        <span className="input-group-text">{children}</span>
+        {/* B */}
+        <input ref={inputRef} type={type} className="form-control"
+          onChange={handleChange} value={value} />
+      </div>
     </>
   )
 }
