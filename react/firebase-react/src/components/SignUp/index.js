@@ -13,6 +13,7 @@ const SignUpPage = () => (
     </FirebaseContext.Consumer>
 */}
     <SignUpForm />
+    <SignInLink />
   </div>
 )
 
@@ -119,6 +120,12 @@ const SignUpForm = compose(
 const SignUpLink = () => (
   <p>
     Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+  </p>
+)
+
+const SignInLink = () => (
+  <p>
+    Already have account? <Link to={ROUTES.SIGN_IN}>Signin</Link>
   </p>
 )
 
