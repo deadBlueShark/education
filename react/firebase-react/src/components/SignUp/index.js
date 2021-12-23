@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 // import { FirebaseContext } from '../Firebase'
 import { withFirebase } from '../Firebase'
 import * as ROUTES from '../../constants/routes'
+import {compose} from 'recompose'
 
 const SignUpPage = () => (
   <div>
@@ -108,7 +109,12 @@ class SignUpFormBase extends React.Component {
   }
 }
 
-const SignUpForm = withRouter(withFirebase(SignUpFormBase))
+const SignUpForm = compose(
+  withRouter,
+  withFirebase
+)(SignUpFormBase)
+
+// const SignUpForm = withRouter(withFirebase(SignUpFormBase))
 
 const SignUpLink = () => (
   <p>
