@@ -9,36 +9,16 @@ import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
-import {withFirebase} from '../Firebase'
+import withAuth from '../Session/withAuth'
 
 import * as ROUTES from '../../constants/routes';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      authUser: null
-    }
-  }
-
-  componentDidMount() {
-    this.unsubscribe = this.props.firebase.auth.onAuthStateChanged(authUser => {
-      authUser ? this.setState({authUser}) : this.setState({authUser: null})
-    })
-  }
-
-  // We also want to avoid memory leaks that lead to performance issues,
-  // so we’ll remove the listener if the component unmounts.
-  componentWillUnmount() {
-    this.unsubscribe()
-  }
-
   render() {
     return (
       <BrowserRouter>
         <div>
-          <Navigation authUser={this.state.authUser} />
+          <Navigation />
 
           <hr />
 
@@ -55,4 +35,4 @@ class App extends React.Component {
   }
 }
 
-export default withFirebase(App);
+export default withAuth(App);
