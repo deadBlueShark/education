@@ -10,6 +10,7 @@ import HomePage from '../Home';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
 import withAuth from '../Session/withAuth'
+import PasswordChangePage from '../PasswordChange'
 
 import * as ROUTES from '../../constants/routes';
 
@@ -29,6 +30,7 @@ class App extends React.Component {
           <Route exact path={ROUTES.HOME} component={HomePage}/>
           <Route exact path={ROUTES.ACCOUNT} component={AccountPage}/>
           <Route exact path={ROUTES.ADMIN} component={AdminPage}/>
+          <Route exact path={ROUTES.PASSWORD_CHANGE} component={PasswordChangePage}/>
         </div>
       </BrowserRouter>
     )
