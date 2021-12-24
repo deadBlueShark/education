@@ -32,7 +32,7 @@ class PasswordChangeFormBase extends React.Component {
         console.log("Change pass", res)
         this.setState({...INITIAL_STATE})
       })
-      .catch(err => this.setState({err}))
+      .catch(error => this.setState({error}))
   }
 
   render() {

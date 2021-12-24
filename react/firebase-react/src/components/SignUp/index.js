@@ -45,9 +45,9 @@ class SignUpFormBase extends React.Component {
         // this props from higher-order component withRouter
         this.props.history.push(ROUTES.HOME)
       })
-      .catch(err => {
-        console.log(err)
-        this.setState({err})
+      .catch(error => {
+        console.log(error)
+        this.setState({error})
       })
 
   }

@@ -15,7 +15,7 @@ class SignOutBase extends React.Component {
         console.log(res)
         this.props.history.push(ROUTES.LANDING)
       })
-      .catch(err => console.log(err))
+      .catch(error => console.log(error))
   }
 
   render() {

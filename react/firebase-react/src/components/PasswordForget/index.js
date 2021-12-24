@@ -28,9 +28,9 @@ class PasswordForgetFormBase extends React.Component {
         console.log("reset pass", res)
         console.log("check email")
       })
-      .catch(err => {
-        console.log(err)
-        this.setState({err})
+      .catch(error => {
+        console.log(error)
+        this.setState({error})
       })
   }
 

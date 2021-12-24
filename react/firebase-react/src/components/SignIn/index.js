@@ -41,9 +41,9 @@ class SignInFormBase extends React.Component {
         this.setState({...INITIAL_STATE})
         this.props.history.push(ROUTES.HOME)
       })
-      .catch(err => {
-        console.log(err)
-        this.setState(err)
+      .catch(error => {
+        console.log(error)
+        this.setState({error})
       })
   }
 
