@@ -12,6 +12,7 @@ const SignInPage = () => {
       <h1>Signin</h1>
       <SignInForm />
       <SignUpLink />
+      <Link to={ROUTES.PASSWORD_FORGET}>Forget pass</Link>
     </div>
   )
 }

@@ -27,9 +27,9 @@ class Firebase {
 
   doSignOut = () => this.auth.signOut()
 
-  doPasswordReset = email => this.auth.sendPasswordResetEmail(email)
+  doPasswordReset = async email => await this.auth.sendPasswordResetEmail(email)
 
-  doPasswordUpdate = password => this.auth.currentUser.updatePassword(password)
+  doPasswordUpdate = async password => await this.auth.currentUser.updatePassword(password)
 }
 
 export default Firebase
