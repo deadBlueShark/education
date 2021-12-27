@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import withAuthorization from '../Session/withAuthorization'
 
 import * as ROUTES from '../../constants/routes'
 
@@ -12,4 +13,4 @@ const AccountPage = () => {
   )
 }
 
-export default AccountPage
+export default withAuthorization(authUser => !!authUser)(AccountPage)
