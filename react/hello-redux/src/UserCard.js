@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 
+import userStore from './stores/UserCardStore'
+
 class UserCard extends Component {
-  state = {
-    name: "Alex Bakery",
-    description: "Software Engineer, Speaker, and Occasional Model",
-    likes: "Cats, Wine, and Black dresses",
-    location: "localhost"
-  };
   render() {
-    const { name, description, likes, location } = this.state;
+    const { name, description, likes, location } = userStore.getState()
 
     return (
       <div className="card-user-container">
