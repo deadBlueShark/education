@@ -43,6 +43,33 @@ body {
   font-style: italic;
 }
 
+.hello-btns {
+  margin: 50px 0 0 0;
+}
+.hello-btn {
+  color: #ffffff;
+  background: #6c63ff;
+  border-radius: 30px;
+  border: 0;
+  outline: 0;
+  font-size: 0.8em;
+  padding: 10px 15px;
+  margin: 0 10px;
+  min-width: 85px;
+}
+.hello-btn:hover {
+  cursor: pointer;
+}
+.hello-btn:active {
+  /* color: black; */
+}
+
+@media screen and (max-width: 576px) {
+  .hello-world {
+    font-size: 8vw;
+  }
+}
+
 .card-user-container {
   margin: 50px 0;
   padding: 0;
