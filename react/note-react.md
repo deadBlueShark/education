@@ -24,4 +24,26 @@ to make sure the component has rendered to the DOM before we bring in the data.
 6. Add inverse data flow
 7. Add server communication
 
+### Redux
 
+1) Redux principle:
+
+- One application STATE OBJECT managed by ONE STORE (context)
+- The only way to change the state is to emit an action, an object describing
+what happened:
+
+
+```json
+{
+  type: "WITHDRAW_MONEY",
+  amount: "$10,000"
+}
+```
+
+- To specify how the state tree is transformed by actions, you write pure reducers.
+
+(If you want to update the state of your application, you convey your ACTION to the REDUCER,
+This process is mostly called DISPATCHING an ACTION)
+
+=> With this analogy, you should now have an idea of what the most important Redux
+actors are: THE STORE, THE REDUCER, and an ACTION.
