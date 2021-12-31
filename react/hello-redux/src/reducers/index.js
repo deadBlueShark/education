@@ -27,7 +27,7 @@ export const counterReducer = (state, action) => {
     case 'SET_SESSION':
       return {...state, activeSession: action.payload}
     case 'DECREASE_SESSION':
-      return {...state, [currentSession]: state[currentSession] - action.payload}
+      return {...state, [currentSession]: Math.max(0, state[currentSession] - action.payload)}
     case 'INCREASE_SESSION':
       return {...state, [currentSession]: state[currentSession] + action.payload}
     default:
