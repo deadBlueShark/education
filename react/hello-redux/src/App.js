@@ -1,9 +1,11 @@
 import React from 'react'
 
-import HelloWorld from './HelloWorld'
-import techStore from './stores/TechReduxStore'
+import HelloWorld from './components/HelloWorld'
+import UserCard from './components/UserCard'
+import BankApp from './components/BankApp'
+import TimeCounter from './components/TimeCounter'
 
-import UserCard from './UserCard'
+import techStore from './stores/TechReduxStore'
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
         <HelloWorld tech={techStore.getState().tech} />
       </div>
       <UserCard />
+      <BankApp />
+      <TimeCounter />
     </>
   );
 }

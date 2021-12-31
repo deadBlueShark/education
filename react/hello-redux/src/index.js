@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 
 import techStore from './stores/TechReduxStore'
+import bankStore from './stores/BankStore'
+import timeStore from './stores/TimeStore'
+
 
 const render = () => {
   ReactDOM.render(
@@ -17,3 +20,5 @@ const render = () => {
 render()
 
 techStore.subscribe(render)
+bankStore.subscribe(render)
+timeStore.subscribe(render)

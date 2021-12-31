@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import userStore from './stores/UserCardStore'
+import userStore from '../stores/UserCardStore'
 
 class UserCard extends Component {
   render() {

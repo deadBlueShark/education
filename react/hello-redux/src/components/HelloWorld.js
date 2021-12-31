@@ -1,5 +1,5 @@
 import React from 'react'
-import techStore from './stores/TechReduxStore'
+import techStore from '../stores/TechReduxStore'
 
 const TECH_STACK = ['React', 'Elm', 'React-redux']
 

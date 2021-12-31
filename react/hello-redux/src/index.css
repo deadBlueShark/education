@@ -6,8 +6,9 @@ body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
 }
+
 #root {
-  min-height: 150vh;
+  min-height: 300vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +24,7 @@ body {
   position: absolute;
   content: "";
   top: -580%;
-  height: 600%; /* 6X of .hello-world */
+  height: 600%;
   width: 100%;
   background: url("../hello.svg") 50% 50% / contain no-repeat;
 }
@@ -119,4 +120,164 @@ body {
 
 .faint {
   color: rgba(0, 0, 0, 0.47);
+}
+
+.BankApp {
+  background-image: radial-gradient(#fe718f 0%, #fe8183 42%, #ff9b73 87%);
+}
+
+.BankAppContainer {
+  height: 630px;
+  text-align: center;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 50%,
+    #fdf6f6 50%,
+    #fdf6f6 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.App__username {
+  color: #fff;
+  font-weight: bold;
+}
+.App__userpic {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  align-self: center;
+}
+.App__amount {
+  position: relative;
+  align-self: center;
+  background: #fff;
+  color: rgba(0, 0, 0, 0.47);
+  font-size: 2.1rem;
+  font-weight: bold;
+  padding: 2.5rem 5rem 1.5rem;
+  border-radius: 11px;
+  margin: 1rem 0 5rem 0;
+  box-shadow: 0 10px 5px 5px rgba(0, 0, 0, 0.02);
+}
+.App__amount:after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 90%;
+  height: 100%;
+  top: 10%;
+  left: 5%;
+  background: #fff;
+  box-shadow: 0 5px 34px 23px rgba(0, 0, 0, 0.06);
+  border-radius: 11px;
+}
+.App__amount--info {
+  font-size: 0.6rem;
+}
+
+.App__buttons > button {
+  outline: 0;
+  background: #fff;
+  color: #fe718f;
+  font-size: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  border: 0;
+  box-shadow: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.App__giveaway {
+  font-size: 0.7rem;
+  color: #fe8183;
+  cursor: pointer;
+}
+
+.time-counter-app {
+  font-family: "Open Sans", sans-serif;
+  background: #0a6bf0;
+}
+
+.TimeCounterAppContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  padding: 0 0 0 20%;
+}
+
+.App__header {
+  color: rgba(255, 255, 255, 0.91);
+  font-size: 1.8rem;
+}
+.App__subheader {
+  color: #b4c0d8;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.App__text--white {
+  color: #fff;
+}
+
+.Counter {
+  margin: 3.5rem 0 0 0;
+}
+.Counter--main {
+  background: #030303;
+  box-shadow: -12px 36px 54px 18px rgba(34, 39, 53, 0.43);
+  padding: 1.5rem 3.5rem 3rem;
+  margin: 1.5rem 0;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.Counter--main__session {
+  margin-left: auto;
+}
+.Counter--main__session > select {
+  background: transparent;
+  outline: 0;
+  border: 0;
+}
+.Counter--main__values {
+  display: flex;
+  justify-content: center;
+}
+.Counter--main__values > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Counter__separator {
+  color: #fff;
+  margin: 0 2rem;
+}
+.Counter__text--grey {
+  color: #858ca6;
+  font-size: 0.6rem;
+}
+.Counter__text--large {
+  font-size: 3rem;
+}
+
+.App__buttons {
+  text-align: center;
+}
+.App__buttons > button {
+  background: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+.App__buttons > button:active {
+  outline: 1px solid #fff;
 }
