@@ -57,6 +57,7 @@ body {
 .User__details {
   display: none;
 }
+
 /* not small devices  */
 
 @media (min-width: 576px) {
@@ -64,9 +65,105 @@ body {
     display: block;
     padding: 0 0 0 1rem;
   }
+
   .User__details-name {
     margin: 0;
     color: rgba(255, 255, 255, 0.8);
     font-size: 1rem;
   }
+}
+
+.Empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.Empty__name {
+  color: #fff;
+}
+
+.Empty__status,
+.Empty__info {
+  padding: 1rem;
+}
+
+.Empty__status {
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.Empty__img {
+  border-radius: 50%;
+  margin: 2rem 0;
+}
+
+.Empty__btn {
+  padding: 1rem;
+  margin: 1rem 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  outline: 0;
+}
+
+.Empty__btn:hover {
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+
+.Header {
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(189, 189, 192, 0.2);
+}
+
+.Header__name {
+  color: #fff;
+}
+
+.ChatWindow {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.Chats {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 85%;
+  margin: 0 auto;
+  overflow-y: scroll;
+}
+
+.Chat {
+  margin: 1rem 0;
+  color: #fff;
+  padding: 1rem;
+  background: linear-gradient(90deg, #1986d8, #7b9cc2);
+  max-width: 90%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.Chat.is-user-msg {
+  margin-left: auto;
+  background: #2b2c33;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+@media (min-width: 576px) {
+  .Chat {
+    max-width: 60%;
+  }
+}
+
+.Chat.is-user-msg {
+  background: #2b2c33;
 }

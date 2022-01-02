@@ -1,9 +1,13 @@
-import { contacts } from '../static-data'
+import { combineReducers } from 'redux'
 
-export const contactReducer = (state = { contacts }, action) => {
-  return state
-}
+import contacts from './contact'
+import user from './user'
+import activeUserId from './active-user-id'
+import messages from './messages'
 
-export const messageReducer = (state = {}, action) => {
-  return state
-}
+export default combineReducers({
+  user,
+  contacts,
+  activeUserId,
+  messages
+})
