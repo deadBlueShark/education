@@ -2,7 +2,10 @@ import {
   SET_ACTIVE_USER_ID,
   DELETE_CONTACT,
   SET_TYPING_VALUE,
-  SEND_MESSAGE
+  SEND_MESSAGE,
+  EDIT_MESSAGE,
+  DELETE_MESSAGE,
+  RESET_EDIT_MESSAGE
 } from '../constants/action-types'
 
 export const setActiveUserId = id => ({
@@ -20,7 +23,19 @@ export const setTypingValue = value => ({
   payload: value
 })
 
-export const sendMessage = (user_id, message) => ({
+export const sendMessage = (user_id, message, activeMessageId) => ({
   type: SEND_MESSAGE,
-  payload: { user_id, message }
+  payload: { user_id, message, activeMessageId }
 })
+
+export const editMessage = (user_id, number, message) => ({
+  type: EDIT_MESSAGE,
+  payload: { user_id, message, number }
+})
+
+export const deleteMessage = (user_id, number) => ({
+  type: DELETE_MESSAGE,
+  payload: { user_id, number }
+})
+
+export const resetEditMessage = () => ({type: RESET_EDIT_MESSAGE})

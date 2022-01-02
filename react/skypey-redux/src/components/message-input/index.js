@@ -1,6 +1,6 @@
 import React from 'react'
 import store from '../../store'
-import { setTypingValue, sendMessage } from '../../action'
+import { setTypingValue, sendMessage, resetEditMessage } from '../../action'
 
 const MessageInput = ({ value }) => {
   return (
@@ -21,10 +21,10 @@ const handleChange = (event) => {
 
 const handleSubmit = (event) => {
   event.preventDefault()
-  const { typing, activeUserId } = store.getState()
+  const { typing, activeUserId, activeMessageId } = store.getState()
 
-  store.dispatch(sendMessage(activeUserId, typing))
-  store.dispatch(setTypingValue(""))
+  store.dispatch(sendMessage(activeUserId, typing, activeMessageId))
+  store.dispatch(resetEditMessage())
 }
 
 export default MessageInput

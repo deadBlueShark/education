@@ -129,6 +129,23 @@ body {
   height: 100vh;
 }
 
+.Message {
+  width: 80%;
+  margin: 1rem auto;
+}
+
+.Message__input {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: 0;
+}
+
+
 .Chats {
   flex: 1 1 0;
   display: flex;
@@ -150,36 +167,37 @@ body {
 }
 
 .Chat.is-user-msg {
+  position: relative;
   margin-left: auto;
   background: #2b2c33;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
+  cursor: pointer;
+}
+
+.Chat.is-user-msg:hover .Chat__close {
+  display: inline-block;
+}
+
+.Chat__close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 0.7rem;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: none;
+  text-align: center;
+  line-height: 1.3rem;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 @media (min-width: 576px) {
   .Chat {
     max-width: 60%;
   }
-}
-
-.Chat.is-user-msg {
-  background: #2b2c33;
-}
-
-.Message {
-  width: 80%;
-  margin: 1rem auto;
-}
-
-.Message__input {
-  width: 100%;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border: 0;
-  border-radius: 10px;
-  font-size: 1rem;
-  outline: 0;
 }
