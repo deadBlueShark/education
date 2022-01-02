@@ -4,10 +4,12 @@ import contacts from './contact'
 import user from './user'
 import activeUserId from './active-user-id'
 import messages from './messages'
+import typing from './typing'
 
 export default combineReducers({
   user,
   contacts,
   activeUserId,
-  messages
+  messages,
+  typing
 })
