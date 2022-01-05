@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello Redux</title>
+
+  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js" defer></script>
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js" defer></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.2/redux.min.js"
+    integrity="sha512-F21iSaHGX/3NFz5SuwoH6pGhTPxtoJoWWULqQVPQPtLm7nbK5r8vRSSSYy3Aj+H39cVrVm4+3ikGoVD1AjE0sQ=="
+    crossorigin="anonymous" defer
+    referrerpolicy="no-referrer">
+  </script>
+</head>
+<body>
+  <h2>My hobbies</h2>
+
+  <ul class="hobbiesList"></ul>
+
+  <script type="text/babel">
+    const ADD_HOBBY = "ADD_HOBBY"
+
+    const initialState = []
+
+    // Reducer, pure function
+    const hobbyReducer = (state = initialState, action) => {
+      switch(action.type) {
+        case ADD_HOBBY:
+          return [...state, action.payload]
+        default:
+          return state
+      }
+    }
+
+    // Redux store, global state, single source of truth
+    const hobbyStore = Redux.createStore(hobbyReducer)
+
+    // action creator
+    const hobbyAction = (hobby) => ({
+      type: ADD_HOBBY,
+      payload: hobby
+    })
+
+    // Dispatch action to store
+    const handleAddingHobby = (hobby) => {
+      hobbyStore.dispatch(hobbyAction(hobby))
+    }
+
+    const bindElement = document.querySelector(".hobbiesList")
+
+    const HobbyList = () => {
+      const list = hobbyStore.getState().map((item, index) => (<li key={index}>{item}</li>))
+
+      return list
+    }
+
+    const HobbyForm = ({ handleAddingHobby }) => {
+      const [hobby, setHobby] = React.useState("")
+
+      const handleSubmit = (event) => {
+        event.preventDefault()
+        handleAddingHobby(hobby)
+        setHobby("")
+      }
+
+      const handleChange = (event) => {
+        setHobby(event.target.value)
+      }
+
+      return (
+        <form onSubmit={handleSubmit}>
+          <input type="text" name="hobby" value={hobby} onChange={handleChange} />
+          <button type="submit">Add</button>
+        </form>
+      )
+    }
+
+    const App = () => {
+      return (
+        <>
+          <HobbyList />
+          <HobbyForm handleAddingHobby={handleAddingHobby} />
+        </>
+      )
+    }
+
+    const renderView = () => {
+      ReactDOM.render(<App />, bindElement)
+    }
+
+    renderView()
+    hobbyStore.subscribe(renderView)
+
+  </script>
+</body>
+</html>

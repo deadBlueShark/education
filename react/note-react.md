@@ -35,8 +35,8 @@ what happened:
 
 ```json
 {
-  type: "WITHDRAW_MONEY",
-  amount: "$10,000"
+  "type": "WITHDRAW_MONEY",
+  "amount": "$10,000"
 }
 ```
 
