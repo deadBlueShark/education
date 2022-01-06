@@ -22,7 +22,7 @@
   <script type="text/babel">
     const ADD_HOBBY = "ADD_HOBBY"
 
-    const initialState = []
+    const initialState = JSON.parse(localStorage.getItem("list")) || []
 
     // Reducer, pure function
     const hobbyReducer = (state = initialState, action) => {
@@ -91,7 +91,13 @@
     }
 
     renderView()
-    hobbyStore.subscribe(renderView)
+    hobbyStore.subscribe(() => {
+      renderView()
+
+
+      // Persist data
+      localStorage.setItem("list", JSON.stringify(hobbyStore.getState()))
+    })
 
   </script>
 </body>
