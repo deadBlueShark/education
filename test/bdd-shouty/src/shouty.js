@@ -1,15 +1,23 @@
 class Person {
-  moveTo(distance) {
-
+  constructor(name) {
+    this.name = name
+    this.message = null
   }
 
   shout(message) {
-
+    this.message = message
   }
 
-  messageHeard() {
-    return []
+  messageHeard(other) {
+    return [other.message]
   }
 }
 
-module.exports = Person
+class Network {
+
+}
+
+module.exports = {
+  Person,
+  Network
+}
