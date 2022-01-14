@@ -13,6 +13,9 @@
     crossorigin="anonymous" defer
     referrerpolicy="no-referrer">
   </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous" defer></script>
 </head>
 <body>
   Creating the Sample Application
@@ -84,17 +87,36 @@
     const rootReducer = Redux.combineReducers({
       recipes: recipeReducer,
       ingredients: ingredientReducer,
-    })
+    });
 
     const store = Redux.createStore(rootReducer, initialState);
 
-    console.log(store.getState())
+    console.log(store.getState());
 
     store.dispatch(addRecipeAction("Pancakes"));
     store.dispatch(addIngredientAction("Pancakes", "Egg", 3));
 
-    console.log(store.getState())
+    console.log(store.getState());
 
+    function updateUI() {
+      const { recipes } = store.getState();
+
+      $(".recipes > ul").html(recipes.map(recipe => `<li key=${recipe.name}>${recipe.name}</li>`))
+    }
+
+    function loadUI() {
+      $('#app').append(`
+        <div class="recipes">
+          <h2>Recipes:</h2>
+          <ul></ul>
+        </div>
+      `);
+
+      store.subscribe(updateUI);
+      updateUI();
+    }
+
+    loadUI()
   </script>
 </body>
 </html>
