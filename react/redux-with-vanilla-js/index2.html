@@ -89,7 +89,7 @@
       ingredients: ingredientReducer,
     });
 
-    const store = Redux.createStore(rootReducer, initialState);
+    const store = Redux.createStore(rootReducer, initialState, Redux.applyMiddleware(logger));
 
     console.log(store.getState());
 
@@ -117,6 +117,30 @@
     }
 
     loadUI()
+
+    // Redux middleware
+    /*
+    const logMiddleware = ({ getState }) => (next) => (action) => {
+      console.log(`Action: ${ action.type }`);
+
+      return next(action);
+    };*/
+
+    function logger({ getState }) {
+      return next => action => {
+        console.log('will dispatch', action)
+
+        // Call the next dispatch method in the middleware chain.
+        const returnValue = next(action)
+
+        console.log('state after dispatch', getState())
+
+        // This will likely be the action itself, unless
+        // a middleware further in chain changed it.
+        return returnValue
+      }
+    }
+
   </script>
 </body>
 </html>
