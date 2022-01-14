@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello Redux</title>
+
+  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js" defer></script>
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js" defer></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.2/redux.min.js"
+    integrity="sha512-F21iSaHGX/3NFz5SuwoH6pGhTPxtoJoWWULqQVPQPtLm7nbK5r8vRSSSYy3Aj+H39cVrVm4+3ikGoVD1AjE0sQ=="
+    crossorigin="anonymous" defer
+    referrerpolicy="no-referrer">
+  </script>
+</head>
+<body>
+  Creating the Sample Application
+  <div id="app"></div>
+
+  <script type="text/babel">
+    const initialState = {
+      recipes: [{
+        name: 'Omelette'
+      }],
+      ingredients: [{
+        recipe: 'Omelette',
+        name: 'Egg',
+        quantity: 2
+      }]
+    };
+
+    // Action type
+    const ADD_RECIPE = "ADD_RECIPE";
+    const ADD_INGREDIENT = "ADD_INGREDIENT";
+
+    // Action creator
+    const addRecipeAction = (name) => ({
+      type: ADD_RECIPE,
+      payload: {
+        recipe: {
+          name,
+        }
+      }
+    })
+
+    const addIngredientAction = (recipe, name, quantity) => ({
+      type: ADD_INGREDIENT,
+      payload: {
+        ingredient: {
+          recipe,
+          name,
+          quantity,
+        }
+      }
+    })
+
+    // Reducer
+    const recipeReducer = (recipes = [], action) => {
+      switch(action.type) {
+        case ADD_RECIPE:
+          return recipes.concat(action.payload.recipe);
+        default:
+          return recipes;
+      }
+    }
+
+    const ingredientReducer = (ingredients = [], action) => {
+      switch(action.type) {
+        case ADD_INGREDIENT:
+          return ingredients.concat(action.payload.ingredient);
+        default:
+          return ingredients;
+      }
+    }
+
+    // const rootReducer = (state = initialState, action) => {
+    //   return Object.assign({}, state, {
+    //     recipes: recipeReducer(state.recipes, action),
+    //     ingredients: ingredientReducer(state.ingredients, action)
+    //   })
+    // }
+
+    const rootReducer = Redux.combineReducers({
+      recipes: recipeReducer,
+      ingredients: ingredientReducer,
+    })
+
+    const store = Redux.createStore(rootReducer, initialState);
+
+    console.log(store.getState())
+
+    store.dispatch(addRecipeAction("Pancakes"));
+    store.dispatch(addIngredientAction("Pancakes", "Egg", 3));
+
+    console.log(store.getState())
+
+  </script>
+</body>
+</html>
