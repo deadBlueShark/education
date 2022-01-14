@@ -19,13 +19,23 @@
 
   <ul class="hobbiesList"></ul>
 
+  <div>
+    Counter:
+    <span id='counter'></span>
+  </div>
+
+  <button id='inc'>Increment</button>
+  <button id='dec'>Decrement</button>
+
   <script type="text/babel">
+
+    // Section 1: Hobby list
     const ADD_HOBBY = "ADD_HOBBY"
 
-    const initialState = JSON.parse(localStorage.getItem("list")) || []
+    const initialHobbyState = JSON.parse(localStorage.getItem("list")) || []
 
     // Reducer, pure function
-    const hobbyReducer = (state = initialState, action) => {
+    const hobbyReducer = (state = initialHobbyState, action) => {
       switch(action.type) {
         case ADD_HOBBY:
           return [...state, action.payload]
@@ -99,6 +109,33 @@
       localStorage.setItem("list", JSON.stringify(hobbyStore.getState()))
     })
 
+
+    // Section 2: Counter
+
+    const initialCounterState = { counter: 3 }
+
+    const counterReducer = (state = initialCounterState, action) => {
+      switch(action.type) {
+        case "INC":
+          return { counter: state.counter + 1}
+        case "DEC":
+          return { counter: state.counter - 1}
+        default:
+          return state
+      }
+    }
+
+    const counterStore = Redux.createStore(counterReducer)
+
+    document.querySelector("#inc").onclick = () => counterStore.dispatch({type: "INC"})
+    document.querySelector("#dec").onclick = () => counterStore.dispatch({type: "DEC"})
+
+    const updateCounter = () => {
+      document.querySelector("#counter").innerText = counterStore.getState().counter
+    }
+
+    updateCounter()
+    counterStore.subscribe(updateCounter)
   </script>
 </body>
 </html>
