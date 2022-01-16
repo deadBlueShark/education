@@ -89,7 +89,7 @@
       ingredients: ingredientReducer,
     });
 
-    const store = Redux.createStore(rootReducer, initialState, Redux.applyMiddleware(logger));
+    const store = Redux.createStore(rootReducer, initialState, Redux.applyMiddleware(loggerMiddleware));
 
     console.log(store.getState());
 
@@ -119,12 +119,12 @@
     loadUI()
 
     // Redux middleware
-    /*
-    const logMiddleware = ({ getState }) => (next) => (action) => {
-      console.log(`Action: ${ action.type }`);
-
-      return next(action);
-    };*/
+    function loggerMiddleware(store) {
+      return next => action => {
+        console.log("action", action);
+        return next(action);
+      };
+    };
 
     function logger({ getState }) {
       return next => action => {
