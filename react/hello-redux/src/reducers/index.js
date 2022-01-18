@@ -6,7 +6,6 @@ export const techReducer = (state, action) => {
   return state
 }
 
-
 export const userReducer = (state, action) => {
   return state
 }
@@ -32,5 +31,14 @@ export const counterReducer = (state, action) => {
       return {...state, [currentSession]: state[currentSession] + action.payload}
     default:
       return state
+  }
+}
+
+export const simpleCounterNumberReducer = (state = 0, action) => {
+  switch(action.type) {
+    case 'DEC':
+      return state + 1;
+    default:
+      return state;
   }
 }

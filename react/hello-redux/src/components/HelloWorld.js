@@ -3,7 +3,9 @@ import techStore from '../stores/TechReduxStore'
 
 const TECH_STACK = ['React', 'Elm', 'React-redux']
 
-const HelloWorld = ({ tech }) => {
+const HelloWorld = () => {
+  const selectedTech = techStore.getState().tech
+
   const buttons = TECH_STACK.map((tech, index) =>
     <button key={ index } className="hello-btn"
       onClick={ () => techStore.dispatch({ type: 'SET_TECH', tech }) }>{ tech }</button>)
@@ -11,7 +13,7 @@ const HelloWorld = ({ tech }) => {
   return (
     <>
       <div className="hello-world">
-        Hello World <span className="hello-world__tech">{tech}!</span>
+        Hello World <span className="hello-world__tech">{selectedTech}!</span>
       </div>
       <div className="hello-btns">{buttons}</div>
     </>
