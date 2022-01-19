@@ -1,4 +1,6 @@
-import { put, takeEvery, all } from 'redux-saga/effects'
+import { put, takeEvery, call, all } from 'redux-saga/effects'
+
+import * as ACTION from './actions'
 
 // create a delay function that returns a Promise that will resolve after a
 // specified number of milliseconds. We'll use this function to block the Generator.
@@ -10,13 +12,23 @@ export function* helloSaga() {
 
 // Our worker Saga: will perform the async increment task
 export function* incrementAsync() {
-  yield delay(1000)
-  yield put({ type: 'INCREMENT' })
+  // yield delay(1000)
+  yield call(delay, 1000)
+  yield put({ type: ACTION.INCREMENT })
 }
 
 // Our watcher Saga: spawn a new incrementAsync task on each INCREMENT_ASYNC
 export function* watchIncrementAsync() {
-  yield takeEvery('INCREMENT_ASYNC', incrementAsync)
+  yield takeEvery(ACTION.INCREMENT_ASYNC, incrementAsync)
+}
+
+export function* decrementAsync() {
+  yield call(delay, 1000)
+  yield put({ type: ACTION.DECREMENT })
+}
+
+export function* watchDecrementAsync() {
+  yield takeEvery(ACTION.DECREMENT_ASYNC, decrementAsync)
 }
 
 // notice how we now only export the rootSaga
@@ -24,6 +36,7 @@ export function* watchIncrementAsync() {
 export default function* rootSaga() {
   yield all([
     helloSaga(),
-    watchIncrementAsync()
+    watchIncrementAsync(),
+    watchDecrementAsync(),
   ])
 }

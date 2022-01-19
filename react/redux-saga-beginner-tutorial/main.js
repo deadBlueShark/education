@@ -5,10 +5,11 @@ import ReactDOM from 'react-dom'
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
-import Counter from './Counter'
-import reducer from './reducers'
+import * as ACTION from './src/actions'
+import Counter from './src/Counter'
+import reducer from './src/reducers'
 // First we import our Saga from the ./sagas module
-import rootSaga from './sagas'
+import rootSaga from './src/sagas'
 
 // Then we create a middleware using the factory function createSagaMiddleware
 // exported by the redux-saga library.
@@ -27,9 +28,10 @@ function render() {
   ReactDOM.render(
     <Counter
       value={store.getState()}
-      onIncrement={() => action('INCREMENT')}
-      onDecrement={() => action('DECREMENT')}
-      onIncrementAsync={() => action('INCREMENT_ASYNC')} />,
+      onIncrement={() => action(ACTION.INCREMENT)}
+      onDecrement={() => action(ACTION.DECREMENT)}
+      onIncrementAsync={() => action(ACTION.INCREMENT_ASYNC)}
+      onDecrementAsync={() => action(ACTION.DECREMENT_ASYNC)} />,
     document.getElementById('root')
   )
 }
