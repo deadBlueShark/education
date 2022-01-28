@@ -22,13 +22,26 @@ export function* watchIncrementAsync() {
   yield takeEvery(ACTION.INCREMENT_ASYNC, incrementAsync)
 }
 
+// worker saga
 export function* decrementAsync() {
   yield call(delay, 1000)
   yield put({ type: ACTION.DECREMENT })
 }
 
+// watcher saga
 export function* watchDecrementAsync() {
   yield takeEvery(ACTION.DECREMENT_ASYNC, decrementAsync)
+}
+
+// worker saga
+function* increment2Async() {
+  yield call(delay, 1000)
+  yield put({ type: ACTION.INCREMENT_2 })
+}
+
+// watcher saga
+function* watchIncrement2Async() {
+  yield takeEvery(ACTION.INCREMENT_2_ASYNC, increment2Async)
 }
 
 // notice how we now only export the rootSaga
@@ -38,5 +51,6 @@ export default function* rootSaga() {
     helloSaga(),
     watchIncrementAsync(),
     watchDecrementAsync(),
+    watchIncrement2Async(),
   ])
 }
