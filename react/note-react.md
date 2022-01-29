@@ -26,12 +26,11 @@ to make sure the component has rendered to the DOM before we bring in the data.
 
 ### Redux
 
-1) Redux principle:
+1. Redux principle:
 
 - One application STATE OBJECT managed by ONE STORE (context)
 - The only way to change the state is to emit an action, an object describing
 what happened:
-
 
 ```json
 {
@@ -42,8 +41,8 @@ what happened:
 
 - To specify how the state tree is transformed by actions, you write pure reducers.
 
-(If you want to update the state of your application, you convey your ACTION to the REDUCER,
-This process is mostly called DISPATCHING an ACTION)
+- If you want to update the state of your application, you convey your ACTION to
+the REDUCER, this process is mostly called DISPATCHING an ACTION.
 
-=> With this analogy, you should now have an idea of what the most important Redux
+-> With this analogy, you should now have an idea of what the most important Redux
 actors are: THE STORE, THE REDUCER, and an ACTION.

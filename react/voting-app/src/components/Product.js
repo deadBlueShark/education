@@ -11,12 +11,14 @@ class Product extends React.Component {
     return (
       <div className="item">
         <div className="image">
-          <img src={product.productImageUrl} />
+          <img src={product.productImageUrl} alt="Product" />
         </div>
 
         <div className="middle aligned content">
           <div>
-            <a onClick={this.upVoteHandler}><i className="large caret up icon" /></a>
+            <a onClick={this.upVoteHandler}>
+              <i className="large caret up icon" />
+            </a>
             {product.votes}
           </div>
           <div className="description">
@@ -25,7 +27,7 @@ class Product extends React.Component {
           </div>
           <div className="extra">
             <span>Submitted by:</span>
-            <img className="ui avatar image" src={product.productImageUrl} />
+            <img className="ui avatar image" src={product.productImageUrl} alt="Avatar" />
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-One of the best-known store enhancers is applyMiddleware().
+- One of the best-known store enhancers is applyMiddleware().
 This is currently the only store enhancer provided by Redux.
 
 `applyMiddleware` lets you inject functionality into dispatch
