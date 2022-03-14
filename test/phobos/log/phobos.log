@@ -1,0 +1,5 @@
+{"timestamp":"2022-02-22T17:36:21.510721+07:00","level":"INFO","logger":"Phobos","message":{"message":"Phobos configured","env":"N/A"}}
+{"timestamp":"2022-02-22T17:36:21.528903+07:00","level":"INFO","logger":"Phobos","message":{"message":"Listener started","listener_id":"5478c6","group_id":"test-1","topic":"test","handler":"Phobos::EchoHandler"}}
+{"timestamp":"2022-02-22T17:37:55.157250+07:00","level":"INFO","logger":"Phobos","message":{"message":"Listener stopping","listener_id":"5478c6","group_id":"test-1","topic":"test","handler":"Phobos::EchoHandler"}}
+{"timestamp":"2022-02-22T17:37:56.623674+07:00","level":"INFO","logger":"Phobos","message":{"message":"Listener stopped","listener_id":"5478c6","group_id":"test-1","topic":"test","handler":"Phobos::EchoHandler"}}
+{"timestamp":"2022-02-22T17:37:56.623914+07:00","level":"INFO","logger":"Phobos","message":{"message":"Executor stopped"}}

@@ -14,8 +14,8 @@ class App extends Component {
   }
 
   removeCharacter = (index) => {
-    const {characters} = this.state
-    characters.splice(index, 1)
+    const characters = this.state.characters.filter((_, currentIndex) => currentIndex !== index)
+    // characters.splice(index, 1) Do not change state in-place
 
     this.setState({characters})
   }
