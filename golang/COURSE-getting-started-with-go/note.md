@@ -4,7 +4,7 @@
 - Simpler objects
 - Concurrency is efficient
 
-### Sofware Translation
+### Software Translation
 3 very broad categories of languages for Machine:
 - Machine language: CPU instructions reperesented in binary
 - Assembly language: CPU instructions with mnemonics

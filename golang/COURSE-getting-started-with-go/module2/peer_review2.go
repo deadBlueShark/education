@@ -13,7 +13,6 @@ func main() {
 		fmt.Scan(&s)
 
 		s = strings.ToLower(s)
-		
 
 		if strings.HasPrefix(s, "i") == true && strings.HasSuffix(s, "n") == true && strings.Contains(s, "a") {
 			fmt.Println("FOUND!!")
@@ -26,9 +25,10 @@ func main() {
 		answer = strings.ToUpper(answer)
 		if answer == "YES" {
 			continue
-		}else if answer == "NO"{
+		} else if answer == "NO" {
 			break
 		}
 	}
 	fmt.Println("FINISH")
+
 }

@@ -9,7 +9,10 @@ func main() {
 	var inputString string
 
 	fmt.Println("Enter a string:")
-	fmt.Scan(&inputString)
+	_, err := fmt.Scan(&inputString)
+	if err != nil {
+		return
+	}
 
 	if strings.HasPrefix(inputString, "i") &&
 		strings.HasSuffix(inputString, "n") &&
