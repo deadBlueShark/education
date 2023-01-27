@@ -13,4 +13,4 @@ func change(y *[1]int) {
 	*y = [1]int{3}
 }
 
-// Different than ruby that all pass by value (reference value, reference type)
+// Different from ruby that all pass by value (reference value, reference type)

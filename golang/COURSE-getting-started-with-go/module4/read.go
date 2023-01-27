@@ -8,18 +8,18 @@ import (
 )
 
 type User struct {
-	fname string
-	lname string
+	firstName string
+	lastName  string
 }
 
 func main() {
-	var file_name string
 	var users []User
 
+	var fileName string
 	fmt.Println("Enter file name:")
-	fmt.Scan(&file_name)
+	fmt.Scan(&fileName)
 
-	file, err := os.Open(file_name)
+	file, err := os.Open(fileName)
 	if err != nil {
 		fmt.Println("Open file failed")
 		return
@@ -29,11 +29,11 @@ func main() {
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		name := strings.Split(scanner.Text(), " ")
-		user := User{fname: name[0], lname: name[1]}
+		user := User{firstName: name[0], lastName: name[1]}
 		users = append(users, user)
 	}
 
 	for _, value := range users {
-		fmt.Printf("First Name: %v. Last Name: %v\n", value.fname, value.lname)
+		fmt.Printf("First Name: %v. Last Name: %v\n", value.firstName, value.lastName)
 	}
 }

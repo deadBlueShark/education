@@ -13,8 +13,8 @@ func main() {
 	sum := Sum(2, 3)
 	fmt.Println(sum)
 
-	first_name, last_name := SplitName("Le Nguyen")
-	fmt.Printf("First: %v. Last: %v", first_name, last_name)
+	firstName, lastName := SplitName("Le Nguyen")
+	fmt.Printf("First: %v. Last: %v", firstName, lastName)
 }
 
 func Greet(sentence string) {
@@ -33,6 +33,6 @@ func Sum(a, b int) int {
 }
 
 func SplitName(name string) (string, string) {
-	splited_name := strings.Split(name, " ")
-	return splited_name[0], splited_name[1]
+	splitName := strings.Split(name, " ")
+	return splitName[0], splitName[1]
 }

@@ -7,33 +7,30 @@ Submit your source code for the program,
 package main
 
 import (
-  "fmt"
-  "bufio"
-  "os"
-  "encoding/json"
-  "strings"
+	"bufio"
+	"encoding/json"
+	"fmt"
+	"os"
+	"strings"
 )
 
 func main() {
+	fmt.Printf("What is your first name?\n> ")
+	inputReader1 := bufio.NewReader(os.Stdin)
+	name, _ := inputReader1.ReadString('\n')
+	name = strings.Trim(name, "\n")
 
+	fmt.Printf("What is your address?\n> ")
+	inputReader2 := bufio.NewReader(os.Stdin)
+	address, _ := inputReader2.ReadString('\n')
+	address = strings.Trim(address, "\n")
 
-    fmt.Printf("What is your first name?\n> ")
-    inputReader1 := bufio.NewReader(os.Stdin)
-    name, _ := inputReader1.ReadString('\n')
-    name = strings.Trim(name, "\n")
+	person := make(map[string]string)
+	person["name"] = name
+	person["address"] = address
 
-    fmt.Printf("What is your address?\n> ")
-    inputReader2 := bufio.NewReader(os.Stdin)
-    address, _ := inputReader2.ReadString('\n')
-    address = strings.Trim(address, "\n")
-
-    person := make(map[string]string)
-    person["name"] = name
-    person["address"] = address
-
-//    j, _ := json.Marshal(person)
-    j, _ := json.MarshalIndent(person, "", "    ")
-    fmt.Println(string(j))
-
+	//    j, _ := json.Marshal(person)
+	j, _ := json.MarshalIndent(person, "", "    ")
+	fmt.Println(string(j))
 
 }

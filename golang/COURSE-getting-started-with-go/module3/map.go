@@ -20,8 +20,8 @@ func main() {
 	delete(map3, "le")
 	fmt.Println(map3) // map[nguyen:27]
 
-	value, is_key_present := map3["nguyen"]
-	fmt.Println(value, is_key_present) // 27 true
+	value, isKeyPresent := map3["nguyen"]
+	fmt.Println(value, isKeyPresent) // 27 true
 
 	map3["cris"] = 36
 	for key, value := range map3 {
