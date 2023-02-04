@@ -74,3 +74,4 @@ ruby-rails/manual-token-authen/.byebug_history
 ruby-rails/manual-token-authen/config/master.key
 
 tmp/
+.vscode/
