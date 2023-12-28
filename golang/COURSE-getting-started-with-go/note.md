@@ -81,11 +81,11 @@ Scope:
 Stack vs Heap
 
 - In general:
- + Stack is an area of memory that is dedicated to funtion calls, local variables
-for a functions are stored here and they are deallocated automatically when the
-function complete 
+  + Stack is an area of memory that is dedicated to funtion calls, local variables
+  for a functions are stored here and they are deallocated automatically when the
+  function complete 
 
- + Heap is a persistent region of memory where when you allocate something on the
+  + Heap is a persistent region of memory where when you allocate something on the
 heap it doesn't go away, you have to explicitly deallocate it somehow in another
 languages
 
