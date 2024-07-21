@@ -1,0 +1,5 @@
+FROM node:11-alpine
+WORKDIR app/
+ENV diameter=1000
+COPY index.js ./
+CMD ["node", "index.js"]

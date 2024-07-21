@@ -1,0 +1,12 @@
+# Use an image with the SDK for compilation
+FROM openjdk:8-jdk-alpine AS builder
+WORKDIR /out
+# Copy the Java source code to inside the image
+COPY *.java .
+# Compile the Java source code
+RUN javac Hello.java
+# Create a lightweight image (exclude JavaJDK after compiling, just need JRE)
+FROM openjdk:8-jre-alpine
+# Copy compiled artifacts from previous image
+COPY --from=builder /out/*.class .
+CMD ["java", "Hello"]

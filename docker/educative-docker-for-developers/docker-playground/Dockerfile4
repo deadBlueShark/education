@@ -1,0 +1,18 @@
+FROM node:10-alpine
+
+# Create app dir
+RUN mkdir -p /usr/src/ap
+WORKDIR /usr/src/app
+
+# Install app dependencies
+COPY for4/package.json .
+RUN npm install
+
+COPY for4/ .
+
+EXPOSE 80
+
+CMD ["npm", "start"]
+
+# Build cmd: docker build -t nguyen/java-node -f Dockerfile4 .
+# Run after build:  docker run --rm -it -p 8080:80 nguyen/hello-node
