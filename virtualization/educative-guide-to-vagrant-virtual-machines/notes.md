@@ -25,3 +25,8 @@ Using Vagrant, you can install any virtual OS using the CLI (Command Line Interf
 Vagrant works with any virtualization engine, such as VirtualBox, VMware, libvirt (Linux) etc.
 
 You need to have one of these virtualization engines for Vagrant to run a virtual OS.
+
+```shell
+sudo vagrant up --provider virtualbox
+sudo vagrant up --provider vmware_desktop
+```
