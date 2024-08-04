@@ -76,3 +76,4 @@ ruby-rails/manual-token-authen/config/master.key
 tmp/
 .vscode/
 .DS_Store
+.env
