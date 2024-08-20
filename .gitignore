@@ -78,3 +78,5 @@ tmp/
 .DS_Store
 .venv
 .env
+
+cmake-build-debug/
