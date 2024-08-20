@@ -78,5 +78,5 @@ tmp/
 .DS_Store
 .venv
 .env
-
+.idea
 cmake-build-debug/
