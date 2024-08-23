@@ -2,5 +2,13 @@ services:
   db:
     image: mariadb
     restart: always
+    expose:
+      - 3306
+    ports:
+      - "3306:3306"
+    volumes:
+      - "db_data:/var/lib/mysql"
     environment:
       MARIADB_ROOT_PASSWORD: 123456
+volumes:
+  db_data:
