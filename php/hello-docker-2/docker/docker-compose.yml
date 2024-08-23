@@ -1,0 +1,37 @@
+version: '3.5'
+
+services:
+  php:
+    container_name: php
+    build:
+      dockerfile: php-dockerfile
+      context: .
+    volumes:
+      - '../:/var/www/html'
+      - './php-logging.conf:/usr/local/etc/php-fpm.d/zz-log.conf'
+    depends_on:
+      - mariadb
+
+  nginx:
+    container_name: web
+    image: nginx:latest
+    ports:
+      - 8080:80
+    links:
+      - 'php'
+    volumes:
+      - '../:/var/www/html'
+      - './nginx-conf:/etc/nginx/conf.d'
+    depends_on:
+      - php
+
+  mariadb:
+    container_name: db
+    image: mariadb:10.9
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - './db-data:/var/lib/mysql'
+
+volumes:
+  db-data:
