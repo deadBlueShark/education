@@ -1,0 +1,16 @@
+{
+    "name": "hello/composer",
+    "description": "Testing Auto Loading with Composer",
+    "autoload": {
+        "psr-4": {
+            "Hello\\Composer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "deadBlueShark",
+            "email": "xspacechinguyen@gmail.com"
+        }
+    ],
+    "require": {}
+}
