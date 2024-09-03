@@ -4,8 +4,116 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9feba525530632b65150daf5f4c4c255",
-    "packages": [],
+    "content-hash": "ec97b2f8cda0495168da5c354c8689a9",
+    "packages": [
+        {
+            "name": "malios/php-to-ascii-table",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/malios/php-to-ascii-table.git",
+                "reference": "1a4621f5286f72ff0823627088e94382546b9218"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/malios/php-to-ascii-table/zipball/1a4621f5286f72ff0823627088e94382546b9218",
+                "reference": "1a4621f5286f72ff0823627088e94382546b9218",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": "^7|^8",
+                "php-ds/php-ds": "^1.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "@stable",
+                "vimeo/psalm": "@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AsciiTable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mehmed Aliosman",
+                    "email": "dev.mehmed.aliosman@gmail.com"
+                }
+            ],
+            "description": "A PHP library to generate plain text tables.",
+            "keywords": [
+                "ascii",
+                "php",
+                "plain text table",
+                "table"
+            ],
+            "support": {
+                "issues": "https://github.com/malios/php-to-ascii-table/issues",
+                "source": "https://github.com/malios/php-to-ascii-table/tree/v3.0.0"
+            },
+            "time": "2022-02-13T20:15:16+00:00"
+        },
+        {
+            "name": "php-ds/php-ds",
+            "version": "v1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-ds/polyfill.git",
+                "reference": "7b2c5f1843466d50769a0682ce6fa9ddaaa99cb4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-ds/polyfill/zipball/7b2c5f1843466d50769a0682ce6fa9ddaaa99cb4",
+                "reference": "7b2c5f1843466d50769a0682ce6fa9ddaaa99cb4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.0"
+            },
+            "provide": {
+                "ext-ds": "1.5.0"
+            },
+            "require-dev": {
+                "php-ds/tests": "^1.5"
+            },
+            "suggest": {
+                "ext-ds": "to improve performance and reduce memory usage"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ds\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rudi Theunissen",
+                    "email": "rudolf.theunissen@gmail.com"
+                }
+            ],
+            "keywords": [
+                "data structures",
+                "ds",
+                "php",
+                "polyfill"
+            ],
+            "support": {
+                "issues": "https://github.com/php-ds/polyfill/issues",
+                "source": "https://github.com/php-ds/polyfill/tree/v1.5.0"
+            },
+            "time": "2023-12-19T16:52:21+00:00"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",

@@ -12,5 +12,7 @@
             "email": "xspacechinguyen@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "malios/php-to-ascii-table": "^3.0"
+    }
 }
