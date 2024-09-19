@@ -9,7 +9,3 @@ end
 every(1.seconds, 'every_second.job')
 
 every(10.seconds, 'frequent.job')
-
-
-
-
