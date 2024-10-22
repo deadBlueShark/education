@@ -3,7 +3,8 @@
 using namespace std;
 
 int main() {
-  cout << "Hello, C++!";
+  // Use endl to add a new line
+  cout << "Hello, C++!" << endl << endl;
   cout << "Educative is an interactive platform ";
   cout << "for learning";
 }
