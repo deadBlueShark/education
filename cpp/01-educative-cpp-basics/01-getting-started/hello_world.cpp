@@ -7,4 +7,14 @@ int main() {
   cout << "Hello, C++!" << endl << endl;
   cout << "Educative is an interactive platform ";
   cout << "for learning";
+
+  cout << endl << endl;
+
+  cout << "Display a Right-Angle Triangle" << endl;
+  cout << "& & & & & &" << endl;
+  cout << "& & & & &" << endl;
+  cout << "& & & &" << endl;
+  cout << "& & &" << endl;
+  cout << "& &" << endl;
+  cout << "&";
 }
