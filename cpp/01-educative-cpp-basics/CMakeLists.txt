@@ -4,6 +4,11 @@ project(01_educative_cpp_basics)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(
-  01_educative_cpp_basics
+  getting-started
   01-getting-started/hello_world.cpp
+  03-data-types-and-input/data_types.cpp
+)
+add_executable(
+  variables-and-constants
+  02-variables-and-constants/variable_and_constant_practice.cpp
 )
