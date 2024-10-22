@@ -12,3 +12,7 @@ add_executable(
   variables-and-constants
   02-variables-and-constants/variable_and_constant_practice.cpp
 )
+add_executable(
+  data-types-and-input
+  03-data-types-and-input/data_types.cpp
+)
