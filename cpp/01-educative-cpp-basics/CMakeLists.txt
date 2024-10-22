@@ -3,4 +3,6 @@ project(01_educative_cpp_basics)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(01_educative_cpp_basics main.cpp)
+add_executable(01_educative_cpp_basics
+  01-getting-started/hello_world.cpp
+)
