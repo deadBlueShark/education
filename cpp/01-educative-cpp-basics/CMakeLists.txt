@@ -24,3 +24,4 @@ add_executable(
   conditional-statements
   05-conditional-statements/practice.cpp
 )
+add_executable(loops 06-loops/practice.cpp)
