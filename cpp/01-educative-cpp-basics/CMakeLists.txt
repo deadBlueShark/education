@@ -20,3 +20,7 @@ add_executable(
   data-types-and-input-2
   03-data-types-and-input/user_input.cpp
 )
+add_executable(
+  conditional-statements
+  05-conditional-statements/practice.cpp
+)
