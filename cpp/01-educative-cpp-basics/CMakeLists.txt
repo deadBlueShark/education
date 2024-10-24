@@ -25,3 +25,12 @@ add_executable(
   05-conditional-statements/practice.cpp
 )
 add_executable(loops 06-loops/practice.cpp)
+add_executable(
+  functions-1
+  07-functions/practice.cpp
+)
+add_executable(
+  functions-2
+  07-functions/pass_by_ref.cpp
+)
+add_executable(function-3 07-functions/function_overloading.cpp)
