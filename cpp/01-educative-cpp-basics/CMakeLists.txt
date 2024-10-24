@@ -3,34 +3,12 @@ project(01_educative_cpp_basics)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(
-  getting-started
-  01-getting-started/hello_world.cpp
-  03-data-types-and-input/data_types.cpp
-)
-add_executable(
-  variables-and-constants
-  02-variables-and-constants/variable_and_constant_practice.cpp
-)
-add_executable(
-  data-types-and-input-1
-  03-data-types-and-input/data_types.cpp
-)
-add_executable(
-  data-types-and-input-2
-  03-data-types-and-input/user_input.cpp
-)
-add_executable(
-  conditional-statements
-  05-conditional-statements/practice.cpp
-)
+add_executable(getting-started 01-getting-started/hello_world.cpp)
+add_executable(variables-and-constants 02-variables-and-constants/variable_and_constant_practice.cpp)
+add_executable(data-types-and-input-1 03-data-types-and-input/data_types.cpp)
+add_executable(data-types-and-input-2 03-data-types-and-input/user_input.cpp)
+add_executable(conditional-statements 05-conditional-statements/practice.cpp)
 add_executable(loops 06-loops/practice.cpp)
-add_executable(
-  functions-1
-  07-functions/practice.cpp
-)
-add_executable(
-  functions-2
-  07-functions/pass_by_ref.cpp
-)
+add_executable(functions-1 07-functions/practice.cpp)
+add_executable(functions-2 07-functions/pass_by_ref.cpp)
 add_executable(function-3 07-functions/function_overloading.cpp)
