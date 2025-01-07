@@ -80,3 +80,4 @@ tmp/
 .env
 .idea
 cmake-build-debug/
+node_modules
