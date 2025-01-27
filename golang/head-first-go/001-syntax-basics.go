@@ -15,7 +15,8 @@ func main() {
 	fmt.Println("Division:", 9/5, 9%5)
 
 	// Runes
-	fmt.Println('A', '\n', 'a')
+	fmt.Println("\nRune:")
+	fmt.Println('A', '\n', 'a') // 65 10 97
 	fmt.Printf("Type %T\n", 'A')
 
 	fmt.Println("Type Of", reflect.TypeOf(9))
