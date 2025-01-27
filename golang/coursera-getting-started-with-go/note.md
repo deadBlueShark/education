@@ -1,20 +1,47 @@
-### Advantages of Go 
-
+### Advantages of Go
 - Code runs fast
 - Garbage collection
-- Simpler objects
+- Simpler objects(OOP simpler than other languages)
 - Concurrency is efficient
 
 ### Software Translation
-
 3 very broad categories of languages for Machine:
-- Machine language: CPU instructions represented in binary
-- Assembly language: CPU instructions with mnemonics
-  + Easy to read
-  + Equivalent to machine language
-- High level language
+- Machine language: CPU instructions represented in binary(Ex: 011001)
+- Assembly language: CPU instructions with mnemonics 
+  - Easy to read(than machine language)
+  - Equivalent to machine language
+- High level language(Java, Ruby, Python, C, C++,...)
+  - Much easier to use
 
 All software must be translated into the machine language of processor
+
+#### Compiled vs Interpreted
+- Compilation: Translate instructions once before running code
+  - C, C++, Java(partially)
+  - Translation occurs only once, saves time
+
+- Interpretation: Translate instructions while code is executed
+  - Python, Ruby, Java(Partially)
+  - Translation occurs every execution
+  - Requires an interpreter
+
+Trade-off beetween compiled code vs interpreted code:
+- Efficency vs Ease-of-use
+  - Compiled code is fast
+  - Interpreters make coding easier
+    - Manage memory automatically
+    - Inter variable types
+  - `Go` is a good compromise: compiled lang but have advantages of interpreted lang
+
+- Garbage collection
+  - Automatic memory management
+    - Where should memory be allocated?
+    - When can memory be de-allocated?
+  - Manual memory management is hard
+    - De-allocate too early -> false memory accesses
+    - De-allocate too late -> wasted memory, memory leak
+  - `Go` includes GC
+    - Typically only done by interpreters
 
 ### Objects
 
