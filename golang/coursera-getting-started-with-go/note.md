@@ -47,10 +47,19 @@ Trade-off beetween compiled code vs interpreted code:
 
 Weakly OO (have fewer features than another OO languages)
 
-Structs:
-- No inheritance
-- No constructors
-- No generics
+Object-Oriented Programming:
+- Organize your code through encapsulation
+- Group together data and functions which are related
+- User-defined type which is specific to an application
+  - Ex: ints have data and functions(+,-,*,/...)
+
+Objects in `Go`
+- `Go` does not use the term `class`
+- `Go` uses `Structs` with associated methods
+- Simplified implementation of classes(Structs)
+  - No inheritance
+  - No constructors
+  - No generics
 
 ### Concurrency
 
