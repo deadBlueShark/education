@@ -44,7 +44,6 @@ Trade-off beetween compiled code vs interpreted code:
     - Typically only done by interpreters
 
 ### Objects
-
 Weakly OO (have fewer features than another OO languages)
 
 Object-Oriented Programming:
@@ -96,7 +95,6 @@ Concurrency in `Go`
 `go doc`, `go build`, `go run`, `go fmt`, `go get`, `go list`, `go test`
 
 ### Variables
-
 - Data stored in memory
 - Must have a name and a type
 - All variables must have declarations
@@ -108,16 +106,15 @@ Defining an alias for a type:
     `type Celsius float64`
 ->  `var temprature Celsius`
 
-Initilize
+Initialization:
 `var x int = 100`
 
-Uninitialized variables have a zero value
+Uninitialized variables have a `zero value`:
 `var a int // 0`
 `var b string // ""`
 `var gender bool // false`
 
 ### Pointers
-
 A pointer is an address to data in memory
 
 There are 2 main operators that are associated with pointers
