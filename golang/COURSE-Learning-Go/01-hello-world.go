@@ -16,6 +16,7 @@ func main() {
 	if err == nil {
 		fmt.Println("String's length:", strLength)
 	}
+
 	fmt.Printf("Random variables: %v %v %v\n", 34, "Nguyen", true)
 	fmt.Printf("Float variable: %.2f\n", float64(40))
 	fmt.Printf("Data type: %v -> %T, %v -> %T, %v -> %T, %v -> %T\n",
