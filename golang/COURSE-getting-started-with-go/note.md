@@ -6,7 +6,7 @@
 
 ### Software Translation
 3 very broad categories of languages for Machine:
-- Machine language: CPU instructions reperesented in binary
+- Machine language: CPU instructions represented in binary
 - Assembly language: CPU instructions with mnemonics
   + Easy to read
   + Equivalent to machine language
