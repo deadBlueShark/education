@@ -62,6 +62,35 @@ Objects in `Go`
   - No generics
 
 ### Concurrency
+Performance Limits
+- Moore's Law used to help performance:
+  - Number of transistors doubles every 18 month
+- More transistors used to lead to higher clock frequencies
+- Power/temperature constrainsts limit clock prequencies now
+
+Solution for performance limitation:
+- Parallelism
+  - Number of cores still increases over time
+  - Multiple tasks may be performed at the same time on different cores
+  - Difficulties with parallelism:
+    - When do the tasks start/stop?
+    - What if one task need data from another task?
+    - Do tasks conflict in memory?
+
+Concurrent programming
+- Concurrency is the management of multiple tasks at the same time
+- Key requirement for large systems
+- Concurrent programming enables
+  - Management of task execution
+  - Communication between tasks
+  - Synchronization between tasks
+
+Concurrency in `Go`
+- `Go` includes concurrency primitives
+- `Goroutines` represent concurrent tasks
+- `Channels` are used to communicate between tasks
+- `Select` enables task synchronization
+- Concurrency primitives are efficient and easy to use
 
 ### Go tools
 `go doc`, `go build`, `go run`, `go fmt`, `go get`, `go list`, `go test`
