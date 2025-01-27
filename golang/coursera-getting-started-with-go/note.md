@@ -25,8 +25,8 @@ All software must be translated into the machine language of processor
   - Translation occurs every execution
   - Requires an interpreter
 
-Trade-off beetween compiled code vs interpreted code:
-- Efficency vs Ease-of-use
+Trade-off between compiled code vs interpreted code:
+- Efficiency vs Ease-of-use
   - Compiled code is fast
   - Interpreters make coding easier
     - Manage memory automatically
@@ -50,7 +50,7 @@ Object-Oriented Programming:
 - Organize your code through encapsulation
 - Group together data and functions which are related
 - User-defined type which is specific to an application
-  - Ex: ints have data and functions(+,-,*,/...)
+  - Ex: int have data and functions(+,-,*,/...)
 
 Objects in `Go`
 - `Go` does not use the term `class`
@@ -65,7 +65,7 @@ Performance Limits
 - Moore's Law used to help performance:
   - Number of transistors doubles every 18 month
 - More transistors used to lead to higher clock frequencies
-- Power/temperature constrainsts limit clock prequencies now
+- Power/temperature constraints limit clock frequencies now
 
 Solution for performance limitation:
 - Parallelism
@@ -123,7 +123,7 @@ There are 2 main operators that are associated with pointers
   - `*` operator returns data at an address (dereferencing)
   (put that in front of a pointer)
 
-```go
+```
   var x int = 1
   var y int
   var ip *int // pointer to int
@@ -135,7 +135,7 @@ There are 2 main operators that are associated with pointers
 Alternate way to create a variable: `new()`, creates a variable and returns
 a pointer to the variable 
 
-```go
+```
   ptr := new(int)
   *ptr = 3 // place 3 to address
 ```
@@ -146,11 +146,10 @@ Scope:
 - The places in code where a variable can be accessed
 
 ### Deallocating memory
-Stack vs Heap
-
+Stack vs Heap:
 - In general:
-  + Stack is an area of memory that is dedicated to funtion calls, local variables
-  for a functions are stored here and they are deallocated automatically when the
+  + Stack is an area of memory that is dedicated to function calls, local variables
+  for a functions are stored here, and they are deallocated automatically when the
   function complete 
 
   + Heap is a persistent region of memory where when you allocate something on the
@@ -162,12 +161,18 @@ languages
   + Implementation is fast
   + Compiler determines to put variables to stack or heap
 
+GC in `Go`:
+- Compiled language that enables GC
+- Implementation is fast
+- Compiler determines Heap vs Stack
+- GC in the background
+
 ### Constants
 
 - Expression whose value is known at compile time    
-- Type is inferred from righthand side (boolean, string, number)
+- Type is inferred from right hand side (boolean, string, number)
 
-```go
+```
 const x = 1.3
 const (
   y = 8
