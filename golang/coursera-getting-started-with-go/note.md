@@ -1,10 +1,12 @@
 ### Advantages of Go 
+
 - Code runs fast
 - Garbage collection
 - Simpler objects
 - Concurrency is efficient
 
 ### Software Translation
+
 3 very broad categories of languages for Machine:
 - Machine language: CPU instructions represented in binary
 - Assembly language: CPU instructions with mnemonics
@@ -15,6 +17,7 @@
 All software must be translated into the machine language of processor
 
 ### Objects
+
 Weakly OO (have fewer features than another OO languages)
 
 Structs:
@@ -23,10 +26,12 @@ Structs:
 - No generics
 
 ### Concurrency
+
 ### Go tools
 `go doc`, `go build`, `go run`, `go fmt`, `go get`, `go list`, `go test`
 
 ### Variables
+
 - Data stored in memory
 - Must have a name and a type
 - All variables must have declarations
@@ -44,6 +49,7 @@ Initilize
 Uninitialized variables have a zero value
 `var a int // 0`
 `var b string // ""`
+`var gender bool // false`
 
 ### Pointers
 
