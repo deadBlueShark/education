@@ -12,7 +12,11 @@ func main() {
 
 	for {
 		fmt.Println("Enter an integer:")
-		fmt.Scan(&userInput)
+		_, err := fmt.Scan(&userInput)
+		if err != nil {
+			fmt.Println("Error:", err)
+			return
+		}
 
 		if userInput == "X" {
 			break
@@ -24,7 +28,7 @@ func main() {
 				sort.Ints(integerSlice)
 				fmt.Println("Sorted integers:", integerSlice)
 			} else {
-				fmt.Println("Unvalid integer")
+				fmt.Println("Invalid integer")
 			}
 		}
 	}
