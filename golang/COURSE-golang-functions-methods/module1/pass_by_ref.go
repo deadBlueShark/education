@@ -4,9 +4,9 @@ import "fmt"
 
 func main() {
 	x := [1]int{1}
-	fmt.Println(x)
+	fmt.Println(x) // [1]
 	change(&x)
-	fmt.Println(x)
+	fmt.Println(x) // [3]
 }
 
 func change(y *[1]int) {

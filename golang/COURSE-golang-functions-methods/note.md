@@ -1,5 +1,4 @@
 ### Call by value, reference
-
 Tradeoffs of Call by Value:
 
 - Advantages: Data encapsulation

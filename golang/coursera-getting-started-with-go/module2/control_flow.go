@@ -1,9 +1,10 @@
 package main
 
 import "fmt"
+import "math/rand"
 
 func main() {
-	year := 1999
+	year := rand.Intn(3000) + 1000
 
 	for i := 0; i < 2; i++ {
 		if year >= 2000 {
