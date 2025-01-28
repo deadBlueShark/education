@@ -188,7 +188,7 @@ const (
 ### Arrays 
 - Fixed-length series of elements of a chosen type
 - Elements accessed using subscript notation `[ ]`
-- Elements initialized to zero value (0, "")
+- Elements initialized to `zero value`(0, "", false)
 
 ### Slices
 - A "window" on an underlying array
