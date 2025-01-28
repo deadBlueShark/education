@@ -10,12 +10,20 @@ func main() {
 		var n float64
 		var answer string
 		fmt.Println("Please input a float type number")
-		fmt.Scan(&n)
+		_, err := fmt.Scan(&n)
+		if err != nil {
+			fmt.Println("Your input is invalid")
+			return
+		}
 
 		fmt.Printf("The truncated numer is %f\n", math.Trunc(n))
 
 		fmt.Println("Do you want put another number? answer YES or NO")
-		fmt.Scan(&answer)
+		_, err = fmt.Scan(&answer)
+		if err != nil {
+			fmt.Println("Your input is invalid")
+			return
+		}
 
 		if answer == "YES" {
 			continue

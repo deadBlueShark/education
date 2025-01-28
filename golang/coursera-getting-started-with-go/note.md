@@ -168,7 +168,6 @@ GC in `Go`:
 - GC in the background
 
 ### Constants
-
 - Expression whose value is known at compile time    
 - Type is inferred from right hand side (boolean, string, number)
 

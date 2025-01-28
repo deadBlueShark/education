@@ -8,6 +8,7 @@ func main() {
 	fmt.Println("Enter a float number:")
 	_, err := fmt.Scan(&inputNum)
 	if err != nil {
+		fmt.Println("Error:", err)
 		return
 	}
 
