@@ -18,41 +18,45 @@ Submit your source code for the program, “read.go”.
 package main
 
 import (
-    "fmt"
-    "io/ioutil"
-    "strings"
+	"fmt"
+	"io/ioutil"
+	"strings"
 )
 
 type Person1 struct {
-    firstName string
-    lastName  string
+	firstName string
+	lastName  string
 }
 
 func main() {
-    // define array slice
-    var names []Person1
+	// define array slice
+	var names []Person1
 
-    // User type in file path
-    var filePath string
-    fmt.Printf("Enter input file path ...\n> ")
-    fmt.Scan(&filePath)
+	// User type in file path
+	var filePath string
+	fmt.Printf("Enter input file path ...\n> ")
+	_, err := fmt.Scan(&filePath)
+	if err != nil {
+		fmt.Printf("Error reading input: %v", err)
+		return
+	}
 
-    data, err := ioutil.ReadFile(filePath)
-    if err != nil {
-        fmt.Println("File reading error:", err)
-        return
-    }
-    text := strings.Trim(string(data), "\n")
-    text = strings.Trim(text, " ")
-    lines := strings.Split(text, "\n")
-    for _, line := range lines {
-        items := strings.Split(line, " ")
-        newPerson := Person1{firstName: items[0], lastName: items[1]}
-        names = append(names, newPerson)
-    }
-    fmt.Println("\n* List of names found in file", filePath, ":")
-    for _, p := range names {
-        fmt.Printf("%s %s\n", p.firstName, p.lastName)
-    }
-    fmt.Printf("\n")
+	data, err := ioutil.ReadFile(filePath)
+	if err != nil {
+		fmt.Println("File reading error:", err)
+		return
+	}
+	text := strings.Trim(string(data), "\n")
+	text = strings.Trim(text, " ")
+	lines := strings.Split(text, "\n")
+	for _, line := range lines {
+		items := strings.Split(line, " ")
+		newPerson := Person1{firstName: items[0], lastName: items[1]}
+		names = append(names, newPerson)
+	}
+	fmt.Println("\n* List of names found in file", filePath, ":")
+	for _, p := range names {
+		fmt.Printf("%s %s\n", p.firstName, p.lastName)
+	}
+	fmt.Printf("\n")
 }
