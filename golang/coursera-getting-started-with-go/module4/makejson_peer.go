@@ -1,8 +1,10 @@
 /*
-Write a program which prompts the user to first enter a name, and then enter an address. Your program should create a map and add the name and address to the map using the keys “name” and “address”, respectively. Your program should use Marshal() to create a JSON object from the map, and then your program should print the JSON object.
-
-Submit your source code for the program,
-“makejson.go”.
+Write a program which prompts the user to first enter a name,
+and then enter an address. Your program should create a map and
+add the name and address to the map using the keys “name” and
+“address”, respectively. Your program should use Marshal() to
+create a JSON object from the map, and then your program should
+print the JSON object.
 */
 package main
 
@@ -29,8 +31,7 @@ func main() {
 	person["name"] = name
 	person["address"] = address
 
-	//    j, _ := json.Marshal(person)
+	// j, _ := json.Marshal(person)
 	j, _ := json.MarshalIndent(person, "", "    ")
 	fmt.Println(string(j))
-
 }

@@ -22,6 +22,9 @@ func main() {
 
 	// Unmarshal JSON to object
 	var p2 Person
-	json.Unmarshal(jsonParsed, &p2)
+	err := json.Unmarshal(jsonParsed, &p2)
+	if err != nil {
+		return
+	}
 	fmt.Printf("%#v\n", p2) // {Cris 032323223 32}
 }

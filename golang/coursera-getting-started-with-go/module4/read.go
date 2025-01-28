@@ -17,7 +17,11 @@ func main() {
 
 	var fileName string
 	fmt.Println("Enter file name:")
-	fmt.Scan(&fileName)
+	_, err := fmt.Scan(&fileName)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
 
 	file, err := os.Open(fileName)
 	if err != nil {
