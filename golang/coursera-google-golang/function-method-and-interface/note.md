@@ -75,16 +75,14 @@ Functions are First-class:
   - Can be stored in data structures
 
 Variables as functions:
-- Declare a variable as a func:
-```go
-var funcVar func(int, int) int
+- Declare a variable as a func
 
-func sum(a, b int) int {
-	return a + b
-}
+### Closures
+- Function and its environment
+- When functions are passed/returned, their environment comes with them
 
-func main() {
-  funcVar = sum
-  funcVar(3, 4)
-}
-```
+Environment of a function:
+- Set of all names that are valid inside a function
+- Names are defined locally in the function
+- Lexical scoping
+- Includes names defined in block where the function defined
