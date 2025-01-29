@@ -66,3 +66,25 @@ Triangle3DArea(p1, p2, p3)
   - Function length is the most obvious measure
   - Should be simple
   - Short functions can be complicated too
+
+### Function types
+Functions are First-class:
+- Functions can be treated like other types (int, float, ...)
+  - Variables can be declared with a function type
+  - Can be passed as an argument and returned as values
+  - Can be stored in data structures
+
+Variables as functions:
+- Declare a variable as a func:
+```go
+var funcVar func(int, int) int
+
+func sum(a, b int) int {
+	return a + b
+}
+
+func main() {
+  funcVar = sum
+  funcVar(3, 4)
+}
+```
