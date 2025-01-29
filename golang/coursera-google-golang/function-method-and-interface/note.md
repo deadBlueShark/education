@@ -86,3 +86,8 @@ Environment of a function:
 - Names are defined locally in the function
 - Lexical scoping
 - Includes names defined in block where the function defined
+
+### Deferred functions
+- Can be deferred until the surrounding function completes
+- Typically used for cleanup activities
+- Arguments of a defferred call are evaluated immediately
