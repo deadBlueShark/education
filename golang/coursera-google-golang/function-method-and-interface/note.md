@@ -94,3 +94,8 @@ Environment of a function:
 
 ### Dereferencing
 Do not need to reference when calling a method
+
+### Polymorphism
+- The ability of an object to have different "forms" depending on the context
+- Identical at a high level of abstraction
+- Different at a low level of abstraction
