@@ -91,3 +91,6 @@ Environment of a function:
 - Can be deferred until the surrounding function completes
 - Typically used for cleanup activities
 - Arguments of a defferred call are evaluated immediately
+
+### Dereferencing
+Do not need to reference when calling a method
