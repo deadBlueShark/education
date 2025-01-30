@@ -97,3 +97,17 @@ Blocking and Synchronization:
 - Channel communication is synchronous
 - Blocking is the same as waiting for communication
 - Receiving and ignoring the result is same as `Wait()`
+
+Buffered channel:
+- Channels can contain a limited number of objects
+  - Default size is 0 (unbuffered)
+- Capacity is the number of objects it can hold in transit
+- Optional argument to `make()` defines channel capacity
+  - `channel := make(chan int, 9)`
+- Sending only blocked if buffer is full
+- Receiving only blocked if buffer is empty
+
+Why use buffering?
+- Sender and receiver do not need to operate at exactly the same speed
+  - Producer - Consumer architecture
+- Speed mismatch is acceptable
