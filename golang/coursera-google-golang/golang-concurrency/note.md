@@ -62,7 +62,8 @@ Exiting a Goroutine:
 - When the main goroutine is completed, all other goroutines force to be exited
 - A goroutine may not complete its execution because `main()` completes early
 
-
+Synchronization:
+- Using a global events whose execution is viewed by all threads, simultaneously
 ### Interleaving
 - Order of execution within a task is known
 - Order of execution between concurrent tasks is unknown
