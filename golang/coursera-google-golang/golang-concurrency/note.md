@@ -48,6 +48,21 @@ Go Runtime Scheduler:
 - Like a little OS inside a single OS thread
 - Logical processor is mapped to a thread
 
+Creating a Goroutine:
+- One Goroutine is created automatically to execute the `main()`
+- Other Goroutines are created use the `go` keyword
+```go
+a := 1
+go foo()
+b := 2
+```
+
+Exiting a Goroutine:
+- A goroutine exits when its code is completed
+- When the main goroutine is completed, all other goroutines force to be exited
+- A goroutine may not complete its execution because `main()` completes early
+
+
 ### Interleaving
 - Order of execution within a task is known
 - Order of execution between concurrent tasks is unknown
