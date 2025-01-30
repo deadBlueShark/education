@@ -15,3 +15,6 @@ Hiding latency:
 - Tasks must periodically wait for something
   - Ex: wait for memory, wait for IO, internet transfer...
 - Other concurrent tasks can operate while one task is waiting
+
+Von Neumann bottleneck: Memory access time is a performance bottleneck
+
