@@ -48,3 +48,21 @@ Go Runtime Scheduler:
 - Like a little OS inside a single OS thread
 - Logical processor is mapped to a thread
 
+### Interleaving
+- Order of execution within a task is known
+- Order of execution between concurrent tasks is unknown
+  - Interleaving of instructions between tasks is unknown
+
+Possible interleaving
+- Many interleaving are possible
+- Must consider all possibilities
+- Ordering is non-deterministic
+
+### Race conditions(may cause flaky failed tests)
+- Outcome depends on non-deterministic ordering
+- Races occur due to communication
+
+Communication between tasks
+- Threads are largely independent but not completely independent
+- Ex: Webserver, one thread per client
+
