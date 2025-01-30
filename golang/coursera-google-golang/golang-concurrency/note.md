@@ -86,3 +86,14 @@ Communication between tasks
 ### Channels
 - Transfer data between goroutines
 - Channels are typed
+
+Unbuffered channel
+- Unbuffered channel cannot hold data in transit
+  - Default is unbuffered
+- Sending blocks until data is received
+- Receiving blocks until data is sent
+
+Blocking and Synchronization:
+- Channel communication is synchronous
+- Blocking is the same as waiting for communication
+- Receiving and ignoring the result is same as `Wait()`
