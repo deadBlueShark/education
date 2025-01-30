@@ -18,3 +18,20 @@ Hiding latency:
 
 Von Neumann bottleneck: Memory access time is a performance bottleneck
 
+### Processes
+- An instance of a running program
+- Things unique to a process:
+  - Memory
+    - Virtual address space
+    - Code, Stack, Heap, shared libraries
+  - Registers
+    - Program counters, data registers, stack pointers...
+
+### Operating system
+- Allows many processes to execute concurrently
+- OS schedules processes for execution
+  - Processes are switched quickly(20ms)
+  - Users have the impression of parallelism
+- OS must give processes fair access to resources
+
+
