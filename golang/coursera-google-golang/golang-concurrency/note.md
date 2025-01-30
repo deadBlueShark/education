@@ -111,3 +111,9 @@ Why use buffering?
 - Sender and receiver do not need to operate at exactly the same speed
   - Producer - Consumer architecture
 - Speed mismatch is acceptable
+
+### Goroutines sharing variables
+- Sharing variables concurrently can cause problems
+- Two goroutines writing to a shared variable can interfere with each other
+- Concurrently-safe:
+  - Function can be invoked concurrently without interfering with other goroutines
