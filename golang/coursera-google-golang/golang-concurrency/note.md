@@ -64,6 +64,7 @@ Exiting a Goroutine:
 
 Synchronization:
 - Using a global events whose execution is viewed by all threads, simultaneously
+
 ### Interleaving
 - Order of execution within a task is known
 - Order of execution between concurrent tasks is unknown
@@ -82,3 +83,6 @@ Communication between tasks
 - Threads are largely independent but not completely independent
 - Ex: Webserver, one thread per client
 
+### Channels
+- Transfer data between goroutines
+- Channels are typed
