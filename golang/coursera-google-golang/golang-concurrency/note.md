@@ -34,4 +34,17 @@ Von Neumann bottleneck: Memory access time is a performance bottleneck
   - Users have the impression of parallelism
 - OS must give processes fair access to resources
 
+### Threads
+- Threads share some context
+- Many threads can exist in one process
+- OS schedules threads rather than processes
+
+### Goroutines
+- Like a thread in Go
+- Many Goroutines execute within a single OS thread
+
+Go Runtime Scheduler:
+- Schedules Goroutines inside an OS thread
+- Like a little OS inside a single OS thread
+- Logical processor is mapped to a thread
 
