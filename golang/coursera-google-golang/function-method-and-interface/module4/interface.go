@@ -38,11 +38,11 @@ func (c Circle) Perimeter() float64 {
 
 func main() {
 	var shape Shape
-	shape = Circle{10}
+	shape = Circle{Radius: 10}
 	fmt.Println("Circle area:", shape.Area())
 	fmt.Println("Circle perimeter:", shape.Perimeter())
 
-	shape = Rectangle{10, 10}
+	shape = Rectangle{Width: 10, Height: 13}
 	fmt.Println("Rectangle area:", shape.Area())
 	fmt.Println("Rectangle perimeter:", shape.Perimeter())
 }
