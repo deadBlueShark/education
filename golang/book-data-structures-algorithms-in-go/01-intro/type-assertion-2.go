@@ -21,17 +21,27 @@ func main() {
 }
 
 func getExpenseReport(e expense) (string, float64) {
-	emailStruct, emOk := e.(email)
-	if emOk {
-		return emailStruct.toAddress, emailStruct.cost()
-	}
+	//emailStruct, emOk := e.(email)
+	//if emOk {
+	//	return emailStruct.toAddress, emailStruct.cost()
+	//}
+	//
+	//smsStruct, sOk := e.(sms)
+	//if sOk {
+	//	return smsStruct.toPhoneNumber, smsStruct.cost()
+	//}
+	//
+	//return "", 0.0
 
-	smsStruct, sOk := e.(sms)
-	if sOk {
-		return smsStruct.toPhoneNumber, smsStruct.cost()
+	// Use switch type
+	switch t := e.(type) {
+	case email:
+		return t.toAddress, t.cost()
+	case sms:
+		return t.toPhoneNumber, t.cost()
+	default:
+		return "", 0
 	}
-
-	return "", 0.0
 }
 
 type expense interface {
