@@ -21,8 +21,8 @@ query = {
   'channel': SLACK_CHANNEL_ID
 }
 
-response = requests.get(SLACK_CONVERSATION_INFO_ENDPOINT, headers = headers, params = query)
-print(json.dumps(response.json(), indent = 2))
+response = requests.get(SLACK_CONVERSATION_INFO_ENDPOINT, headers=headers, params=query)
+print(json.dumps(response.json(), indent=2))
 
 # Response sample
 """

@@ -22,8 +22,8 @@ query = {
   'limit': 2
 }
 
-response = requests.get(SLACK_MESSAGE_HISTORY_ENDPOINT, headers = headers, params = query)
-print(json.dumps(response.json(), indent = 2))
+response = requests.get(SLACK_MESSAGE_HISTORY_ENDPOINT, headers=headers, params=query)
+print(json.dumps(response.json(), indent=2))
 
 # Response sample
 """
