@@ -22,14 +22,14 @@ new_message = {
   'channel': SLACK_CHANNEL_ID,
   'text': 'Hello World!'
 }
-response = requests.post(SLACK_SEND_MESSAGE_ENDPOINT, headers = headers, params = new_message)
-print(json.dumps(response.json(), indent = 4))
+response = requests.post(SLACK_SEND_MESSAGE_ENDPOINT, headers=headers, params=new_message)
+print(json.dumps(response.json(), indent=4))
 
 # Reply to a thread
 reply_message = {
   'channel': SLACK_CHANNEL_ID,
   'text': 'Hi',
-  'thread_ts': '1722721592.095749' # Thread timestamp
+  'thread_ts': '1722721592.095749'  # Thread timestamp
 }
-response = requests.post(SLACK_SEND_MESSAGE_ENDPOINT, headers = headers, params = reply_message)
-print(json.dumps(response.json(), indent = 2))
+response = requests.post(SLACK_SEND_MESSAGE_ENDPOINT, headers=headers, params=reply_message)
+print(json.dumps(response.json(), indent=2))
