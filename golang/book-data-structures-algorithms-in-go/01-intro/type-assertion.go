@@ -39,5 +39,5 @@ func main() {
 	if !ok {
 		log.Fatal("Not a circle")
 	}
-	fmt.Printf("Circle's area is %.2f\n", rec.area())
+	fmt.Printf("Rectangle's area is %.2f\n", rec.area())
 }
