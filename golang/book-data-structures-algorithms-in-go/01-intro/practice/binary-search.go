@@ -7,7 +7,7 @@ func binarySearchV1(arrPtr *[]int, target int) bool {
 	endIdx := len(*arrPtr) - 1
 
 	for startIdx <= endIdx {
-		midIdx := (startIdx + endIdx) / 2
+		midIdx := startIdx + (endIdx-startIdx)/2
 
 		if (*arrPtr)[midIdx] == target {
 			return true
@@ -25,7 +25,7 @@ func binarySearchV2(arrPtr *[]int, target, startIdx, endIdx int) bool {
 		return false
 	}
 
-	midIdx := (startIdx + endIdx) / 2
+	midIdx := startIdx + (endIdx-startIdx)/2
 
 	if (*arrPtr)[midIdx] == target {
 		return true

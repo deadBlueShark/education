@@ -12,7 +12,7 @@ type stats1 struct {
 	NumLikes uint8
 }
 
-// Struct randoms fields size
+// Struct with random field sizes
 type stats2 struct {
 	NumPosts uint8
 	Reach    uint16

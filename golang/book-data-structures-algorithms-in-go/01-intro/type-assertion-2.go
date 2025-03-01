@@ -62,28 +62,28 @@ type sms struct {
 
 type invalid struct{}
 
-const EMAIL_UNSUBCRIBED_COST_RATE = 0.05
-const EMAIL_SUBCRIBED_COST_RATE = 0.01
+const EMAIL_UNSUBSCRIBED_COST_RATE = 0.05
+const EMAIL_SUBSCRIBED_COST_RATE = 0.01
 
 func (e email) cost() float64 {
 	emailSentLength := len(e.body)
 	if !e.isSubscribed {
-		return float64(emailSentLength) * EMAIL_UNSUBCRIBED_COST_RATE
+		return float64(emailSentLength) * EMAIL_UNSUBSCRIBED_COST_RATE
 	}
 
-	return float64(emailSentLength) * EMAIL_SUBCRIBED_COST_RATE
+	return float64(emailSentLength) * EMAIL_SUBSCRIBED_COST_RATE
 }
 
-const SMS_UNSUBCRIBED_COST_RATE = 0.1
-const SMS_SUBCRIBED_COST_RATE = 0.03
+const SMS_UNSUBSCRIBED_COST_RATE = 0.1
+const SMS_SUBSCRIBED_COST_RATE = 0.03
 
 func (s sms) cost() float64 {
 	smsSentLength := len(s.body)
 	if !s.isSubscribed {
-		return float64(smsSentLength) * SMS_UNSUBCRIBED_COST_RATE
+		return float64(smsSentLength) * SMS_UNSUBSCRIBED_COST_RATE
 	}
 
-	return float64(smsSentLength) * SMS_SUBCRIBED_COST_RATE
+	return float64(smsSentLength) * SMS_SUBSCRIBED_COST_RATE
 }
 
 func (i invalid) cost() float64 {

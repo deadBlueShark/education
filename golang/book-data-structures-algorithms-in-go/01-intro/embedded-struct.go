@@ -14,7 +14,7 @@ type person struct {
 }
 
 func main() {
-	person := person{
+	p := person{
 		name: "John Doe",
 		age:  42,
 		car: car{
@@ -22,12 +22,12 @@ func main() {
 			model: "Y",
 		},
 	}
-	fmt.Println(person)
+	fmt.Println(p)
 
 	// Unlike nested structs, an embedded struct’s fields are accessed at the top level like normal fields:
-	fmt.Println("Person car brand:", person.brand)
-	fmt.Println("Person car model:", person.model)
+	fmt.Println("Person car brand:", p.brand)
+	fmt.Println("Person car model:", p.model)
 	// Also can access like nested struct:
-	fmt.Println("Person car brand:", person.car.brand)
-	fmt.Println("Person car model:", person.car.model)
+	fmt.Println("Person car brand:", p.car.brand)
+	fmt.Println("Person car model:", p.car.model)
 }

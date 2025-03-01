@@ -25,5 +25,5 @@ func main() {
 		frontWheel: wheel{radius: 2.5, material: "steel"},
 		backWheel:  wheel{radius: 2.5, material: "steel"},
 	}
-	fmt.Println(car) // {Toyota S 2 9 {2.5 steel} {2.5 steel}}
+	fmt.Println(car) // {Tesla S 2 9 {2.5 steel} {2.5 steel}}
 }
