@@ -92,9 +92,9 @@ func GetProjects(url string) ([]Project, error) {
 }
 
 // Utility functions
-func PrettyPrint(data string) (string, error) {
+func PrettyPrint(data []byte) (string, error) {
 	var prettyJSON bytes.Buffer
-	if err := json.Indent(&prettyJSON, []byte(data), "", "  "); err != nil {
+	if err := json.Indent(&prettyJSON, data, "", "  "); err != nil {
 		return "", fmt.Errorf("error indenting JSON: %w", err)
 	}
 	return prettyJSON.String(), nil
