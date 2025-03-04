@@ -8,8 +8,8 @@ import (
 	"net/http"
 )
 
-func GetIssueData() ([]byte, error) {
-	resp, err := http.Get("https://api.boot.dev/v1/courses_rest_api/learn-http/issues")
+func GetIssueData(url string) ([]byte, error) {
+	resp, err := http.Get(url)
 	if err != nil {
 		return nil, fmt.Errorf("error fetching url: %w", err)
 	}
