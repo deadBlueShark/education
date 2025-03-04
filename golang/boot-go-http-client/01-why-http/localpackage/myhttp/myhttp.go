@@ -8,22 +8,38 @@ import (
 	"net/http"
 )
 
-func GetIssues(url string) ([]byte, error) {
+// Common HTTP client methods
+func Get(url string) (*http.Response, error) {
 	res, err := http.Get(url)
 	if err != nil {
 		return nil, fmt.Errorf("error fetching url: %w", err)
 	}
-
-	defer res.Body.Close()
-
-	body, err := io.ReadAll(res.Body)
-	if err != nil {
-		return nil, fmt.Errorf("error reading response body: %w", err)
-	}
-
-	return body, nil
+	return res, nil
 }
 
+// JSON handling utilities
+func readAndCloseBody(res *http.Response) ([]byte, error) {
+	defer res.Body.Close()
+	return io.ReadAll(res.Body)
+}
+
+func decodeJSON[T any](res *http.Response) (T, error) {
+	var result T
+	if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+		return result, fmt.Errorf("error decoding JSON: %w", err)
+	}
+	return result, nil
+}
+
+func unmarshalJSON[T any](data []byte) (T, error) {
+	var result T
+	if err := json.Unmarshal(data, &result); err != nil {
+		return result, fmt.Errorf("error unmarshaling JSON: %w", err)
+	}
+	return result, nil
+}
+
+// Data structures
 type User struct {
 	Id         string     `json:"id"`
 	Experience int        `json:"experience"`
@@ -38,27 +54,6 @@ type UserDetail struct {
 	Age      int    `json:"age"`
 }
 
-func GetUsers(url string) ([]User, error) {
-	userResp, err := http.Get(url)
-	if err != nil {
-		return nil, fmt.Errorf("error fetching users: %w", err)
-	}
-
-	defer userResp.Body.Close()
-	return parseJSONByDecode(userResp)
-}
-
-// The Decode method of json.Decoder streams data from an io.Reader into a Go struct
-// Using a json.Decoder can be more memory-efficient because it doesn't load all the data into memory at once
-func parseJSONByDecode(res *http.Response) ([]User, error) {
-	var users []User
-	err := json.NewDecoder(res.Body).Decode(&users)
-	if err != nil {
-		return nil, fmt.Errorf("error reading users: %w", err)
-	}
-	return users, nil
-}
-
 type Project struct {
 	Id        string `json:"id"`
 	Title     string `json:"title"`
@@ -66,39 +61,41 @@ type Project struct {
 	Completed bool   `json:"completed"`
 }
 
-func GetProjects(url string) ([]Project, error) {
-	res, err := http.Get(url)
+// API methods
+func GetIssues(url string) ([]byte, error) {
+	res, err := Get(url)
 	if err != nil {
-		return nil, fmt.Errorf("error fetching url: %w", err)
+		return nil, err
 	}
+	return readAndCloseBody(res)
+}
 
+func GetUsers(url string) ([]User, error) {
+	res, err := Get(url)
+	if err != nil {
+		return nil, err
+	}
 	defer res.Body.Close()
-
-	return parseJSONByMarshal(res)
+	return decodeJSON[[]User](res)
 }
 
-// json.Unmarshal works with data that's already in []byte format,
-// ideal for small JSON data you already have in memory
-func parseJSONByMarshal(res *http.Response) ([]Project, error) {
-	body, err := io.ReadAll(res.Body)
+func GetProjects(url string) ([]Project, error) {
+	res, err := Get(url)
 	if err != nil {
-		return nil, fmt.Errorf("error reading response body: %w", err)
+		return nil, err
 	}
-
-	var projects []Project
-	err = json.Unmarshal(body, &projects)
+	body, err := readAndCloseBody(res)
 	if err != nil {
-		return nil, fmt.Errorf("error unmarshaling response body: %w", err)
+		return nil, err
 	}
-	return projects, nil
+	return unmarshalJSON[[]Project](body)
 }
 
+// Utility functions
 func PrettyPrint(data string) (string, error) {
 	var prettyJSON bytes.Buffer
-	err := json.Indent(&prettyJSON, []byte(data), "", "  ")
-	if err != nil {
-		return "", fmt.Errorf("error indenting json: %w", err)
+	if err := json.Indent(&prettyJSON, []byte(data), "", "  "); err != nil {
+		return "", fmt.Errorf("error indenting JSON: %w", err)
 	}
-
 	return prettyJSON.String(), nil
 }
