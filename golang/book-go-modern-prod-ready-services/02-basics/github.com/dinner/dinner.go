@@ -5,8 +5,12 @@ import (
 	"time"
 )
 
+var (
+	dinners = []string{"tacos", "pizza", "ramen"}
+	r       = rand.New(rand.NewSource(time.Now().UnixNano()))
+)
+
+// Choose returns a random dinner option
 func Choose() string {
-	dinners := []string{"tacos", "pizza", "ramen"}
-	rand.Seed(time.Now().UnixNano())
-	return dinners[rand.Intn(len(dinners))]
+	return dinners[r.Intn(len(dinners))]
 }
