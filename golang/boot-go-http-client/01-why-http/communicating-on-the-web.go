@@ -7,8 +7,10 @@ import (
 	"01-why-http/localpackage/http"
 )
 
+const issueURL = "https://api.boot.dev/v1/courses_rest_api/learn-http/issues"
+
 func main() {
-	issues, err := http.GetIssueData()
+	issues, err := http.GetIssueData(issueURL)
 	if err != nil {
 		log.Fatalf("Error fetching issue data: %v", err)
 	}
