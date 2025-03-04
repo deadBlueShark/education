@@ -13,5 +13,10 @@ func main() {
 		log.Fatalf("Error fetching issue data: %v", err)
 	}
 
-	fmt.Println(string(issues))
+	prettyRes, err := http.PrettyPrint(string(issues))
+	if err != nil {
+		log.Fatalf("Error pretty printing issue data: %v", err)
+	}
+
+	fmt.Println(prettyRes)
 }
