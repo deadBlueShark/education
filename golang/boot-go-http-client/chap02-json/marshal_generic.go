@@ -22,6 +22,9 @@ func main() {
 	fmt.Println(data["address"]) // map[city:Wonderland]
 
 	// Type assertion
-	addressMap := data["address"].(map[string]any)
+	addressMap, ok := data["address"].(map[string]any)
+	if !ok {
+		log.Fatal("address is not a map[string]any")
+	}
 	fmt.Println(addressMap["city"]) // Wonderland
 }

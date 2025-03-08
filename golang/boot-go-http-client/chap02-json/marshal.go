@@ -9,7 +9,7 @@ import (
 type Board struct {
 	Id       int    `json:"id"`
 	Name     string `json:"name"`
-	TeamId   int    `json:"team"`
+	TeamId   int    `json:"team_id"`
 	TeamName string `json:"team_name"`
 }
 
@@ -26,6 +26,6 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Println(string(byteBoard)) // {"id":1,"name":"My Board","team":1,"team_name":"My Team"}
+	fmt.Println(string(byteBoard)) // {"id":1,"name":"My Board","team_id":1,"team_name":"My Team"}
 	fmt.Println(byteBoard)         // In []byte: [123 34 105 100 34 58 49 44 34 .... ]
 }

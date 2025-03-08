@@ -7,8 +7,14 @@ import (
 )
 
 func marshalAll[T any](items []T) ([][]byte, error) {
-	var marshalledItems [][]byte
+	// var marshalledItems [][]byte
 
+	// Adding a capacity hint to marshalledItems using make([][]byte, 0, len(items))
+	// for better performance with large slices
+	// This pre-allocates the slice with the exact capacity needed, which avoids
+	// multiple reallocations as the slice grows during append operations.
+	// The rest of the function remains the same.
+	marshalledItems := make([][]byte, 0, len(items))
 	for _, item := range items {
 		data, err := json.Marshal(item)
 		if err != nil {
