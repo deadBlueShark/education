@@ -13,7 +13,7 @@ func GetResources(url string) ([]map[string]any, error) {
 
 	res, err := http.Get(url)
 	if err != nil {
-		return resources, err
+		return nil, fmt.Errorf("error getting resources: %w", err)
 	}
 
 	defer res.Body.Close()
@@ -24,8 +24,11 @@ func GetResources(url string) ([]map[string]any, error) {
 	}
 
 	err = json.Unmarshal(data, &resources)
-	return resources, err
+	if err != nil {
+		return nil, fmt.Errorf("error unmarshaling resources: %w", err)
+	}
 
+	return resources, nil
 }
 
 func LogResources(resources []map[string]any) {
