@@ -69,6 +69,10 @@ func GetIPAddress(domain string) (string, error) {
 		return "", fmt.Errorf("error unmarshalling response body: %w", err)
 	}
 
+	if dnsStruct.Status != 0 {
+		return "", fmt.Errorf("error status: %d", dnsStruct.Status)
+	}
+
 	if len(dnsStruct.Answer) == 0 {
 		return "", fmt.Errorf("no answer found")
 	}
