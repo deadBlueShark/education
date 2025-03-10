@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 
 	"chap03-dns/localpackages/dns_looker"
 )
@@ -9,8 +10,7 @@ import (
 func main() {
 	ipAddress, err := dns_looker.GetIPAddress("facebook.com")
 	if err != nil {
-		fmt.Println("Error getting IP address:", err)
-		return
+		log.Fatalf("Error getting IP address: %v", err)
 	}
 	fmt.Println(ipAddress)
 }

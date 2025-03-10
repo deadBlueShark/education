@@ -40,8 +40,10 @@ type (
 	}
 )
 
+const cloudflareDNSURL = "https://1.1.1.1/dns-query"
+
 func GetIPAddress(domain string) (string, error) {
-	url := fmt.Sprintf("https://1.1.1.1/dns-query?name=%s&type=A", domain)
+	url := fmt.Sprintf("%s?name=%s&type=A", cloudflareDNSURL, url.QueryEscape(domain))
 
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
@@ -65,6 +67,10 @@ func GetIPAddress(domain string) (string, error) {
 
 	if err = json.Unmarshal(body, &dnsStruct); err != nil {
 		return "", fmt.Errorf("error unmarshalling response body: %w", err)
+	}
+
+	if len(dnsStruct.Answer) == 0 {
+		return "", fmt.Errorf("no answer found")
 	}
 
 	return dnsStruct.Answer[0].Data, nil
