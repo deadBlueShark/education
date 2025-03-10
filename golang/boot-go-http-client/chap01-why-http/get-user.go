@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"chap01-why-http/localpackage/myhttp"
+	"chap01-why-http/localpackages/myhttp"
 )
 
 const usersUrl = "https://api.boot.dev/v1/courses_rest_api/learn-http/users"
