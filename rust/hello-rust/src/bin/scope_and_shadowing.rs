@@ -1,6 +1,6 @@
 fn main() {
   let outer = 20;
-  let mut outer2 = 30;
+  let mut outer2 = 30; // mut: define a mutable variable
   
   {
     println!("{}", outer2); // 30
