@@ -5,33 +5,33 @@ import (
 )
 
 type ParsedURL struct {
-	protocol string
-	username string
-	password string
-	hostname string
-	port     string
-	pathname string
-	search   string
-	hash     string
+	Protocol string
+	Username string
+	Password string
+	Hostname string
+	Port     string
+	Pathname string
+	Search   string
+	Hash     string
 }
 
-func ParseURL(urlInput string) ParsedURL {
+func ParseURL(urlInput string) (ParsedURL, error) {
 	parsedURL, err := url.Parse(urlInput)
 	if err != nil {
-		return ParsedURL{}
+		return ParsedURL{}, err
 	}
 
 	return ParsedURL{
-		protocol: parsedURL.Scheme,
-		username: parsedURL.User.Username(),
-		password: func() string {
+		Protocol: parsedURL.Scheme,
+		Username: parsedURL.User.Username(),
+		Password: func() string {
 			pwd, _ := parsedURL.User.Password()
 			return pwd
 		}(),
-		hostname: parsedURL.Hostname(),
-		port:     parsedURL.Port(),
-		pathname: parsedURL.Path,
-		search:   parsedURL.RawQuery,
-		hash:     parsedURL.Fragment,
-	}
+		Hostname: parsedURL.Hostname(),
+		Port:     parsedURL.Port(),
+		Pathname: parsedURL.Path,
+		Search:   parsedURL.RawQuery,
+		Hash:     parsedURL.Fragment,
+	}, nil
 }
