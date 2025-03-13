@@ -14,3 +14,7 @@ path = "src/chap01_hello_rust/display_output.rs"
 [[bin]]
 name = "variables"
 path = "src/chap01_hello_rust/variables.rs"
+
+[[bin]]
+name = "array"
+path = "src/chap01_hello_rust/array.rs"
