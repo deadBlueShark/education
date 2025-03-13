@@ -22,3 +22,7 @@ path = "src/chap01_hello_rust/array.rs"
 [[bin]]
 name = "tuple"
 path = "src/chap01_hello_rust/tuple.rs"
+
+[[bin]]
+name = "ownership"
+path = "src/chap01_hello_rust/ownership.rs"
