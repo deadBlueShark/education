@@ -2,6 +2,9 @@ fn main() {
     // Variable declaration and initialization
     let name = "Rust";
     println!("Language name: {}", name);
+    // Declare and specify a string explicitly
+    let quote: &str = "I love Rust";
+    println!("Quote: {}", quote);
 
     // Mutable variables
     let mut count = 1;
