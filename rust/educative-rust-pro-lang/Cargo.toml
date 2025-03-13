@@ -18,3 +18,7 @@ path = "src/chap01_hello_rust/variables.rs"
 [[bin]]
 name = "array"
 path = "src/chap01_hello_rust/array.rs"
+
+[[bin]]
+name = "tuple"
+path = "src/chap01_hello_rust/tuple.rs"
