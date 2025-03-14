@@ -32,12 +32,12 @@ fn main() {
 
   // Rule 1: You can have either one mutable reference OR any number of immutable references
   {
-      // Multiple immutable references are allowed
-      let r1 = &value;
-      let r2 = &value;
-      println!("Multiple immutable refs: {} and {}", r1, r2);
+    // Multiple immutable references are allowed
+    let r1 = &value;
+    let r2 = &value;
+    println!("Multiple immutable refs: {} and {}", r1, r2);
 
-      // After the immutable references are no longer used, we can create a mutable reference
+    // After the immutable references are no longer used, we can create a mutable reference
   }
 
   // Now we can create a mutable reference
