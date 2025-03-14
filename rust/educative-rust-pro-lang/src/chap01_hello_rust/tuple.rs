@@ -40,14 +40,21 @@ fn main() {
     let (min, max, avg) = stats;
     println!("\nArray statistics:");
     println!("Min: {}, Max: {}, Average: {:.2}", min, max, avg);
+
+    let zero_stats = calculate_stats(&[]);
+    println!("\nZero stats: {:?}", zero_stats);
 }
 
 // Function that returns a tuple
 fn calculate_stats(numbers: &[i32]) -> (i32, i32, f64) {
+    if numbers.is_empty() {
+      return (0, 0, 0.0);
+    }
+
     let min = *numbers.iter().min().unwrap_or(&0);
     let max = *numbers.iter().max().unwrap_or(&0);
     let sum: i32 = numbers.iter().sum();
     let avg = sum as f64 / numbers.len() as f64;
-    
+
     (min, max, avg)
 }
