@@ -30,3 +30,11 @@ path = "src/chap01_hello_rust/ownership.rs"
 [[bin]]
 name = "array_safe_accessing"
 path = "src/chap01_hello_rust/array_safe_accessing.rs"
+
+[[bin]]
+name = "borrowing_and_dereferencing"
+path = "src/chap02_rust_operators/borrowing_and_dereferencing.rs"
+
+[[bin]]
+name = "simple_borrowing_and_dereferencing"
+path = "src/chap02_rust_operators/simple_borrowing_and_dereferencing.rs"
