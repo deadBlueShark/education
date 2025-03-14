@@ -40,4 +40,12 @@ fn main() {
 
     let slice_all_array = &numbers;
     println!("\nSlice of all numbers array: {:?}", slice_all_array);
+
+    // Bounds checking or safe access with methods like get() which returns 
+    // an Option<&T> instead of panicking on out-of-bounds access:
+    let maybe_element = numbers.get(10);
+    match maybe_element {
+      Some(element) => println!("Element at index 10: {}", element),
+      None => println!("Index 10 is out of bounds"),
+    } // => Index 10 is out of bounds
 }
