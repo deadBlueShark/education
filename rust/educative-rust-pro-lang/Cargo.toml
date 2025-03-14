@@ -26,3 +26,7 @@ path = "src/chap01_hello_rust/tuple.rs"
 [[bin]]
 name = "ownership"
 path = "src/chap01_hello_rust/ownership.rs"
+
+[[bin]]
+name = "array_safe_accessing"
+path = "src/chap01_hello_rust/array_safe_accessing.rs"
