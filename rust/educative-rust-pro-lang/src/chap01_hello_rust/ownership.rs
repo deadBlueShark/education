@@ -56,7 +56,7 @@ fn makes_copy(some_integer: i32) {
 } // some_integer goes out of scope, nothing special happens
 
 // Function that borrows a reference
-fn calculate_length(s: &String) -> usize {
+fn calculate_length(s: &str) -> usize {
     s.len()
 } // s goes out of scope, but because it doesn't have ownership, nothing happens
 
