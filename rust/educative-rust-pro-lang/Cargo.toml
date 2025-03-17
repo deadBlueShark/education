@@ -38,3 +38,11 @@ path = "src/chap02_rust_operators/borrowing_and_dereferencing.rs"
 [[bin]]
 name = "simple_borrowing_and_dereferencing"
 path = "src/chap02_rust_operators/simple_borrowing_and_dereferencing.rs"
+
+[[bin]]
+name = "if_let"
+path = "src/chap03_conditional/if_let.rs"
+
+[[bin]]
+name = "condition"
+path = "src/chap03_conditional/condition.rs"
