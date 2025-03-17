@@ -3,7 +3,7 @@ fn main() {
   let course = ("Rust", "beginner", "course");
 
   if let ("Rust", "beginner", "course") = course {
-     println!("Wrote all values in pattern to be matched with the scrutinee expression");
+    println!("Wrote all values in pattern to be matched with the scrutinee expression");
   } else {
     println!("Pattern does not match the scrutinee expression");
   }
@@ -36,5 +36,3 @@ fn calculate(a: i32, b: i32, op: char) -> i32 {
     _ => panic!("Invalid operator"),
   }
 }
-
-
