@@ -1,6 +1,6 @@
-.DEFAULT_GOAL := clean
+.DEFAULT_GOAL := run
 
-.PHONY:fmt vet build run clean
+.PHONY:fmt vet build run
 
 # Indentation in Makefile must be Tab, not Space
 fmt:
@@ -10,13 +10,13 @@ vet: fmt
 	go vet ./...
 
 build: vet
-	mkdir custom_build
-	go build -o custom_build
+	mkdir -p custom_build
+	go build -o custom_build/
 
 run: build
 	echo "Running Output:"
 	./custom_build/hello_world
 	echo "End program."
 
-clean: run
+clean:
 	rm -rf custom_build
