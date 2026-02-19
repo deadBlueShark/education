@@ -11,12 +11,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jasmine": "^3.5.0"
+    "jasmine": "^3.6.1"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.22.0",
-    "mongoose": "^5.9.17",
+    "mongoose": "^6.13.6",
     "socket.io": "^2.3.0"
   }
 }
