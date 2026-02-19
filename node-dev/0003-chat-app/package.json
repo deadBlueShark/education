@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jasmine": "^3.6.1"
+    "jasmine": "^6.0.0"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
