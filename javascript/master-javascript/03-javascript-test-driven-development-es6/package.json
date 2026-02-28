@@ -14,7 +14,7 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/register": "^7.12.10",
     "chai": "^4.2.0",
-    "mocha": "^8.2.1"
+    "mocha": "^11.7.5"
   },
   "dependencies": {
     "lodash": "^4.17.23"
