@@ -126,10 +126,10 @@
     semver "5.6.0"
     symbol-observable "1.2.0"
 
-"@angular/common@~19.2.16":
-  version "19.2.16"
-  resolved "https://registry.yarnpkg.com/@angular/common/-/common-19.2.16.tgz#2ce9c21b7f2181e6d6ab85c346ad6280ef83e23b"
-  integrity sha512-sugztO7XIiLRoVjn0WJK9ooBm9zejsqlE5k4ZGvy1zFafM8LMjFHwD4KymN8JB3AOb7Ad4lJHVq1IvwWnpqeWw==
+"@angular/common@~19.2.23":
+  version "19.2.23"
+  resolved "https://registry.yarnpkg.com/@angular/common/-/common-19.2.23.tgz#8bc3646ac9a472db02690b6317a9bd20eb886dfd"
+  integrity sha512-aB5yqu48POFj9tzF258Iye29iopIpxZZ58tzapXD1JDZBAr/hq4V0MtUu9HeUJ386GbRAZQQC2Am8Mjce0B1Lg==
   dependencies:
     tslib "^2.3.0"
 
