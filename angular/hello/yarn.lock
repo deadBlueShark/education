@@ -126,10 +126,10 @@
     semver "5.6.0"
     symbol-observable "1.2.0"
 
-"@angular/common@~19.2.23":
-  version "19.2.23"
-  resolved "https://registry.yarnpkg.com/@angular/common/-/common-19.2.23.tgz#8bc3646ac9a472db02690b6317a9bd20eb886dfd"
-  integrity sha512-aB5yqu48POFj9tzF258Iye29iopIpxZZ58tzapXD1JDZBAr/hq4V0MtUu9HeUJ386GbRAZQQC2Am8Mjce0B1Lg==
+"@angular/common@~20.3.25":
+  version "20.3.25"
+  resolved "https://registry.yarnpkg.com/@angular/common/-/common-20.3.25.tgz#0f2bd058ec6595cfb4dd6a05601c41cb5cf3cb23"
+  integrity sha512-rnRGcXbjet0DHgkRL4Dqxk21G2T4UypVfiTV/fay58H8w9U89PJ1L6gRmk8B/uyfpii/9r23cBwnpcguQykxYw==
   dependencies:
     tslib "^2.3.0"
 
@@ -150,10 +150,10 @@
     tslib "^1.9.0"
     yargs "13.1.0"
 
-"@angular/compiler@~21.2.4":
-  version "21.2.4"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-21.2.4.tgz#ddc3a317b7e1be36278ff82379da357bfc857c52"
-  integrity sha512-9+ulVK3idIo/Tu4X2ic7/V0+Uj7pqrOAbOuIirYe6Ymm3AjexuFRiGBbfcH0VJhQ5cf8TvIJ1fuh+MI4JiRIxA==
+"@angular/compiler@~21.2.17":
+  version "21.2.17"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-21.2.17.tgz#581c32d5b2788fced368b32793702043295a562a"
+  integrity sha512-p+NdjYiwAz9Zmu2yul0LlMXaFjMISVVa24+/MVMoKFeQeI82QE8jDywPlnOSHQHvdCcQVpS7saeEriZzX3JuBQ==
   dependencies:
     tslib "^2.3.0"
 
