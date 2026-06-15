@@ -57,7 +57,7 @@
     "vue-template-compiler": "^2.5.2",
     "webpack": "^5.105.3",
     "webpack-bundle-analyzer": "^5.3.0",
-    "webpack-dev-server": "^5.2.4",
+    "webpack-dev-server": "^5.2.5",
     "webpack-merge": "^4.1.0"
   },
   "engines": {
