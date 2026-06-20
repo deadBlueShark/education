@@ -120,10 +120,10 @@
     reflect-metadata "^0.1.2"
     tsickle "^0.27.2"
 
-"@angular/compiler@^21.2.17":
-  version "21.2.17"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-21.2.17.tgz#581c32d5b2788fced368b32793702043295a562a"
-  integrity sha512-p+NdjYiwAz9Zmu2yul0LlMXaFjMISVVa24+/MVMoKFeQeI82QE8jDywPlnOSHQHvdCcQVpS7saeEriZzX3JuBQ==
+"@angular/compiler@^22.0.2":
+  version "22.0.2"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-22.0.2.tgz#725cfdeb5cfd80324604a4c5b4c0bad143f56a9a"
+  integrity sha512-5G+h/4/iCfqdTBsSgjB46Oe4oC6jXutCpFc5JYWRpnJWsbp3UfwRhwGVWIV1DBPnR8H/3QZzteRP1jINiH5+hg==
   dependencies:
     tslib "^2.3.0"
 
