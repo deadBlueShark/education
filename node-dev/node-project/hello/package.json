@@ -9,6 +9,6 @@
   "author": "chiNguyenTrex",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.22.2"
+    "express": "^5.2.1"
   }
 }
